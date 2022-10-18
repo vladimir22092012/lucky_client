@@ -140,7 +140,7 @@ class Best2pay extends Core
     public function get_payment_link($amount, $contract_id, $prolongation = 0, $card_id = 0, $sms = '')
     {
 
-        $fee = ceil(max($this->min_fee, floatval($amount * $this->fee)));
+        $fee = round(max($this->min_fee, floatval($amount * $this->fee)));
         
         if (!($contract = $this->contracts->get_contract($contract_id)))
             return false;
@@ -156,7 +156,7 @@ class Best2pay extends Core
                 $password = $this->passwords[$sector];
                 
                 // на юк комиссия 2%
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->yuk_fee)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
             }
             else
             {
@@ -164,7 +164,7 @@ class Best2pay extends Core
                 $password = $this->passwords[$sector];
                 
                 // на премьер комиссия 2%
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->yuk_fee)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
             }
         }
         else
@@ -240,7 +240,7 @@ class Best2pay extends Core
     public function _get_payment_link_($amount, $contract_id, $prolongation = 0, $card_id = 0, $sms = '')
     {
 
-        $fee = ceil(max($this->min_fee, floatval($amount * $this->fee)));
+        $fee = round(max($this->min_fee, floatval($amount * $this->fee)));
         
         $query = $this->db->placehold("
             SELECT * 
@@ -261,7 +261,7 @@ class Best2pay extends Core
                 $password = $this->passwords[$sector];
                 
                 // на юк комиссия 2%
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->yuk_fee)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
             }
             elseif ($contract->organisation == 'premier')
             {
@@ -269,7 +269,7 @@ class Best2pay extends Core
                 $password = $this->passwords[$sector];
                 
                 // на премьер комиссия 2%
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->yuk_fee)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
             }
             elseif ($contract->organisation == 'toros')
             {
@@ -277,13 +277,13 @@ class Best2pay extends Core
                 $password = $this->passwords[$sector];
                 
                 // на торос комиссия 2%
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->yuk_fee)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
             } else {
                 $sector = $this->sectors['PAYMENT'];
                 $password = $this->passwords[$sector];
 
                 if ($sector == 7182) {
-                    $fee = ceil(max($this->min_fee, floatval($amount * $this->fee_7182)));
+                    $fee = round(max($this->min_fee, floatval($amount * $this->fee_7182)));
                 }
             }
         }
@@ -293,7 +293,7 @@ class Best2pay extends Core
             $password = $this->passwords[$sector];
 
             if ($sector == 7182) {
-                $fee = ceil(max($this->min_fee, floatval($amount * $this->fee_7182)));
+                $fee = round(max($this->min_fee, floatval($amount * $this->fee_7182)));
             }
         }
         
