@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-ini_set('display_errors', 'Off');
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 chdir('..');
 
@@ -30,7 +30,7 @@ class Best2payAjax extends Ajax
                 $this->response['error'] = 'UNDEFINED_ACTION';
             
         endswitch;
-        
+
         $this->output();
     }
     
@@ -80,6 +80,7 @@ class Best2payAjax extends Ajax
         $isShort = $this->request->get('is_short', 'string');
         
         $card_id = $this->request->get('card_id', 'integer');
+
         
         if (empty($amount))
         {
@@ -90,9 +91,9 @@ class Best2payAjax extends Ajax
             $amount = $amount * 100;
             
             if ($isShort) {
-                $this->response['link'] = $this->best2pay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms);
             } else {
-                $this->response['link'] = $this->best2pay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms);
             }
         }
     }
