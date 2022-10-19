@@ -1,6 +1,6 @@
 <?php
 
-class ShortBest2payCallback extends Controller
+class ShortBestpayCallback extends Controller
 {
     public function fetch()
     {
@@ -17,7 +17,7 @@ class ShortBest2payCallback extends Controller
         endswitch;
 
         exit;
-        return $this->design->fetch('best2pay_callback.tpl');
+        return $this->design->fetch('Bestpay_callback.tpl');
     }
 
     public function payment_action()
@@ -28,7 +28,7 @@ class ShortBest2payCallback extends Controller
         $error = $this->request->get('error', 'integer');
         $code = $this->request->get('code', 'integer');
 
-        $sector = $this->best2pay->get_sector('PAYMENT');
+        $sector = $this->Bestpay->get_sector('PAYMENT');
 
         if (!empty($register_id)) {
             $query = $this->db->placehold("
@@ -44,7 +44,7 @@ class ShortBest2payCallback extends Controller
             if ($transaction) {
                 // TODO: сделать запрос в бест2пей и получить успешную операцию
                 if (empty($operation)) {
-                    $register_info = $this->best2pay->get_register_info($transaction->sector, $register_id);
+                    $register_info = $this->Bestpay->get_register_info($transaction->sector, $register_id);
                     $xml = simplexml_load_string($register_info);
 
                     foreach ($xml->operations as $xml_operation) {
@@ -55,7 +55,7 @@ class ShortBest2payCallback extends Controller
                 }
 
                 if (!empty($operation)) {
-                    $operation_info = $this->best2pay->get_operation_info($transaction->sector, $register_id, $operation);
+                    $operation_info = $this->Bestpay->get_operation_info($transaction->sector, $register_id, $operation);
                     $xml = simplexml_load_string($operation_info);
                     $operation_reference = (string)$xml->reference;
                     $reason_code = (string)$xml->reason_code;
@@ -110,7 +110,7 @@ class ShortBest2payCallback extends Controller
 
                         $this->db->query($query);
                     } else {
-                        $reason_code_description = $this->best2pay->get_reason_code_description($reason_code);
+                        $reason_code_description = $this->Bestpay->get_reason_code_description($reason_code);
 
                         $meta_title = 'Не удалось оплатить';
                     }
@@ -125,7 +125,7 @@ class ShortBest2payCallback extends Controller
 
                     $this->db->query($query);
                 } else {
-                    $callback_response = $this->best2pay->get_register_info($transaction->sector, $register_id, $operation);
+                    $callback_response = $this->Bestpay->get_register_info($transaction->sector, $register_id, $operation);
 
                     $query = $this->db->placehold("
                         UPDATE __transactions_via_short_link SET ?% WHERE id = ?

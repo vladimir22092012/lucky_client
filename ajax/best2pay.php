@@ -6,7 +6,7 @@ chdir('..');
 
 require 'autoload.php';
 
-class Best2payAjax extends Ajax
+class BestpayAjax extends Ajax
 {
     public function run()
     {
@@ -60,7 +60,7 @@ class Best2payAjax extends Ajax
         {
             $description = "Оплата по договору ".$contract_id;
             $amount = $amount * 100;
-            $response = $this->best2pay->recurrent_pay($card->id, $amount, $description, $contract_id, $prolongation);
+            $response = $this->Bestpay->recurrent_pay($card->id, $amount, $description, $contract_id, $prolongation);
             if (empty($response))
                 $this->response['error'] = 'Не удалось оплатить';
             else
@@ -90,9 +90,9 @@ class Best2payAjax extends Ajax
             $amount = $amount * 100;
             
             if ($isShort) {
-                $this->response['link'] = $this->best2pay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms);
             } else {
-                $this->response['link'] = $this->best2pay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms);
             }
         }
     }
@@ -107,9 +107,9 @@ class Best2payAjax extends Ajax
         if ($user_id != $this->user->id)
             $this->response['error'] = 'Ошибка при привязке';
         else
-        	$this->response['link'] = $this->best2pay->add_card($user_id);
+        	$this->response['link'] = $this->Bestpay->add_card($user_id);
     }
     
 }
-$ajax = new Best2payAjax();
+$ajax = new BestpayAjax();
 $ajax->run();
