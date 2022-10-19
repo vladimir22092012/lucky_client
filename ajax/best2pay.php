@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-ini_set('display_errors', 'Off');
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 chdir('..');
 
@@ -30,7 +30,7 @@ class BestpayAjax extends Ajax
                 $this->response['error'] = 'UNDEFINED_ACTION';
             
         endswitch;
-        
+
         $this->output();
     }
     
@@ -80,6 +80,7 @@ class BestpayAjax extends Ajax
         $isShort = $this->request->get('is_short', 'string');
         
         $card_id = $this->request->get('card_id', 'integer');
+
         
         if (empty($amount))
         {

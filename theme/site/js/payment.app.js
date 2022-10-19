@@ -50,9 +50,9 @@ console.log('init')
     
     app.other_payment = function(contract_id, amount, e, prolongation, code_sms, card_id){
         console.info('app.other_payment');
-        
+
         var $btn = $('#confirm_payment')
-        
+
         $.ajax({
             url: 'ajax/best2pay.php',
             async: false,
@@ -60,29 +60,28 @@ console.log('init')
                 action: 'get_payment_link',
                 amount: amount,
                 contract_id: contract_id,
-                prolongation: prolongation, 
+                prolongation: prolongation,
                 code_sms: code_sms,
                 card_id: card_id
             },
             success: function(resp){
-                
+
                 if (!!resp.error)
                 {
                     $('.payment-block').removeClass('loading').addClass('error');
                     $('.payment-block-error p').html('Ошибка: '+resp.error);
                     e.preventDefault();
-                    return false;                
+                    return false;
                 }
                 else
                 {
+
                     app.payment_id = resp.PaymentId;
                     app.check_state(app.payment_id);
                     document.cookie = "go_payment=1; path=/;";
                     $btn.attr('href', resp.link);
-                    
-                    
                 }
-                
+
             }
         })
     };
