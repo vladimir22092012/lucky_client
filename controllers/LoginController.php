@@ -96,8 +96,6 @@ class LoginController extends Controller
             } else {
                 $this->design->assign('message_error', 'Произошла ошибка');
             }
-        } else {
-            $this->design->assign('message_error', $error);
         }
 
         if (isset($_SESSION['splash'])) {
