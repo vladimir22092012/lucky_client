@@ -50,28 +50,23 @@ class Sms extends Core
     public function send($phone, $message)
     {
         $phone = $this->clear_phone($phone);
-        
-        $params = http_build_query(array(
-            'login' => $this->login,
-            'password' => $this->password,
-            'text' => $message,
-            'phone' => $phone,
-            'originator' => $this->originator
-        ));
-        
-        $url = 'https://xml.smstec.ru/api/v1/easysms/'.$this->connect_id.'/send_sms?'.$params;
 
-        $ch = curl_init($url);
-        
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        $api_code = '23c26efa-8931-5bf4-d105-b284d338dc6e';
 
-        $resp = curl_exec($ch);
-//echo __FILE__.' '.__LINE__.'<br /><pre>';var_dump($resp, $url);echo '</pre><hr />';    
+        $smsru = $this->smsru->__construct($api_code);
 
-        curl_close($ch);
-        
+        $data = new stdClass();
+        $data->to = $phone;
+        $data->text = $message;
+
+        $sms = $smsru->send_one($data);
+
+        if ($sms->status == "OK") { // Запрос выполнен успешно
+            $resp = "Сообщение отправлено успешно";
+        } else {
+            $resp = "Текст ошибки: $sms->status_text.";
+        }
+
         return $resp;
     }
 
