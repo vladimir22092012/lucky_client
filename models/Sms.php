@@ -6,6 +6,8 @@
 define("SMS_LOGIN", "MKKNplus");
 define("SMS_PASSWORD", "mkk_n_123456");
 
+require_once 'Smsru.php';
+
 class Sms extends Core
 {
     private $login;
