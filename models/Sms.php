@@ -53,7 +53,7 @@ class Sms extends Core
 
         $api_code = '23c26efa-8931-5bf4-d105-b284d338dc6e';
 
-        $smsru = $this->smsru->__construct($api_code);
+        $smsru = new SMSRU($api_code);
 
         $data = new stdClass();
         $data->to = $phone;
