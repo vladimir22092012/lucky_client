@@ -1,10 +1,10 @@
 <?php
 
-class BestpayCallback extends Controller
+class Best2payCallback extends Controller
 {
     public function fetch()
     {
-        switch ($this->request->get('action', 'string')):
+        switch ($this->request->get('action')):
 
             case 'add_card':
                 $this->add_card_action();
@@ -24,7 +24,7 @@ class BestpayCallback extends Controller
 
         endswitch;
 
-        return $this->design->fetch('Bestpay_callback.tpl');
+        return $this->design->fetch('best2pay_callback.tpl');
     }
 
     public function payment_action()
