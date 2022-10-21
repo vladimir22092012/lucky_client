@@ -53,7 +53,7 @@ class Sms extends Core
     {
         $phone = $this->clear_phone($phone);
 
-        $api_code = '23c26efa-8931-5bf4-d105-b284d338dc6e';
+        $api_code = 'CEC47EEB-DA21-5CDB-9431-7E53B513FAA5';
 
         $smsru = new SMSRU($api_code);
 
