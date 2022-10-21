@@ -108,7 +108,7 @@ class BestpayAjax extends Ajax
         if ($user_id != $this->user->id)
             $this->response['error'] = 'Ошибка при привязке';
         else
-        	$this->response['link'] = $this->Bestpay->add_card($user_id);
+        	$this->response['link'] = $this->Bestpay->add_card_enroll($user_id);
     }
     
 }

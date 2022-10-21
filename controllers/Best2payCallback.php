@@ -24,7 +24,7 @@ class BestpayCallback extends Controller
 
         endswitch;
 
-        return $this->design->fetch('Bestpay_callback.tpl');
+        return $this->design->fetch('best2pay_callback.tpl');
     }
 
     public function payment_action()

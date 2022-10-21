@@ -1,6 +1,6 @@
 <?php
 
-class ShortBestpayCallback extends Controller
+class ShortBest2payCallback extends Controller
 {
     public function fetch()
     {
