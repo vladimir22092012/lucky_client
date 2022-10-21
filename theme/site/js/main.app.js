@@ -71,8 +71,6 @@
 
             if (!_error)
             {
-
-console.log(_phone)
                 $.ajax({
                     url: 'ajax/check_phone.php',
                     data: {
