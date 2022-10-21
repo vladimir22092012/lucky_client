@@ -4,33 +4,28 @@ class StageAddressController extends Controller
 {
     public function fetch()
     {
-        if (empty($this->user))
-        {
+        if (empty($this->user)) {
             header('Location: /lk/login');
             exit;
         }
-        
-        if (!empty($this->user->stage_address))
-        {
+
+        if (!empty($this->user->stage_address)) {
             header('Location: /stage/work');
             exit;
         }
-        
-        if (empty($this->user->stage_passport))
-        {
+
+        if (empty($this->user->stage_passport)) {
             header('Location: /stage/passport');
             exit;
         }
-        
-        if ($this->request->get('step') == 'prev')
-        {
-            $this->users->update_user($this->user->id, array('stage_passport'=>0));
+
+        if ($this->request->get('step') == 'prev') {
+            $this->users->update_user($this->user->id, array('stage_passport' => 0));
             header('Location: /stage/passport');
             exit;
         }
-        
-        if ($this->request->method('post'))
-        {
+
+        if ($this->request->method('post')) {
             $Faktregion = (string)$this->request->post('Faktregion');
             $Faktcity = (string)$this->request->post('Faktcity');
             $Faktdistrict = (string)$this->request->post('Faktdistrict');
@@ -48,8 +43,7 @@ class StageAddressController extends Controller
             $Faktokato = (string)$this->request->post('Faktokato');
             $Faktoktmo = (string)$this->request->post('Faktoktmo');
 
-            if ($this->request->post('clone_address', 'integer'))
-            {
+            if ($this->request->post('clone_address', 'integer')) {
                 $Regregion = $Faktregion;
                 $Regcity = $Faktcity;
                 $Regdistrict = $Faktdistrict;
@@ -66,9 +60,7 @@ class StageAddressController extends Controller
                 $Regstreet_shorttype = $Faktstreet_shorttype;
                 $Regokato = $Faktokato;
                 $Regoktmo = $Faktoktmo;
-            }
-            else
-            {
+            } else {
                 $Regregion = (string)$this->request->post('Regregion');
                 $Regcity = (string)$this->request->post('Regcity');
                 $Regdistrict = (string)$this->request->post('Regdistrict');
@@ -82,9 +74,9 @@ class StageAddressController extends Controller
                 $Regindex = (string)$this->request->post('Regindex');
                 $Regregion_shorttype = (string)$this->request->post('Regregion_shorttype');
                 $Regcity_shorttype = (string)$this->request->post('Regcity_shorttype');
-                $Regstreet_shorttype = (string)$this->request->post('Regstreet_shorttype');                
-                $Regokato = (string)$this->request->post('Regokato');                
-                $Regoktmo = (string)$this->request->post('Regoktmo');                
+                $Regstreet_shorttype = (string)$this->request->post('Regstreet_shorttype');
+                $Regokato = (string)$this->request->post('Regokato');
+                $Regoktmo = (string)$this->request->post('Regoktmo');
             }
 
 
@@ -121,10 +113,10 @@ class StageAddressController extends Controller
             $this->design->assign('Regstreet_shorttype', $Regstreet_shorttype);
             $this->design->assign('Regokato', $Faktokato);
             $this->design->assign('Regoktmo', $Faktoktmo);
-            
-            
+
+
             $errors = array();
-            
+
             if (empty($Faktregion))
                 $errors[] = 'empty_faktregion';
             if (empty($Faktcity) && empty($Faktlocality))
@@ -138,59 +130,58 @@ class StageAddressController extends Controller
                 $errors[] = 'empty_regcity';
             if (empty($Reghousing))
                 $errors[] = 'empty_reghousing';
-            
+
             $this->design->assign('errors', $errors);
 
-            if (empty($errors))
-            {
-                $update = array(
-                    'Faktregion' => $Faktregion,
-                    'Faktcity' => $Faktcity,
-                    'Faktdistrict' => $Faktdistrict,
-                    'Faktdistrict_shorttype' => $Faktdistrict_shorttype,
-                    'Faktlocality' => $Faktlocality,
-                    'Faktlocality_shorttype' => $Faktlocality_shorttype,
-                    'Faktstreet' => $Faktstreet,
-                    'Fakthousing' => $Fakthousing,
-                    'Faktbuilding' => $Faktbuilding,
-                    'Faktroom' => $Faktroom,
-                    'Faktindex' => $Faktindex,
-                    'Faktregion_shorttype' => $Faktregion_shorttype,
-                    'Faktcity_shorttype' => $Faktcity_shorttype,
-                    'Faktstreet_shorttype' => $Faktstreet_shorttype,
+            if (empty($errors)) {
 
-                    'Regregion' => $Regregion,
-                    'Regcity' => $Regcity,
-                    'Regdistrict' => $Regdistrict,
-                    'Regdistrict_shorttype' => $Regdistrict_shorttype,
-                    'Reglocality' => $Reglocality,
-                    'Reglocality_shorttype' => $Reglocality_shorttype,
-                    'Regstreet' => $Regstreet,
-                    'Reghousing' => $Reghousing,
-                    'Regbuilding' => $Regbuilding,
-                    'Regroom' => $Regroom,
-                    'Regindex' => $Regindex,
-                    'Regregion_shorttype' => $Regregion_shorttype,
-                    'Regcity_shorttype' => $Regcity_shorttype,
-                    'Regstreet_shorttype' => $Regstreet_shorttype,
+                $faktaddress = [];
+                $faktaddress['adressfull'] = "$Faktindex $Faktregion $Faktregion_shorttype $Faktcity $Faktcity_shorttype $Faktdistrict $Faktdistrict_shorttype $Faktlocality $Faktlocality_shorttype $Faktstreet $Faktstreet_shorttype $Fakthousing $Faktbuilding $Faktroom";
+                $faktaddress['zip'] = $Faktindex;
+                $faktaddress['region'] = $Faktregion;
+                $faktaddress['region_type'] = $Faktregion_shorttype;
+                $faktaddress['city'] = $Faktcity;
+                $faktaddress['city_type'] = $Faktcity_shorttype;
+                $faktaddress['district'] = $Faktdistrict;
+                $faktaddress['district_type'] = $Faktdistrict_shorttype;
+                $faktaddress['locality'] = $Faktlocality;
+                $faktaddress['locality_type'] = $Faktlocality_shorttype;
+                $faktaddress['street'] = $Faktstreet;
+                $faktaddress['street_type'] = $Faktstreet_shorttype;
+                $faktaddress['house'] = $Fakthousing;
+                $faktaddress['building'] = $Faktbuilding;
+                $faktaddress['room'] = $Faktroom;
+                $faktaddress['okato'] = (string)$this->request->post('Faktokato');
+                $faktaddress['oktmo'] = (string)$this->request->post('Faktoktmo');
 
-                    'okato' => $Regokato,
-                    'oktmo' => $Regoktmo,
+                $regaddress = [];
+                $regaddress['adressfull'] = "$Regindex $Regregion $Regregion_shorttype $Regcity $Regcity_shorttype $Regdistrict $Regdistrict_shorttype $Reglocality $Reglocality_shorttype $Regstreet $Regstreet_shorttype $Reghousing $Regbuilding $Regroom";
+                $regaddress['zip'] = $Regindex;
+                $regaddress['region'] = $Regregion;
+                $regaddress['region_type'] = $Regregion_shorttype;
+                $regaddress['city'] = $Regcity;
+                $regaddress['city_type'] = $Regcity_shorttype;
+                $regaddress['district'] = $Regdistrict;
+                $regaddress['district_type'] = $Regdistrict_shorttype;
+                $regaddress['locality'] = $Reglocality;
+                $regaddress['locality_type'] = $Reglocality_shorttype;
+                $regaddress['street'] = $Regstreet;
+                $regaddress['street_type'] = $Regstreet_shorttype;
+                $regaddress['house'] = $Reghousing;
+                $regaddress['building'] = $Regbuilding;
+                $regaddress['room'] = $Regroom;
+                $regaddress['okato'] = $Regokato;
+                $regaddress['oktmo'] = $Regoktmo;
 
-                    'stage_address' => 1,
-                    'address_data_added_date' => date('Y-m-d H:i:s')
-                );
+                $regaddress_id = $this->Addresses->add_address($regaddress);
+                $faktaddress_id = $this->Addresses->add_address($faktaddress);
 
-                $update = array_map('strip_tags', $update);
-                
-                $this->users->update_user($this->user->id, $update);
-            
+                $this->users->update_user($this->user->id, ['regaddress_id' => $regaddress_id, 'faktaddress_id' => $faktaddress_id, 'stage_address' => 1, 'address_data_added_date' => date('Y-m-d H:i:s')]);
+
                 header('Location: /stage/work');
                 exit;
-            }            
-        }
-        else
-        {
+            }
+        } else {
             $this->design->assign('Faktregion', $this->user->Faktregion);
             $this->design->assign('Faktcity', $this->user->Faktcity);
             $this->design->assign('Faktdistrict', $this->user->Faktdistrict);
@@ -224,7 +215,7 @@ class StageAddressController extends Controller
             $this->design->assign('Regoktmo', $this->user->oktmo);
         }
 
-    	return $this->design->fetch('stage/address.tpl');
+        return $this->design->fetch('stage/address.tpl');
     }
-    
+
 }
