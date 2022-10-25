@@ -1148,11 +1148,8 @@ label {
 }
 
 .repay_item {
-	border-radius: 10px;
-	height: 406px;
-	max-width: 306px;
-	width: 100%;
 	display: flex;
+	width: 500px;
 	align-items: flex-end;
 	flex-wrap: wrap;
 	padding: 40px 10px 40px 46px;

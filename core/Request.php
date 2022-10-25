@@ -6,9 +6,6 @@ class Request extends Core
 	public function __construct()
 	{		
 		parent::__construct();
-		
-		$_POST = $this->stripslashes_recursive($_POST);
-		$_GET = $this->stripslashes_recursive($_GET);	
 	}
 
     public function method($method = null)

@@ -66,21 +66,24 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                              <div class="form_row">
-                                  <div class="check mb-0 js-loan-agreement-block">
-                                    <input type="checkbox" class="custom-checkbox js-loan-agreement" id="check_agreement" name="agreement" value="1" checked="true" />
-                                    <label for="check_agreement" class="check_box -gil-m">
-                                       <span>Я ознакомлен со <a href="#agreement_list" class="green-link js-toggle-agreement-list" >следующим</a></span>
-                                    </label>
-                                  </div>
+                                <div class="form_row">
+                                    <div class="check mb-0 js-loan-agreement-block">
+                                        <input type="checkbox" class="custom-checkbox js-loan-agreement"
+                                               id="check_agreement" name="agreement" value="1" checked="true"/>
+                                        <label for="check_agreement" class="check_box -gil-m">
+                                            <span>Я ознакомлен со <a href="#agreement_list"
+                                                                     class="green-link js-toggle-agreement-list">следующим</a></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                              {include file='agreement_list.tpl'}
+                            {include file='agreement_list.tpl'}
 
                             <div class="form-group form-btn">
-                              <a href="javascript:void(0);" class="btn btn-secondary -fs-20 -fullwidth js-loan-start">Получить займ</a>
+                                <a href="javascript:void(0);" class="btn btn-secondary -fs-20 -fullwidth js-loan-start">Получить
+                                    займ</a>
 
-                              <span class="bottom_text -fs-14 -center">нажимая на кнопку, вы соглашаетесь с
+                                <span class="bottom_text -fs-14 -center">нажимая на кнопку, вы соглашаетесь с
                               <a href="#agreement_list" data-fancybox>договором оферты</a>
                               </span>
                             </div>
@@ -122,26 +125,40 @@
                             <div class="-black -fs-42 -com-sb">Получите займ на карту</div>
                             <div class="-orange -fs-42 -com-sb">не выходя из дома</div>
                         </div>
-                        <div class="itop_info_subtitle -fs-22">
+                        <div class="itop_info_desc_item_text -fs-28">
                             Оформите займ и получите деньги
                             на карту уже через 15 минут
                         </div>
                         <div class="itop_info_desc">
                             <div class="itop_info_desc_row">
-                                <div class="itop_info_desc_item">
-                                    <div class="itop_info_desc_item_title -fs-32">{$loan_percent}%</div>
-                                    <div class="itop_info_desc_item_text -fs-18">низкая ставка</div>
+                                <div style="display: flex">
+                                    <div>
+                                        <img src="theme/site/i/mask_group.png">
+                                    </div>
+                                    <div style="margin-left: 15px">
+                                        <div class="itop_info_desc_item_title -fs-32">{$loan_percent}%</div>
+                                        <div class="itop_info_desc_item_text -fs-18">низкая ставка</div>
+                                    </div>
                                 </div>
-                                <div class="itop_info_desc_item">
-                                    <div class="itop_info_desc_item_title -fs-32">15 мин.</div>
-                                    <div class="itop_info_desc_item_text -fs-18">срок одобрения</div>
+                                <div style="display: flex">
+                                    <div>
+                                        <img src="theme/site/i/mask_group_1.png">
+                                    </div>
+                                    <div style="margin-left: 15px">
+                                        <div class="itop_info_desc_item_title -fs-32">15 мин.</div>
+                                        <div class="itop_info_desc_item_text -fs-18">срок одобрения</div>
+                                    </div>
                                 </div>
-                                <div class="itop_info_desc_item">
-                                    <div class="itop_info_desc_item_title -fs-32">до {$max_summ|convert} руб.</div>
-                                    <div class="itop_info_desc_item_text -fs-18">сумма займа</div>
+                                <div style="display: flex">
+                                    <div>
+                                        <img src="theme/site/i/mask_group_2.png">
+                                    </div>
+                                    <div style="margin-left: 15px">
+                                        <div class="itop_info_desc_item_title -fs-32">до {$max_summ|convert} руб.</div>
+                                        <div class="itop_info_desc_item_text -fs-18">сумма займа</div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -163,22 +180,18 @@
                     <div class="bonus_item bonus_item_two">
                         <div class="bonus_list">
                             <div class="bonus_list_item">
-                                <div class="bonus_item_icon"><img src="theme/site/i/credit-card.svg" alt=""></div>
+                                <div class="bonus_item_icon"><img src="theme/site/i/mask_group_22.png" alt=""></div>
                                 <div class="bonus_item_title -fs-32 -com-sb">Переводим сразу на карту</div>
                                 <div class="bonus_item_text -fs-22">Деньги будут у вас на счете
                                     уже через 15 минут
                                 </div>
                             </div>
                             <div class="bonus_list_item">
-                                <div class="bonus_item_icon"><img src="theme/site/i/clock.svg" alt=""></div>
+                                <div class="bonus_item_icon"><img src="theme/site/i/mask_group_1_2.png" alt=""></div>
                                 <div class="bonus_item_title -fs-32 -com-sb">Простое оформление</div>
                                 <div class="bonus_item_text -fs-22">Вам понадобится только паспорт и 3 минуты времени
                                 </div>
                             </div>
-                        </div>
-                        <div class="bottom_btn">
-                            <a href="javascript:void(0);" class="btn btn-secondary -fs-20 -com-sb"
-                               onclick="$('html, body').animate({ scrollTop: 140 }, 600);">Получить займ</a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +203,7 @@
     <div id="how_get" class="section section_steps">
         <div class="container">
             <div class="section_title -fs-42">Займ на комфортных условиях</div>
-            <div class="section_subtitle -fs-42">Теперь это легко!</div>
+            <div class="section_title -fs-42">Теперь это легко!</div>
             <div class="section_row steps_row">
                 <div class="steps_item step_first">
                     <div class="steps_item_num -gil-b -fs-76"><span>01</span></div>
@@ -219,38 +232,33 @@
 
     <div id="how_repay" class="section section_repay">
         <div class="container">
+            <div style="text-align: center">
+                <div class="section_title -fs-52">Хотите погасить займ?</div>
+                <div class="section_text -fs-26 -com-l">Вы можете сделать это любым удобным для вас способом:</div>
+            </div>
+            <br>
             <div class="section_repay_row row">
-                <div class="col-lg-7">
-                    <div class="repay_items_row">
-                        <div class="repay_item" style="background: url(theme/site/i/paiitem01.png) no-repeat;">
-                            <div class="repay_item_text">
-                                <span class="repay_text -fs-26 -com-sb">В любом отделении банка</span>
-                                <a href="javascript:void(0);" class="repay_item_link link_more -fs-16"
-                                   onclick="$(this).hide();$('#bank_pay_info').fadeIn();return false;">Подробнее</a>
-                                <div id="bank_pay_info" style="display:none">Оплатить заём можно в любом банке России
-                                </div>
+                <div class="repay_items_row">
+                    <div class="repay_item" style="background: url(theme/site/i/paiitem01.png) no-repeat; background-size: 100%">
+                        <div class="repay_item_text">
+                            <span class="repay_text -fs-26 -com-sb">В любом отделении банка</span>
+                            <a href="javascript:void(0);" class="repay_item_link -fs-16"
+                               onclick="$(this).hide();$('#bank_pay_info').fadeIn();return false;"><u>Ссылка для погашения кредита</u></a>
+                            <div id="bank_pay_info" style="display:none">Оплатить заём можно в любом банке России
                             </div>
                         </div>
-                        <div class="repay_item" style="background: url(theme/site/i/paiitem02.png) no-repeat;">
-                            <div class="repay_item_text">
-                                <span class="repay_text -fs-26 -com-sb">Банковской картой</span>
-                                <a href="javascript:void(0);" class="repay_item_link link_more -fs-16"
-                                   onclick="$(this).hide();$('#bank_card_info').fadeIn();return false;">Подробнее</a>
-                                <div style="display:none" id="bank_card_info">Просто перейдите в личный кабинет и
-                                    оплатите займ банковской картой.
-                                </div>
+                    </div>
+                    <div class="repay_item" style="background: url(theme/site/i/paiitem02.png) no-repeat; background-size: 100%">
+                        <div class="repay_item_text">
+                            <span class="repay_text -fs-26 -com-sb">Банковской картой</span>
+                            <a href="javascript:void(0);" class="repay_item_link -fs-16"
+                               onclick="$(this).hide();$('#bank_card_info').fadeIn();return false;"><u>Ссылка для погашения кредита</u></a>
+                            <div style="display:none" id="bank_card_info">Просто перейдите в личный кабинет и
+                                оплатите займ банковской картой.
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="repay_info">
-                        <div class="section_title -fs-52">Хотите <span class="-orange">погасить займ?</span></div>
-                        <div class="section_text -fs-26 -com-l">Вы можете сделать это любым удобным для вас способом:
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
