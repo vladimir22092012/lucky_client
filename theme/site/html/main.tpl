@@ -56,6 +56,7 @@
                                     <div class="res_info_sum -fs-20 -com-sb"><span class="js-total-summ"></span> ₽</div>
                                 </div>
                             </div>
+                            {*
                             <div class="form-group form-phone ">
                                 <span class="phone_info -fs-14">Ваш номер телефона</span>
                                 <input type="text" name="phone" id="phone"
@@ -110,8 +111,7 @@
                                     </div>
                                 </div
                             {/if}
-
-
+*}
                         </form>
                     </div>
                 </div>

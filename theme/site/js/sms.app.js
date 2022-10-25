@@ -22,7 +22,7 @@
         _init_repeat_sms();
         _init_confirm_sms();
         
-        _send_sms(1);
+        _send_sms(0);
     };
     
     var _send_sms = function(via_call = 0){
@@ -153,15 +153,15 @@
         app.$modal = $('#sms_code_modal');
         app.$modal.html('');
 
-        //var _tpl = '<div>На Ваш номер телефона <div><strong>'+app.phone+'</strong></div> <div id="wasSent">было отправлено сообщение с кодом подтверждения</div></div>';
-        var _tpl = '<div>На Ваш номер телефона <div><strong>'+app.phone+'</strong></div> <div id="wasSent">сейчас поступит звонок</div></div>';
+        var _tpl = '<div>На Ваш номер телефона <div><strong>'+app.phone+'</strong></div> <div id="wasSent">было отправлено сообщение с кодом подтверждения</div></div>';
+        //var _tpl = '<div>На Ваш номер телефона <div><strong>'+app.phone+'</strong></div> <div id="wasSent">сейчас поступит звонок</div></div>';
         _tpl += '<div class="form-group form-phone js-sms-code-wrap">';
-        //_tpl += '<span class="phone_info -fs-14" id="enterCode">Введите код из СМС</span>';
-        _tpl += '<span class="phone_info -fs-14" id="enterCode">Введите 4 последние цифры номера</span>';
+        _tpl += '<span class="phone_info -fs-14" id="enterCode">Введите код из СМС</span>';
+        //_tpl += '<span class="phone_info -fs-14" id="enterCode">Введите 4 последние цифры номера</span>';
         _tpl += '<input type="text" name="" id="" class="form-control -fs-18 -gil-m js-mask-sms js-sms-code" value="">';
         _tpl += '<div class="error_text js-sms-error" style="display:none">Код не совпадает</div>';
-        //_tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Отправить еще раз</div> <span class="js-sms-timer"></span></a>';
-        _tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Получить код по СМС</div> <span class="js-sms-timer"></span></a>';
+        _tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Отправить еще раз</div> <span class="js-sms-timer"></span></a>';
+        //_tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Получить код по СМС</div> <span class="js-sms-timer"></span></a>';
         _tpl += '</div>';
         _tpl += '<a href="#" class="btn btn-secondary -fs-20 -fullwidth js-sms-confirm">'+app.options.button_name+'</a>';
         
