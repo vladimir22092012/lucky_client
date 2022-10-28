@@ -293,6 +293,8 @@
                                         target="_blank">Правила страхования от несчастных случаев</a></li>
                         <li class=""><a class="docs_list_link_footer" href="/files/about/pravila_183.pdf"
                                         target="_blank">Правила страхования банковских карт</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/politica_obrabotki.pdf"
+                                        target="_blank">Политика обработки и защиты персональных данных</a></li>
                     </ul>
 
                 </div>
