@@ -19,29 +19,45 @@
             <h2>Правоустанавливающие документы</h2>
             <div class="row">
 				<div class="col-md-6">
-                    <ul class="docs_list">				
-                        <li class="docs_list_item"><a class="docs_list_link" href="/files/about/bazovij_standart_zaschity_prav_i_interesov_fiz_i_yur_lits.pdf" target="_blank">Базовый стандарт защиты прав и интересов физических и юридических лиц - получателей финансовых услуг</a></li>
-						<li class="docs_list_item"><a class="docs_list_link" href="/files/about/bazovij_standart_sovershenija_operatsij.pdf" target="_blank">Базовый стандарт совершения микрофинансовой организацией операций на финансовом рынке</a></li>
-						<li class="docs_list_item"><a class="docs_list_link" href="/files/about/infirmatsionnaja_pamyatka_banka_rossii_o_mfo.pdf" target="_blank">Информационная памятка Банка России о МФО</a></li>
-                        <li class="docs_list_item"><a class="docs_list_link" href="/files/about/informatsija_dlya_poluchatelej_finansovoj_uslugi_5.pdf" target="_blank">Информация для получателя финансовой услуги</a></li>
-						<li class="docs_list_item"><a class="docs_list_link" href="/files/about/informatsija_o_sluzhbe_finansovogo_upolnomochenogo.pdf" target="_blank">Информация о службе финансового уполномоченного</a></li>
-						<li class="docs_list_item"><a class="docs_list_link" href="/files/about/obschie_usloviya.pdf" target="_blank">Общие условия</a></li>
-						<li class="docs_list_item"><a class="docs_list_link" href="/files/about/svidetelstvo_o_chlenstve_sro_edinstvo_new.pdf" target="_blank">Свидетельство о членстве в СРО</a></li>
-						<!--li class="docs_list_item"><a class="docs_list_link" href="/files/about/svidetelstvo_na_tovarnij_znak.pdf" target="_blank">Свидетельство на товарный знак</a></li-->
-                        <li class="docs_list_item"><a class="docs_list_link" href="/files/about/usloviya_dogovora_strahovanija.pdf" target="_blank">Условия договора страхования</a></li>
+                    <ul class="docs_list">
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/bazovie_standarti.pdf"
+                                        target="_blank">Базовые стандарты совершения операций</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/standart.pdf" target="_blank">Базовый
+                                стандарт</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/dogovor_ind.pdf"
+                                        target="_blank">Договор займа/Индивидуальные условия</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/pamatka_po_zashite.pdf"
+                                        target="_blank">Памятка для клиентов по защите информации</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/ombud.pdf" target="_blank">Памятка
+                                омбудсмена</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/cb_rf.pdf" target="_blank">Памятка
+                                ЦБ РФ</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/ki.pdf" target="_blank">Положение
+                                об обеспечении защиты сведений КИ</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/fiz_lica.pdf" target="_blank">Правила
+                                предоставления микрозаймов физическим лицам</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <ul class="docs_list">				
-                        <li class="docs_list_item"><a class="docs_list_link" href="/files/about/svidetelstvo_o_vnesenii_svedenij_v_gosreestr_mfo.pdf" target="_blank">Свидетельство  о внесении сведений в гос.реестр МФО</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/polozhenie_o_porjadke_i_sbore_personalnih_dannyh.pdf" target="_blank">Положение о порядке сбора обработки хранения персональных данных</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/pravila_predostavlenija_mikrozajmov.pdf" target="_blank">Правила предоставления микрозаймов</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/spisok_lits_okazyvajuschih_suschestvennoe_vlijanie_nalplus.pdf" target="_blank">Список лиц, оказывающих существенное влияние</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/pismo_banka_rossii_ot_10_06_2020.pdf" target="_blank">Письмо Банка России от 10.06.2020 N 44-3-13 1359 О сервисе на едином портале государственных и муниципальных услуг</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/politika_bezopasnosti_platezhej_nalichnoe.pdf" target="_blank">Политика  безопасности  платежей</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/informatsionnoe_pismo_po_dostupnosti_distantsionnyh_kanalov.pdf" target="_blank">Информационное письмо о рекомендациях по доступности дистанционных каналов для потребителей финансовых услуг</a></li>
-        				<li class="docs_list_item"><a class="docs_list_link" href="/files/about/Pravila_195_strahovanie_ot_ns.pdf" target="_blank">Правила № 195 комбинированного страхования от несчастных случаев и болезней</a></li>
-                        <li class="docs_list_item"><a class="docs_list_link" href="/files/about/Реквизиты_Общества.pdf" target="_blank">Реквизиты Общества</a></li>
+                    <ul class="docs_list">
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/requisites.pdf"
+                                        target="_blank">Реквизиты</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/o_vnesenii_v_reestr.pdf"
+                                        target="_blank">Сведетельство о внесении в государственный реестр
+                                микрофинансовых организаций</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/inn.pdf" target="_blank">Свидетельство
+                                ИНН</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/sushestvennoe vliyanie.pdf"
+                                        target="_blank">Список лиц, оказывающих существенное влияние</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/politica_bezopasnosti.pdf"
+                                        target="_blank">Политика безопасности платежей</a></li>
+
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/pravila_167.pdf"
+                                        target="_blank">Правила страхования от несчастных случаев</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/pravila_183.pdf"
+                                        target="_blank">Правила страхования банковских карт</a></li>
+                        <li class=""><a class="docs_list_link_footer" href="/files/about/politica_obrabotki.pdf"
+                                        target="_blank">Политика обработки и защиты персональных данных</a></li>
                     </ul>
                 </div>
             </div>

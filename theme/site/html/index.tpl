@@ -296,7 +296,6 @@
                         <li class=""><a class="docs_list_link_footer" href="/files/about/politica_obrabotki.pdf"
                                         target="_blank">Политика обработки и защиты персональных данных</a></li>
                     </ul>
-
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 footer-col-contacts">
                     <div class="footer_contacts -fs-14">
