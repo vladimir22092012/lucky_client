@@ -115,7 +115,6 @@ class Best2payCallback extends Controller
 
                             $this->contracts->update_contract($contract->id, array(
                                 'loan_percents_summ' => $contract_loan_percents_summ,
-                                'loan_charge_summ' => $contract_loan_charge_summ,
                                 'loan_peni_summ' => $contract_loan_peni_summ,
                                 'loan_body_summ' => $contract_loan_body_summ,
                             ));
@@ -130,7 +129,6 @@ class Best2payCallback extends Controller
                             // закрываем кредит
                             $contract_loan_peni_summ = round($contract_loan_peni_summ, 2);
                             $contract_loan_percents_summ = round($contract_loan_percents_summ, 2);
-                            $contract_loan_charge_summ = round($contract_loan_charge_summ, 2);
                             $contract_loan_body_summ = round($contract_loan_body_summ, 2);
                             if ($contract_loan_body_summ <= 0 && $contract_loan_percents_summ <= 0 && $contract_loan_charge_summ <= 0 && $contract_loan_peni_summ <= 0) {
                                 $this->contracts->update_contract($contract->id, array(
