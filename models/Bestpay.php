@@ -60,7 +60,7 @@ class Bestpay extends Core
             'currency' => $this->currency_code,
             'reference' => $user_id,
             'description' => $description,
-            'url' => $this->config->root_url.'/best2pay_callback/add_card',
+            'url' => $this->config->root_url . '/best2pay_callback/add_card',
 //            'mode' => 1
         );
         $data['signature'] = $this->get_signature(array($data['sector'], $data['amount'], $data['currency'], $password));
@@ -87,7 +87,7 @@ class Bestpay extends Core
         );
         $data['signature'] = $this->get_signature(array($sector, $b2p_order_id, $password));
 
-        $link = $this->url.'webapi/CardEnroll?'.http_build_query($data);
+        $link = $this->url . 'webapi/CardEnroll?' . http_build_query($data);
 
         return $link;
     }
@@ -113,45 +113,23 @@ class Bestpay extends Core
         if (!($user = $this->users->get_user((int)$contract->user_id)))
             return false;
 
-        if (!empty($contract->sold))
-        {
-            if (empty($contract->premier))
-            {
-                $sector = $this->sectors['YUK'];
-                $password = $this->passwords[$sector];
+        $sector = $this->sectors['PAYMENT'];
+        $password = $this->passwords[$sector];
 
-                // на юк комиссия 2%
-                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
-            }
-            else
-            {
-                $sector = $this->sectors['PREMIER'];
-                $password = $this->passwords[$sector];
-
-                // на премьер комиссия 2%
-                $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
-            }
-        }
-        else
-        {
-            $sector = $this->sectors['PAYMENT'];
-            $password = $this->passwords[$sector];
-        }
-
-        $description = 'Оплата по договору '.$contract->number;
+        $description = 'Оплата по договору ' . $contract->number;
 
         // регистрируем оплату
         $data = array(
             'sector' => $sector,
-            'amount' => $amount ,
+            'amount' => $amount,
             'currency' => $this->currency_code,
             'reference' => $contract->id,
             'description' => $description,
             'mode' => 1,
             'fee' => $fee,
-            'url' => $this->config->front_url.'/best2pay_callback/payment',
+            'url' => $this->config->front_url . '/best2pay_callback/payment',
             'phone' => $user->phone_mobile,
-            'fio' => $user->lastname.' '.$user->firstname.' '.$user->patronymic,
+            'fio' => $user->lastname . ' ' . $user->firstname . ' ' . $user->patronymic,
             'contract' => $contract->number,
 //            'get_token' => 1,
         );
@@ -187,8 +165,7 @@ class Bestpay extends Core
             'id' => $b2p_order_id,
 
         );
-        if (!empty($card_id))
-        {
+        if (!empty($card_id)) {
             $card = $this->cards->get_card((int)$card_id);
             $data['token'] = $card->token;
 //            $data['pan_token'] = $card->pan;
@@ -197,7 +174,7 @@ class Bestpay extends Core
 //echo __FILE__.' '.__LINE__.'<br /><pre>';var_dump($data, $card);echo '</pre><hr />';
         $data['signature'] = $this->get_signature(array($sector, $b2p_order_id, $password));
 
-        $link = $this->url.'webapi/Purchase?'.http_build_query($data);
+        $link = $this->url . 'webapi/Purchase?' . http_build_query($data);
 
         return $link;
     }
@@ -218,26 +195,20 @@ class Bestpay extends Core
         if (!$contract)
             return false;
 
-        if (!empty($contract->organisation))
-        {
-            if ($contract->organisation == 'yk1')
-            {
+        if (!empty($contract->organisation)) {
+            if ($contract->organisation == 'yk1') {
                 $sector = $this->sectors['YUK'];
                 $password = $this->passwords[$sector];
 
                 // на юк комиссия 2%
                 $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
-            }
-            elseif ($contract->organisation == 'premier')
-            {
+            } elseif ($contract->organisation == 'premier') {
                 $sector = $this->sectors['PREMIER'];
                 $password = $this->passwords[$sector];
 
                 // на премьер комиссия 2%
                 $fee = round(max($this->min_fee, floatval($amount * $this->yuk_fee)));
-            }
-            elseif ($contract->organisation == 'toros')
-            {
+            } elseif ($contract->organisation == 'toros') {
                 $sector = $this->sectors['TOROS'];
                 $password = $this->passwords[$sector];
 
@@ -251,9 +222,7 @@ class Bestpay extends Core
                     $fee = round(max($this->min_fee, floatval($amount * $this->fee_7182)));
                 }
             }
-        }
-        else
-        {
+        } else {
             $sector = $this->sectors['PAYMENT'];
             $password = $this->passwords[$sector];
 
@@ -262,20 +231,20 @@ class Bestpay extends Core
             }
         }
 
-        $description = 'Оплата по договору '.$contract->number_of_contract;
+        $description = 'Оплата по договору ' . $contract->number_of_contract;
 
         // регистрируем оплату
         $data = array(
             'sector' => $sector,
-            'amount' => $amount ,
+            'amount' => $amount,
             'currency' => $this->currency_code,
             'reference' => $contract->id,
             'description' => $description,
             'mode' => 1,
             'fee' => $fee,
-            'url' => $this->config->front_url.'/payment_via_short_callback/payment',
+            'url' => $this->config->front_url . '/payment_via_short_callback/payment',
             'phone' => $contract->phone,
-            'fio' => $contract->lastname.' '.$contract->firstname.' '.$contract->patronymic,
+            'fio' => $contract->lastname . ' ' . $contract->firstname . ' ' . $contract->patronymic,
             'contract' => $contract->number_of_contract,
             //            'get_token' => 1,
         );
@@ -319,7 +288,7 @@ class Bestpay extends Core
         //echo __FILE__.' '.__LINE__.'<br /><pre>';var_dump($data, $card);echo '</pre><hr />';
         $data['signature'] = $this->get_signature(array($sector, $b2p_order_id, $password));
 
-        $link = $this->url.'webapi/Purchase?'.http_build_query($data);
+        $link = $this->url . 'webapi/Purchase?' . http_build_query($data);
 
         return $link;
     }
@@ -348,13 +317,13 @@ class Bestpay extends Core
         if (!($user = $this->users->get_user((int)$user_id)))
             return false;
 
-        $user_address = $user->Regstreet_shorttype.' '.$user->Regstreet.', д.'.$user->Reghousing;
+        $user_address = $user->Regstreet_shorttype . ' ' . $user->Regstreet . ', д.' . $user->Reghousing;
         if (!empty($user->Regbuilding))
-            $user_address .= ', стр.'.$user->Regbuilding;
+            $user_address .= ', стр.' . $user->Regbuilding;
         if (!empty($user->Regroom))
-            $user_address .= ', кв.'.$user->Regroom;
+            $user_address .= ', кв.' . $user->Regroom;
 
-        $user_city = $user->Regregion_shorttype.' '.$user->Regregion.' '.$user->Regcity_shorttype.' '.$user->Regcity;
+        $user_city = $user->Regregion_shorttype . ' ' . $user->Regregion . ' ' . $user->Regcity_shorttype . ' ' . $user->Regcity;
 
         // регистрируем оплату
         $data = array(
@@ -371,7 +340,7 @@ class Bestpay extends Core
             'first_name' => $user->firstname,
             'last_name' => $user->lastname,
             'patronymic' => $user->patronymic,
-            'url' => $this->config->front_url.'/best2pay_callback/add_card',
+            'url' => $this->config->front_url . '/best2pay_callback/add_card',
             'recurring_period' => 0,
             'error_number' => 3,
             'continuing_recurring' => true,
@@ -402,7 +371,7 @@ class Bestpay extends Core
         );
         $data['signature'] = $this->get_signature(array($sector, $b2p_order_id, $password));
 
-        $link = $this->url.'webapi/Purchase?'.http_build_query($data);
+        $link = $this->url . 'webapi/Purchase?' . http_build_query($data);
 //echo __FILE__.' '.__LINE__.'<br /><pre>';echo(htmlspecialchars($b2p_order));echo '</pre><hr />';
 
         return $link;
@@ -460,7 +429,7 @@ class Bestpay extends Core
         $xml = simplexml_load_string($response);
         $status = (string)$xml->order_state;
 
-        $this->update_p2pcredit($p2pcredit_id, array('response'=>$response, 'status' => $status));
+        $this->update_p2pcredit($p2pcredit_id, array('response' => $response, 'status' => $status));
 
 //echo __FILE__.' '.__LINE__.'<br /><pre>';var_dump(htmlspecialchars($response));echo '</pre><hr />';
 
@@ -512,10 +481,9 @@ class Bestpay extends Core
         $xml = simplexml_load_string($recurring);
         $status = (string)$xml->state;
 
-        $this->transactions->update_transaction($transaction_id, array('callback_response' => $recurring ));
+        $this->transactions->update_transaction($transaction_id, array('callback_response' => $recurring));
 
-        if ($status == 'APPROVED')
-        {
+        if ($status == 'APPROVED') {
 
             $contract = $this->contracts->get_contract($contract_id);
 
@@ -530,22 +498,17 @@ class Bestpay extends Core
                 'created' => date('Y-m-d H:i:s'),
             ));
 
-            if (!empty($prolongation))
-            {
-                if (!empty($contract->prolongation))
-                {
+            if (!empty($prolongation)) {
+                if (!empty($contract->prolongation)) {
                     //TODO: делаем страховку
                     $payment_amount = $payment_amount - $this->settings->prolongation_amount;
                 }
 
                 // списываем долг
-                if ($contract->loan_percents_summ > $payment_amount)
-                {
+                if ($contract->loan_percents_summ > $payment_amount) {
                     $new_loan_percents_summ = $contract->loan_percents_summ - $payment_amount;
                     $new_loan_body_summ = $contract->loan_body_summ;
-                }
-                else
-                {
+                } else {
                     $new_loan_percents_summ = 0;
                     $new_loan_body_summ = ($contract->loan_body_summ + $contract->loan_percents_summ) - $payment_amount;
                 }
@@ -559,18 +522,13 @@ class Bestpay extends Core
                     'prolongation' => $contract->prolongation + 1,
                 ));
 
-            }
-            else
-            {
+            } else {
 
                 // списываем долг
-                if ($contract->loan_percents_summ > $payment_amount)
-                {
+                if ($contract->loan_percents_summ > $payment_amount) {
                     $new_loan_percents_summ = $contract->loan_percents_summ - $payment_amount;
                     $new_loan_body_summ = $contract->loan_body_summ;
-                }
-                else
-                {
+                } else {
                     $new_loan_percents_summ = 0;
                     $new_loan_body_summ = ($contract->loan_body_summ + $contract->loan_percents_summ) - $payment_amount;
                 }
@@ -582,8 +540,7 @@ class Bestpay extends Core
             }
 
             // закрываем кредит
-            if ($new_loan_body_summ <= 0)
-            {
+            if ($new_loan_body_summ <= 0) {
                 $this->contracts->update_contract($contract->id, array(
                     'status' => 3,
                 ));
@@ -597,9 +554,7 @@ class Bestpay extends Core
             return true;
 //echo __FILE__.' '.__LINE__.'<br /><pre>';echo(htmlspecialchars($recurring));echo $contract_id.'</pre><hr />';exit;
 
-        }
-        else
-        {
+        } else {
             return false;
         }
 
@@ -698,13 +653,13 @@ class Bestpay extends Core
         $string_data = http_build_query($data);
         $context = stream_context_create(array(
             'http' => array(
-                'header'  => "Content-Type: application/x-www-form-urlencoded\r\n"
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
                     . "Content-Length: " . strlen($string_data) . "\r\n",
-                'method'  => 'POST',
+                'method' => 'POST',
                 'content' => $string_data
             )
         ));
-        $b2p = file_get_contents($this->url.$type.'/'.$method, false, $context);
+        $b2p = file_get_contents($this->url . $type . '/' . $method, false, $context);
 //echo __FILE__.' '.__LINE__.'<br /><pre>';var_dump($this->url.$type.'/'.$method, $data);echo '</pre><hr />';
         return $b2p;
     }
@@ -787,7 +742,7 @@ class Bestpay extends Core
         );
         $data['signature'] = $this->get_signature(array($sector, $b2p_order_id, $password));
 
-        $link = $this->url.'CardEnroll?'.http_build_query($data);
+        $link = $this->url . 'CardEnroll?' . http_build_query($data);
 
         return $link;
     }
@@ -800,8 +755,7 @@ class Bestpay extends Core
             WHERE id = ?
         ", (int)$id);
         $this->db->query($query);
-        if ($result = $this->db->result())
-        {
+        if ($result = $this->db->result()) {
             $result->body = unserialize($result->body);
             $result->response = unserialize($result->response);
         }
@@ -819,20 +773,19 @@ class Bestpay extends Core
         if (!empty($filter['id']))
             $id_filter = $this->db->placehold("AND id IN (?@)", array_map('intval', (array)$filter['id']));
 
-        if(isset($filter['keyword']))
-        {
+        if (isset($filter['keyword'])) {
             $keywords = explode(' ', $filter['keyword']);
-            foreach($keywords as $keyword)
-                $keyword_filter .= $this->db->placehold('AND (name LIKE "%'.$this->db->escape(trim($keyword)).'%" )');
+            foreach ($keywords as $keyword)
+                $keyword_filter .= $this->db->placehold('AND (name LIKE "%' . $this->db->escape(trim($keyword)) . '%" )');
         }
 
-        if(isset($filter['limit']))
+        if (isset($filter['limit']))
             $limit = max(1, intval($filter['limit']));
 
-        if(isset($filter['page']))
+        if (isset($filter['page']))
             $page = max(1, intval($filter['page']));
 
-        $sql_limit = $this->db->placehold(' LIMIT ?, ? ', ($page-1)*$limit, $limit);
+        $sql_limit = $this->db->placehold(' LIMIT ?, ? ', ($page - 1) * $limit, $limit);
 
         $query = $this->db->placehold("
             SELECT * 
@@ -844,10 +797,8 @@ class Bestpay extends Core
             $sql_limit
         ");
         $this->db->query($query);
-        if ($results = $this->db->results())
-        {
-            foreach ($results as $result)
-            {
+        if ($results = $this->db->results()) {
+            foreach ($results as $result) {
                 $result->body = unserialize($result->body);
                 $result->response = unserialize($result->response);
             }
@@ -864,11 +815,10 @@ class Bestpay extends Core
         if (!empty($filter['id']))
             $id_filter = $this->db->placehold("AND id IN (?@)", array_map('intval', (array)$filter['id']));
 
-        if(isset($filter['keyword']))
-        {
+        if (isset($filter['keyword'])) {
             $keywords = explode(' ', $filter['keyword']);
-            foreach($keywords as $keyword)
-                $keyword_filter .= $this->db->placehold('AND (name LIKE "%'.$this->db->escape(trim($keyword)).'%" )');
+            foreach ($keywords as $keyword)
+                $keyword_filter .= $this->db->placehold('AND (name LIKE "%' . $this->db->escape(trim($keyword)) . '%" )');
         }
 
         $query = $this->db->placehold("
