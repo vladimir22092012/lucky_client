@@ -122,8 +122,8 @@ class AccountController extends Controller
                     $order['click_hash'] = $_COOKIE["clickid"];
 
                 // сохраняем историю займов из 1с
-                $credits_history = $this->soap1c->get_client_credits($this->user->UID);
-                $this->users->save_loan_history($this->user->id, $credits_history);
+                //$credits_history = $this->soap1c->get_client_credits($this->user->UID);
+                //$this->users->save_loan_history($this->user->id, $credits_history);
 
 
                 // проверяем возможность автоповтора
@@ -151,40 +151,6 @@ class AccountController extends Controller
 
                 // отправляем заявку в 1с
                 $order = $this->orders->get_order((int)$order_id);
-                if ($resp = $this->soap1c->send_order($order))
-                {
-                    $this->orders->update_order($order_id, array('id_1c' => $resp->aid));
-                    $this->users->update_user($this->user->id, array('UID' => $resp->UID));
-
-
-                    if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'leadcraft' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                        try {
-                            $this->leadgens->send_pending_postback($_COOKIE['clickid'], $resp->aid, $order_id);
-                            $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                        } catch (\Throwable $th) {
-                            //throw $th;
-                        }
-                    }
-
-                    if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'bankiru' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                        try {
-                            $this->leadgens->send_pending_postback_bankiru($order);
-                            $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                        } catch (\Throwable $th) {
-                            //throw $th;
-                        }
-                    }
-
-                    if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'click2money' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                        try {
-                            $this->leadgens->send_pending_postback_click2money($order);
-                            $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                        } catch (\Throwable $th) {
-                            //throw $th;
-                        }
-                    }
-
-                }
 
                 header('Location: /account');
                 exit;
@@ -192,7 +158,7 @@ class AccountController extends Controller
 
         }
 
-        if ($active_contract = $this->contracts->find_active_contracts($this->user->UID))
+        if ($active_contract = $this->contracts->find_active_contracts($this->user->id))
         {
             $order = $this->orders->get_order((int)$active_contract->order_id);
         }

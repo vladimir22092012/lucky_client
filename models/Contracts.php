@@ -22,16 +22,14 @@ class Contracts extends Core
     	return $this->statuses;
     }
     
-    public function find_active_contracts($uid)
+    public function find_active_contracts($user_id)
     {
     	$query = $this->db->placehold("
-            SELECT c.* 
-            FROM __contracts AS c
-            WHERE c.status IN (2, 4, 7)
-            AND c.user_id IN (
-                SELECT id FROM __users WHERE UID = ?
-            )
-        ", $uid);
+            SELECT * 
+            FROM s_contracts
+            WHERE `status` IN (2, 4, 7)
+            AND user_id = ?
+        ", $user_id);
         $this->db->query($query);
         
         return $this->db->result();
