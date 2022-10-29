@@ -2,24 +2,25 @@
 
 class Bestpay extends Core
 {
-    private $url = 'https://test.best2pay.net/';
+    private $url = 'https://pay.best2pay.net/';
     private $currency_code = 643;
 
     // комиссия на ЮК1 2%
     private $yuk_fee = 0.02;
     private $sectors = array(
-        'PAY_CREDIT' => '4220', //сектор для отправки кредита на карту клиента (P2PCredit)
-        'RECURRENT' => '4220', // сектор для совершения рекурентных платежей (token)
-        'ADD_CARD' => '4220', // сектор для привязки карты (token)
-        'PAYMENT' => '4220', // сектор для оплаты любой картой (C2A)
+        'PAY_CREDIT' => '9811', //сектор для отправки кредита на карту клиента (P2PCredit)
+        'RECURRENT' => '9812', // сектор для совершения рекурентных платежей (token) ECOM
+        'ADD_CARD' => '9813', // сектор для привязки карты (token)
+        'PAYMENT' => '9807', // сектор для оплаты любой картой (C2A)
     );
     private $fee_7182 = 0.05;
     private $min_fee = 3000;
     private $fee = 0.018;
     private $passwords = array(
-        '4220' => 'test',
-        '4219' => 'test',
-        '4222' => 'test'
+        '9811' => 'G824087',
+        '9812' => '7Z9q6ZD2',
+        '9813' => 'th2dn51',
+        '9807' => '9X1lxK4',
     );
 
     public function __construct()
@@ -27,10 +28,10 @@ class Bestpay extends Core
         parent::__construct();
 
         $this->sectors = array(
-            'PAY_CREDIT' => '4219', //сектор для отправки кредита на карту клиента (P2PCredit)
-            'RECURRENT' => '4222', // сектор для совершения рекурентных платежей (token)
-            'ADD_CARD' => '4222', // сектор для привязки карты (token)
-            'PAYMENT' => '4220', // сектор для оплаты любой картой (C2A)
+            'PAY_CREDIT' => '9811', //сектор для отправки кредита на карту клиента (P2PCredit)
+            'RECURRENT' => '9812', // сектор для совершения рекурентных платежей (token) ECOM
+            'ADD_CARD' => '9813', // сектор для привязки карты (token)
+            'PAYMENT' => '9807', // сектор для оплаты любой картой (C2A)
         );
     }
 
