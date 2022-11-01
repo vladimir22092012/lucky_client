@@ -35,31 +35,9 @@ class LoginController extends Controller
                 }
             }
 
-            if (isset($error)) {
-                // клиента нет в 1с но есть в базе
+            if (!isset($error)) {
                 if ($user_id = $this->users->get_phone_user($clean_phone)) {
                     $_SESSION['user_id'] = $user_id;
-
-                    $user = $this->users->get_user($user_id);
-
-                    $update = array(
-                        'last_ip' => $_SERVER['REMOTE_ADDR'],
-                    );
-                    if (!empty($user->password_sent_wa)) {
-                        // записываем в базу что вотсапп активен
-                        $update['wa_enabled'] = 1;
-                        $update['password_sent_wa'] = 0;
-                    }
-                    $this->users->update_user($user_id, $update);
-
-                    if (empty($this->is_developer)) {
-                        $this->authorizations->add_authorization(array(
-                            'user_id' => $user_id,
-                            'ip' => $_SERVER['REMOTE_ADDR'],
-                            'created' => date('Y-m-d H:i:s'),
-                            'user_agent' => $_SERVER['HTTP_USER_AGENT']
-                        ));
-                    }
 
                     header('Location: /account');
                     exit;
@@ -70,17 +48,6 @@ class LoginController extends Controller
                 if (!empty($user_id)) {
                     $_SESSION['user_id'] = $user_id;
 
-                    $this->users->update_user($user_id, array('last_ip' => $_SERVER['REMOTE_ADDR']));
-
-                    if (empty($this->is_developer)) {
-                        $this->authorizations->add_authorization(array(
-                            'user_id' => $user_id,
-                            'ip' => $_SERVER['REMOTE_ADDR'],
-                            'created' => date('Y-m-d H:i:s'),
-                            'user_agent' => $_SERVER['HTTP_USER_AGENT']
-                        ));
-                    }
-
                     header('Location: /account');
                     exit;
                 }
@@ -88,12 +55,6 @@ class LoginController extends Controller
                 $this->design->assign('message_error', 'Внутренняя ошибка');
             }
         }
-
-        if (isset($_SESSION['splash'])) {
-            $this->design->assign('message_error', $_SESSION['splash']);
-            $_SESSION['splash'] = NULL;
-        }
-
 
         return $this->design->fetch('login.tpl');
     }
