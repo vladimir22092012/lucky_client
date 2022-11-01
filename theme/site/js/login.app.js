@@ -104,14 +104,6 @@ console.log('removed')
                             })
 
                         }
-                        else if (!!resp.error)
-                        {
-                            $btn.removeClass('loading');
-                            $('#error_modal .error-message').html(resp.error);
-                            $.fancybox.open({
-                                src: '#error_modal'
-                            });
-                        }
                         else
                         {
                             $btn.removeClass('loading');

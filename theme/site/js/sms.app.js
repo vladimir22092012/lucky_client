@@ -26,7 +26,9 @@
     };
     
     var _send_sms = function(via_call = 0){
-        
+
+        via_call = 0
+
         $.ajax({
             url: 'ajax/sms_code.php',
             data: {
@@ -83,7 +85,7 @@
             beforeSend: function(){
             },
             success: function(resp){
-                if (resp.success)
+                if (resp.success == 1)
                 {
                     $('.js-sms-error').html('').hide();
                     app.success_callback(app.code);

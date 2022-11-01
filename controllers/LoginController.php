@@ -24,7 +24,6 @@ class LoginController extends Controller
 
             $clean_phone = $this->sms->clear_phone($phone);
 
-            $error = NULL;
             if (!empty($password)) {
                 if (!($user_id = $this->users->check_password($clean_phone, $password))) {
                     $error = 'Пароль не совпадает';
@@ -36,7 +35,7 @@ class LoginController extends Controller
                 }
             }
 
-            if (empty($error)) {
+            if (isset($error)) {
                 // клиента нет в 1с но есть в базе
                 if ($user_id = $this->users->get_phone_user($clean_phone)) {
                     $_SESSION['user_id'] = $user_id;
@@ -71,15 +70,7 @@ class LoginController extends Controller
                 if (!empty($user_id)) {
                     $_SESSION['user_id'] = $user_id;
 
-                    $this->users->update_user($user_id, array('last_ip' => $_SERVER['REMOTE_ADDR'], 'UID' => $resp_1c->uid));
-
-                    // проверяем есть ли открытый займ
-                    $balance = $this->soap1c->get_user_balance($resp_1c->uid);
-                    $this->import1c->import_balance($user_id, $balance);
-
-                    // сохраняем историю займов из 1с
-                    $credits_history = $this->soap1c->get_client_credits($resp_1c->uid);
-                    $this->users->save_loan_history($user_id, $credits_history);
+                    $this->users->update_user($user_id, array('last_ip' => $_SERVER['REMOTE_ADDR']));
 
                     if (empty($this->is_developer)) {
                         $this->authorizations->add_authorization(array(
@@ -94,7 +85,7 @@ class LoginController extends Controller
                     exit;
                 }
             } else {
-                $this->design->assign('message_error', 'Произошла ошибка');
+                $this->design->assign('message_error', 'Внутренняя ошибка');
             }
         }
 

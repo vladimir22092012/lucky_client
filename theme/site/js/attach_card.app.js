@@ -25,7 +25,6 @@ function AttachCardApp()
                     $this.addClass('loading');
                 },
                 success: function(resp){
-                    
                     if (!!resp.error)
                     {
                         alert(resp.error);
