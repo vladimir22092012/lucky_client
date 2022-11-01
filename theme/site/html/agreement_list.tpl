@@ -48,7 +48,7 @@
                 <input type="hidden" class="custom-checkbox" name="bki" value="1"/>
                 <input type="checkbox" class="custom-checkbox" id="bki" value="1" checked="true"/>
                 <label for="bki" class="check_box -gil-m">
-                    <span>Даю <a href="{$config->root_url}/files/agreement/sertificat.pdf" target="_blank">согласие на запрос и получение кредитной истории из БКИ</a></span>
+                    <span>Даю <a href="{$config->root_url}/files/agreement/bki.pdf" target="_blank">согласие на запрос и получение кредитной истории из БКИ</a></span>
                 </label>
             </div>
         </div>
