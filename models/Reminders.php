@@ -97,37 +97,6 @@ class Reminders extends Core
         $message = preg_replace('/{сумма}/',  (int) $data['сумма'], $message, -1, $count);//из шаблонов
 
         //$result = $this->sms->send($phone, $message, 0, 'FINFIVE');
-
-        if ($test === 'test') {
-            return $this->test_save_sms(
-                [
-                    'phone' => $phone,
-                    'template' => $template,
-                    'days_or_minutes' => $data['days_or_minutes'],
-                    'type' => $data['type'],
-                    'firstname' => $data['имя'],
-                    'number' => $data['номер'],
-                    'amount' => $data['сумма'],
-                    'user_id' => $data['user_id']
-                ]
-            );
-        } elseif($test === 0) {
-            $id = $this->save_sms(
-                [
-                    'phone' => $phone,
-                    'template' => $template,
-                    'days_or_minutes' => $data['days_or_minutes'],
-                    'type' => $data['type'],
-                    'firstname' => $data['имя'],
-                    'number' => $data['номер'],
-                    'amount' => $data['сумма'],
-                    'user_id' => $data['user_id']
-                ]);
-
-            $result = $this->sms->send($phone, $message, 0, 'FINFIVE');
-
-            return $id;
-        }
     }
 
     private function save_sms($item)
