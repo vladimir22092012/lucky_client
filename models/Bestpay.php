@@ -13,9 +13,9 @@ class Bestpay extends Core
         'ADD_CARD' => '9813', // сектор для привязки карты (token)
         'PAYMENT' => '9807', // сектор для оплаты любой картой (C2A)
     );
-    private $fee_7182 = 0.05;
+    private $fee_7182 = 0.04;
     private $min_fee = 3000;
-    private $fee = 0.018;
+    private $fee = 0.04;
     private $passwords = array(
         '9811' => 'G824087',
         '9812' => '7Z9q6ZD2',

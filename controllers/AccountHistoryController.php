@@ -9,13 +9,6 @@ class AccountHistoryController extends Controller
             header('Location: /lk/login');
             exit;
         }
-        
-$doubles = array_map('trim', file($this->config->root_dir.'doubles.txt'));
-if (array_search($this->user->id, $doubles) !== false)
-{
-    return '<h1 style="margin: 200px 20px;color:red;text-align:center;">На сервере проводятся технические работы. <br />Попробуйте вернуться позже</h1>';
-    exit;
-}
 
         $history_items = array();
         if (!empty($this->user->UID))
