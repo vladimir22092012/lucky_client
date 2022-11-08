@@ -36,7 +36,6 @@ class DocumentController extends Controller
 
             $cards = $this->cards->get_cards($document->user_id);
             $active_card = '';
-            $short_active_card = '';
 
             if (!empty($cards)) {
                 foreach ($cards as $card) {

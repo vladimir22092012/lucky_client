@@ -232,22 +232,6 @@ class StageCardController extends Controller
                 'params' => $params,
             ));
 
-            // согласие для мегафона
-            $this->documents->create_document(array(
-                'user_id' => $this->user->id,
-                'order_id' => 0,
-                'type' => 'SOGLASIE_MEGAFON',
-                'params' => $params,
-            ));
-
-            // согласие для скористы
-            $this->documents->create_document(array(
-                'user_id' => $this->user->id,
-                'order_id' => 0,
-                'type' => 'SOGLASIE_SCORING',
-                'params' => $params,
-            ));
-
             // согласие на списание
             $this->documents->create_document(array(
                 'user_id' => $this->user->id,
@@ -256,14 +240,13 @@ class StageCardController extends Controller
                 'params' => $params,
             ));
 
-            $params['service_reason_cost'] = $this->settings->reject_reason_cost;
+            // согласие на уведомлеие о ПДН
             $this->documents->create_document(array(
                 'user_id' => $this->user->id,
                 'order_id' => 0,
-                'type' => 'PRICHINA_OTKAZA',
+                'type' => 'PDN',
                 'params' => $params,
             ));
-
 
             header('Location: /account');
             exit;

@@ -67,7 +67,7 @@ class PdfController extends Controller
     
     public function anketa_zayavlenie_pep()
     {
-    	$tpl = $this->design->fetch('pdf/anketa-zayavlenie-pep.tpl');
+    	$tpl = $this->design->fetch('pdf/anketa-zayavlenie-soglashenie-pep.tpl');
         
         $this->pdf->create($tpl, '', 'soglasie-dlya-skoringa.pdf');
     }
@@ -126,7 +126,7 @@ class PdfController extends Controller
     
     public function soglasie_na_spisanie()
     {
-    	$tpl = $this->design->fetch('pdf/soglasie-na-spisanie.tpl');
+    	$tpl = $this->design->fetch('pdf/reccurent.tpl');
         
         $this->pdf->create($tpl, '', 'soglasie-na-spisanie.pdf');
     }
