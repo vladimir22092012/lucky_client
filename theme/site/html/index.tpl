@@ -24,7 +24,7 @@
 
     {if in_array($module, ['MainController'])}
         <script>
-            var comebackUrl = 'https://vozmycredit.com/comebacker/fin5/';
+            var comebackUrl = 'https://zaimwagon.online/';
             document.addEventListener("DOMContentLoaded", function () {
                 if (typeof history.pushState === 'function') {
                     history.pushState('back', null, null);
