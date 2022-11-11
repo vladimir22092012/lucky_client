@@ -26,31 +26,26 @@ class CheckPhone extends Core
 
         $user = $this->users->get_user($user_id);
 
-        if (strlen($clear_phone) != 11)
-        {
+        if (strlen($clear_phone) != 11) {
             $this->response['incorrect'] = $clear_phone;
-        }
-        else
-        {
+        } else {
             if ($user->blocked == 1) {
                 $this->response['user_removed'] = 1;
                 $this->output();
             }
 
-            if ($exist_id = $this->users->get_phone_user($clear_phone))
-            {
+            if ($exist_id = $this->users->get_phone_user($clear_phone)) {
                 $this->response['user_exists'] = 1;
 
                 $user = $this->users->get_user((int)$exist_id);
                 if (empty($this->is_developer))
                     $this->response['have_pass'] = (int)!empty($user->password);
-            }
-            else
-            {
+            } else {
                 $this->response['not_found'] = 1;
             }
 
         }
+
 
         $this->output();
     }

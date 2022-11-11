@@ -66,7 +66,7 @@ class Sms extends Core
         if ($sms->status == "OK") { // Запрос выполнен успешно
             $resp = "Сообщение отправлено успешно";
         } else {
-            $resp = "Текст ошибки: $sms->status_text.";
+            $resp = "Текст ошибки: $sms->status_text".' Телефон: '.$phone.' Сообщение: '.$message;
         }
 
         return $resp;

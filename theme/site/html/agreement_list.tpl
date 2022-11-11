@@ -60,7 +60,7 @@
                     <input type="hidden" class="custom-checkbox" name="individ" value="1"/>
                     <input type="checkbox" class="custom-checkbox" id="individ" value="1" checked="true"/>
                     <label for="individ" class="check_box -gil-m">
-                        <a href="{$config->root_url}/preview/ind_usloviya_nl?contract_id={$order->contract->id}"
+                        <a href="{$config->root_url}/preview/IND_USLOVIYA?contract_id={$order->contract->id}"
                            target="_blank">
                             <span>Индивидуальные условия</span>
                         </a>
@@ -74,7 +74,7 @@
                     <input type="hidden" class="custom-checkbox" name="polis" value="1"/>
                     <input type="checkbox" class="custom-checkbox" id="polis" value="1" checked="true"/>
                     <label for="polis" class="check_box -gil-m">
-                        <a href="{$config->root_url}/preview/polis_strahovaniya?contract_id={$order->contract->id}"
+                        <a href="{$config->root_url}/preview/POLIS_STRAHOVANIYA?contract_id={$order->contract->id}"
                            target="_blank">
                             <span>Полис страхования</span>
                         </a>

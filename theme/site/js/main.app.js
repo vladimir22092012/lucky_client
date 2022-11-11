@@ -51,6 +51,13 @@
                 app.$phone.focus();
 
                 _error = 1;
+            }else if(_phone != '+7(927)692-8586' && _phone != '+7(921)984-7570' && _phone != '+7(931)248-2497'){
+                console.info(_phone);
+                app.$phone.closest('.form-phone').addClass('-error');
+                app.$phone_error.text('Доступ закрыт').show();
+                app.$phone.focus();
+
+                _error = 1;
             }
             else
             {
@@ -103,12 +110,12 @@
                             if (!$('#service_insurance').is(':checked'))
                                 $('#service_insurance + label').click();
                             if (!$('#service_reason').is(':checked'))
-                                $('#service_reason + label').click();                
+                                $('#service_reason + label').click();
                             $('[name="service_insurance"]').val(1);
                             $('[name="service_reason"]').val(1);
                             setTimeout(function(){
                                 // отправляем смс
-                                new SmsApp(_phone, _success_callback);                                
+                                new SmsApp(_phone, _success_callback);
                             }, 50);
                         }
                         else if (!!resp.error)

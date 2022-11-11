@@ -48,7 +48,7 @@
                 {
                     _set_timer(resp.time_left);
                     app.sms_sent = 1;
-                    
+
                     if (!!via_call && !!resp.aero_call_id)
                     {
                         setTimeout(function(){
