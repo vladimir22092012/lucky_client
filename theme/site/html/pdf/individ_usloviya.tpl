@@ -3,7 +3,7 @@
     <tr>
         <td width="190" height="165">
             <p align="center">
-                <img src="{$config->root_url}/theme/site/i/contract_qr.jpg" width="120" height="120">
+                <img src="{$config->root_dir}/theme/site/html/pdf/i/qr-code.png" width="120" height="120">
             </p>
         </td>
         <td width="190">
