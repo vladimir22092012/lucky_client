@@ -9,7 +9,8 @@ class Documents extends Core
         'SOGLASIE_SPISANIE' => 'reccurent.tpl',
         'IND_USLOVIYA' => 'individ_usloviya.tpl',
         'POLIS_STRAHOVANIYA' => 'polis_vidacha.tpl',
-        'PDN' => 'pdn.tpl'
+        'PDN' => 'pdn.tpl',
+        'DOP_SOGLASHENIE' => 'prolongation.tpl'
     );
     
     
@@ -20,7 +21,8 @@ class Documents extends Core
         'SOGLASIE_SPISANIE' => 'Согласие на списание рекуррентных платежей',
         'IND_USLOVIYA' => 'Индивидуальные условия',
         'POLIS_STRAHOVANIYA' => 'Полис страхования',
-        'PDN' => 'Уведомление о показателе долговой нагрузки'
+        'PDN' => 'Уведомление о показателе долговой нагрузки',
+        'DOP_SOGLASHENIE' => 'Дополнительное соглашение о пролонгации займа'
     );
     
     private $client_visible = array(
@@ -30,7 +32,8 @@ class Documents extends Core
         'SOGLASIE_SPISANIE' => 0,
         'IND_USLOVIYA' => 1,
         'POLIS_STRAHOVANIYA' => 1,
-        'PDN' => 1
+        'PDN' => 1,
+        'DOP_SOGLASHENIE' => 1
     );
     
     

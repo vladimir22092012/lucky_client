@@ -468,8 +468,6 @@
                                         </div>
                                     </form>
                                 </div>
-
-                                {*
                                 {if $prolongation_amount && $order->contract->type == 'base'}
                                     <div class="pt-4 text-center">
                                         <form action="account/pay" method="POST"
@@ -500,7 +498,6 @@
                                         </form>
                                     </div>
                                 {/if}
-                                *}
                             </div>
                         </div>
                     </div>
