@@ -52,7 +52,7 @@ class LoginController extends Controller
                     exit;
                 }
             } else {
-                $this->design->assign('message_error', 'Внутренняя ошибка');
+                $this->design->assign('message_error', $error);
             }
         }
 
