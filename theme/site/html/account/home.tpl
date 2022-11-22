@@ -579,9 +579,9 @@
                                         <input type="hidden" name="contract_id" value="{$order->contract->id}"/>
                                         <div class="row">
                                             <div class="col-12 pt-1">
-                                                    <button type="button" class="btn btn-primary js-open-repeat-block">
-                                                        Получить новый
-                                                    </button>
+                                                <button type="button" class="btn btn-primary js-open-repeat-block">
+                                                    Получить новый
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -638,7 +638,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <select name="card_id" class="form-control">
+                                    <select name="card_id" class="form-control" style="padding: 0!important;">
                                         {foreach $cards as $card}
                                             {if !$card->deleted}
                                                 <option value="{$card->id}">{$card->pan} {$card->expdate}</option>
@@ -646,31 +646,30 @@
                                         {/foreach}
                                     </select>
                                 </div>
-                                {*}
-                                                                <div class="form-group">
-                                                                    <div class="form_row">
-                                                                        <div class="check mb-0 js-loan-agreement-block">
-                                                                            <input type="checkbox" class="custom-checkbox js-loan-agreement"
-                                                                                   id="check_agreement" name="agreement" value="1"/>
-                                                                            <label for="check_agreement" class="check_box -gil-m">
-                                                                                <span>Я ознакомлен и согласен со <a href="#agreement_list"
-                                                                                                                    class="green-link js-toggle-agreement-list"
-                                                                                                                    data-fancybox>следующим</a></span>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {include file='agreement_list.tpl'}
-                                                                <div class="form-group form-btn">
-                                                                    <a href="#" class="btn btn-secondary -fs-20 -fullwidth js-loan-repeat">Получить
-                                                                        займ</a>
+                                <div class="form-group">
+                                    <div class="form_row">
+                                        <div class="check mb-0 js-loan-agreement-block">
+                                            <input type="checkbox" class="custom-checkbox js-loan-agreement"
+                                                   id="check_agreement" name="agreement" value="1"/>
+                                            <label for="check_agreement" class="check_box -gil-m">
+                                                                                <span>Я ознакомлен и согласен со <a
+                                                                                            href="#agreement_list"
+                                                                                            class="green-link js-toggle-agreement-list"
+                                                                                            data-fancybox>следующим</a></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {include file='agreement_list.tpl'}
+                                <div class="form-group form-btn">
+                                    <a href="#" class="btn btn-secondary -fs-20 -fullwidth js-loan-repeat">Получить
+                                        займ</a>
 
-                                                                    <span class="bottom_text -fs-14 -center">нажимая на кнопку, вы соглашаетесь с
+                                    <span class="bottom_text -fs-14 -center">нажимая на кнопку, вы соглашаетесь с
                                                                     <a href="#agreement_list" data-fancybox>договором оферты</a>
                                                                     </span>
 
-                                                                </div>
-                                {*}
+                                </div>
                             </div>
                         </div>
                     </form>
