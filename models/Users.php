@@ -116,47 +116,7 @@ class Users extends Core
         
         if (!empty($passport))
             $response['passport'] = $passport;
-        
-        
-        $address = array();
-        
-        if (empty($user->Regindex) || empty($user->Regregion) || empty($user->Reghousing))
-            $address[] = 'regaddress';
-        if (empty($user->Faktindex) || empty($user->Faktregion) || empty($user->Fakthousing))
-            $address[] = 'faktaddress';
 
-        if (!empty($address))
-            $response['address'] = $address;
-        
-        
-        $work = array();
-        
-        if (empty($user->workplace) || empty($user->workaddress))
-            $work[] = 'workplace';
-        if (empty($user->profession))
-            $work[] = 'profession';
-        if (empty($user->workphone))
-            $work[] = 'workphone';
-        if (empty($user->income))
-            $work[] = 'income';
-        if (empty($user->expenses))
-            $work[] = 'expenses';
-        if (empty($user->chief_name) || empty($user->chief_position) || empty($user->chief_phone))
-            $work[] = 'chief';
-        
-        if (!empty($work))
-            $response['work'] = $work;
-        
-
-        $contactpersons = array();
-        
-        if (empty($user->contact_person_name) || empty($user->contact_person_phone) || empty($user->contact_person_relation))
-            $contactpersons[] = 'contactperson';        
-        if (empty($user->contact_person2_name) || empty($user->contact_person2_phone) || empty($user->contact_person2_relation))
-            $contactpersons[] = 'contactperson2';
-                
-        if (!empty($contactpersons))
-            $response['contactpersons'] = $contactpersons;
         
         $files = array();
         $isset_files = array();

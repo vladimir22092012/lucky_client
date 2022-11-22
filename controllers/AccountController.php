@@ -378,6 +378,9 @@ class AccountController extends Controller
         $current_period = empty($_COOKIE['loan_period']) ? $this->settings->loan_default_period : $_COOKIE['loan_period'];
         $loan_percent = $this->settings->loan_default_percent;
 
+        $need_fields = $this->users->check_fields($this->user);
+        $this->design->assign('need_fields', $need_fields);
+
 
         $this->design->assign('min_summ', $min_summ);
         $this->design->assign('max_summ', $max_summ);
