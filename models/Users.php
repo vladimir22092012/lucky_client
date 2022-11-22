@@ -117,6 +117,14 @@ class Users extends Core
         if (!empty($passport))
             $response['passport'] = $passport;
 
+        if (empty($user->regaddress_id))
+            $address[] = 'regaddress';
+        if (empty($user->faktaddress_id))
+            $address[] = 'faktaddress';
+
+        if (!empty($address))
+            $response['address'] = $address;
+
         
         $files = array();
         $isset_files = array();
