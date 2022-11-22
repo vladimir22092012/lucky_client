@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
 
- <script src="theme/site/js/account_cards.app.js" type="text/javascript"></script>
+ <script src="theme/site/js/account_cards.app.js?v=1.28" type="text/javascript"></script>
 
 {/capture}
 

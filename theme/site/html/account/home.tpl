@@ -579,13 +579,9 @@
                                         <input type="hidden" name="contract_id" value="{$order->contract->id}"/>
                                         <div class="row">
                                             <div class="col-12 pt-1">
-                                                {if $need_fields}
-                                                    <a href="account/anketa" class="btn btn-primary">Получить новый</a>
-                                                {else}
                                                     <button type="button" class="btn btn-primary js-open-repeat-block">
                                                         Получить новый
                                                     </button>
-                                                {/if}
                                             </div>
                                         </div>
                                     </form>

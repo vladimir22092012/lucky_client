@@ -34,6 +34,7 @@ function AttachCardApp()
                         location.href = resp.link;
                     }
                     $this.removeClass('loading');
+
                 }
             })
         });
