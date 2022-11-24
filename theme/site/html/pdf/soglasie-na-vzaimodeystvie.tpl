@@ -83,7 +83,7 @@
             <p>{$lastname} {$firstname} {$patronymic}</p>
             <p>{$contract_date|date}</p>
             <p>Телефон {$phone}</p>
-            <p>СМС-код: {$asp}</p>
+            <p>СМС-код: {$contract->accept_code}</p>
         </td>
     </tr>
 </table>
