@@ -221,7 +221,7 @@ class AccountController extends Controller
                 // анкета заявление
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
-                    'order_id' => 0,
+                    'order_id' => $order_id,
                     'type' => 'ANKETA_PEP',
                     'params' => $params,
                 ));
@@ -229,7 +229,7 @@ class AccountController extends Controller
                 // соглашение пэп
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
-                    'order_id' => 0,
+                    'order_id' => $order_id,
                     'type' => 'SOLGLASHENIE_PEP',
                     'params' => $params,
                 ));
@@ -237,7 +237,7 @@ class AccountController extends Controller
                 // согласие на взаимодействие
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
-                    'order_id' => 0,
+                    'order_id' => $order_id,
                     'type' => 'SOGLASIE_VZAIMODEYSTVIE',
                     'params' => $params,
                 ));
@@ -245,7 +245,7 @@ class AccountController extends Controller
                 // согласие на списание
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
-                    'order_id' => 0,
+                    'order_id' => $order_id,
                     'type' => 'SOGLASIE_SPISANIE',
                     'params' => $params,
                 ));
@@ -253,7 +253,7 @@ class AccountController extends Controller
                 // согласие на уведомлеие о ПДН
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
-                    'order_id' => 0,
+                    'order_id' => $order_id,
                     'type' => 'PDN',
                     'params' => $params,
                 ));
