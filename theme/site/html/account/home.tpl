@@ -683,7 +683,7 @@
 
             <script type="text/javascript">
                 var juicyLabConfig = {
-                    completeButton:"#next_stage"
+                    completeButton: "#next_stage"
                 };
             </script>
 
@@ -698,6 +698,12 @@
             <noscript>
                 <img style="display:none;" src="https://score.juicyscore.com/savedata/?isJs=0"/>
             </noscript>
+            <script>
+                window.addEventListener('sessionready', function (e) {
+                    console.log('sessionready', e.detail.sessionId)
+                    $('#juicescore_session_id').val(e.detail.sessionId)
+                })
+            </script>
 
 
         </div>

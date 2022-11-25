@@ -174,4 +174,10 @@
 <noscript>
   <img style="display:none;" src="https://score.juicyscore.com/savedata/?isJs=0"/>
 </noscript>
+<script>
+    window.addEventListener('sessionready', function (e) {
+        console.log('sessionready', e.detail.sessionId)
+        $('#juicescore_session_id').val(e.detail.sessionId)
+    })
+</script>
 
