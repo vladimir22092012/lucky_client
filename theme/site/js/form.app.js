@@ -34,9 +34,9 @@
             var _current = $(this).val();
     
             if ($(this).hasClass('js-cirylic-plus'))
-                var _replace = this.value.replace(/[^а-яё0-9№\.\, ]/ig,'');
+                var _replace = this.value.replace(/[^а-яё0-9№\s,-]/ig,'');
             else
-                var _replace = this.value.replace(/[^а-яё №]/ig,'');
+                var _replace = this.value.replace(/[^а-яё №\s,-]/ig,'');
             
             if (_replace != '')
                 $(this).val(_replace[0].toUpperCase() + _replace.slice(1));
@@ -80,9 +80,9 @@
             var _current = $input.val().trim();
     
             if ($input.hasClass('js-cirylic-plus'))
-                var _replace = $input.val().replace(/[^а-яё0-9№\.\, ]/ig,'');
+                var _replace = $input.val().replace(/[^а-яё0-9№\s,-]/ig,'');
             else
-                var _replace = $input.val().replace(/[^а-яё №]/ig,'');
+                var _replace = $input.val().replace(/[^а-яё №\s,-]/ig,'');
             
             if (_current != _replace)
             {
