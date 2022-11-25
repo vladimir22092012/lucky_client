@@ -683,24 +683,21 @@
 
             <script type="text/javascript">
                 var juicyLabConfig = {
-                    completeButton: "#next_stage"
+                    completeButton:"#next_stage"
                 };
             </script>
+
             <script type="text/javascript">
                 var s = document.createElement('script');
                 s.type = 'text/javascript';
                 s.async = true;
-                s.src = "https://score.juicyscore.net/static/js.js";
+                s.src = "https://score.juicyscore.com/static/js.js";
                 var x = document.getElementsByTagName('head')[0];
                 x.appendChild(s);
             </script>
-            <noscript><img style="display:none;" src="https://score.juicyscore.net/savedata/?isJs=0"/></noscript>
-            <script>
-                window.addEventListener('sessionready', function (e) {
-                    console.log('sessionready', e.detail.sessionId)
-                    $('#juicescore_session_id').val(e.detail.sessionId)
-                })
-            </script>
+            <noscript>
+                <img style="display:none;" src="https://score.juicyscore.com/savedata/?isJs=0"/>
+            </noscript>
 
 
         </div>

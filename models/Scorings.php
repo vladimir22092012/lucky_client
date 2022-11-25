@@ -180,7 +180,7 @@ class Scorings extends Core
             WHERE 1
                 $id_filter
                 $active_filter
-            ORDER BY position ASC 
+            ORDER BY `position` ASC 
         ");
         $this->db->query($query);
         if ($results = $this->db->results())
