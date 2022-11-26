@@ -107,12 +107,6 @@
                         }
                         else if (!!resp.not_found)
                         {
-                            if (!$('#service_insurance').is(':checked'))
-                                $('#service_insurance + label').click();
-                            if (!$('#service_reason').is(':checked'))
-                                $('#service_reason + label').click();
-                            $('[name="service_insurance"]').val(1);
-                            $('[name="service_reason"]').val(1);
                             setTimeout(function(){
                                 // отправляем смс
                                 new SmsApp(_phone, _success_callback);
