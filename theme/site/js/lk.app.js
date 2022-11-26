@@ -89,11 +89,7 @@
                 $('.js-loan-repeat-form .js-local-time').val(local_time);
 
                 $(this).addClass('loading');
-                
-                $('#service_insurance + label').click();
-                $('#service_reason + label').click();                
-                $('[name="service_insurance"]').val(1);
-                $('[name="service_reason"]').val(1);
+
                 $('.js-loan-repeat-form').submit();
             }
         });
