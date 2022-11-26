@@ -1,6 +1,6 @@
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js?v=1.02"></script>
-    <script src="theme/site/js/main.app.js?v=1.30"></script>
+    <script src="theme/site/js/main.app.js?v=1.31"></script>
 {/capture}
 
 {capture name='page_styles'}
