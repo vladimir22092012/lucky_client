@@ -1,6 +1,6 @@
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js?v=1.02"></script>
-    <script src="theme/site/js/main.app.js?v=1.29"></script>
+    <script src="theme/site/js/main.app.js?v=1.30"></script>
 {/capture}
 
 {capture name='page_styles'}
@@ -56,7 +56,6 @@
                                     <div class="res_info_sum -fs-20 -com-sb"><span class="js-total-summ"></span> ₽</div>
                                 </div>
                             </div>
-                            {*
                             <div class="form-group form-phone ">
                                 <span class="phone_info -fs-14">Ваш номер телефона</span>
                                 <input type="text" name="phone" id="phone"
@@ -88,7 +87,6 @@
                               <a href="#agreement_list" data-fancybox>договором оферты</a>
                               </span>
                             </div>
-*}
                             {if $is_developer}
                                 <div class="form-group">
                                     <div class="form_row">

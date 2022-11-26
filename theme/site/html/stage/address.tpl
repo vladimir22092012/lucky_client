@@ -81,7 +81,7 @@
                                 <div class="form_group -fs-18 js-dadata-address">
                                     <div class="form_group-title -gil-m">Адрес регистрации</div>
                                     <input class="form-control casing-upper-mask Regadress" name="Regadressfull"
-                                           style="width: 700px; margin-left: 25px" type="text"
+                                           style="width: 700px; margin-left: 25px" type="text" placeholder="Регистрация"
                                            {if !empty($Regaddressfull)}value="{$Regaddressfull->adressfull}"{/if}/>
                                     <input style="display: none" class="Registration" name="Regadress"/>
                                 </div>
@@ -89,7 +89,7 @@
                                     <div class="form_group-title -gil-m">Адрес места жительства</div>
                                     <div class="form_row">
                                         <div class="check">
-                                            <input type="checkbox" class="custom-checkbox" id="clone_address"
+                                            <input type="checkbox" class="custom-checkbox" placeholder="Проживание" id="clone_address"
                                                    name="clone_address" value="1" {if $equal_addresses}checked{/if} />
                                             <label for="clone_address" class="check_box check_box_black -gil-m">
                                                 Совпадает с адресом места жительства

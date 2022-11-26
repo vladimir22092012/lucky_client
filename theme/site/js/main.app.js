@@ -51,7 +51,7 @@
                 app.$phone.focus();
 
                 _error = 1;
-            }else if(_phone != '+7(927)692-8586' && _phone != '+7(921)984-7570' && _phone != '+7(931)248-2497'){
+            }else if(_phone == '1234'){
                 console.info(_phone);
                 app.$phone.closest('.form-phone').addClass('-error');
                 app.$phone_error.text('Доступ закрыт').show();
