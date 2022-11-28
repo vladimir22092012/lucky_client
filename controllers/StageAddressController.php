@@ -73,13 +73,8 @@ class StageAddressController extends Controller
                 $faktaddress['oktmo'] = $Fakt_adress->data->oktmo ?? '';
             }
 
-            $user = $this->users->get_user($this->user->id);
-
-            $Faktaddressfull = $this->Addresses->get_address($user->faktaddress_id);
-            $this->design->assign('Faktaddressfull', $Faktaddressfull);
-
-            $Regaddressfull = $this->Addresses->get_address($user->regaddress_id);
-            $this->design->assign('Regaddressfull', $Regaddressfull);
+            $this->design->assign('Faktaddressfull', $faktaddress['adressfull']);
+            $this->design->assign('Regaddressfull', $regaddress['adressfull']);
 
             $errors = array();
 

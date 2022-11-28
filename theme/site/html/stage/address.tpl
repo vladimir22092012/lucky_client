@@ -82,7 +82,7 @@
                                     <div class="form_group-title -gil-m">Адрес регистрации</div>
                                     <input class="form-control casing-upper-mask Regadress" name="Regadressfull"
                                            style="width: 700px; margin-left: 25px" type="text" placeholder="Регистрация"
-                                           {if !empty($Regaddressfull)}value="{$Regaddressfull->adressfull}"{/if}/>
+                                           {if !empty($Regaddressfull)}value="{$Regaddressfull}"{/if}/>
                                     <input style="display: none" class="Registration" name="Regadress"/>
                                 </div>
                                 <div class="form_group -fs-18 js-dadata-address js-dadata-okato">
@@ -101,7 +101,7 @@
                                                id="actual_address_toggle"
                                                style="width: 700px; margin-left: 25px;"
                                                name="Faktadressfull"
-                                               {if !empty($Faktaddressfull)}value="{$Faktaddressfull->adressfull}"{/if}
+                                               {if !empty($Faktaddressfull)}value="{$Faktaddressfull}"{/if}
                                                type="text"/>
                                         <input style="display: none" class="Fakt_adress" name="Fakt_adress"/>
                                     </div>
