@@ -3,11 +3,26 @@
 {capture name='page_scripts'}
 
   <script src="theme/site/js/form.app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+  <script>
+    $(function () {
+        let tokenDadata = "25c845f063f9f3161487619f630663b2d1e4dcd7";
 
+        $('#last_name, #first_name, #patronym').suggestions({
+            token: tokenDadata,
+            type: "fio",
+            minChars: 3,
+            /* Вызывается, когда пользователь выбирает одну из подсказок */
+            onSelect: function (suggestion) {
+                $(this).val(suggestion.value);
+            }
+        });
+    });
+  </script>
 {/capture}
 
 {capture name='page_styles'}
-    
+  <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet"/>
 {/capture}
 
 <main class="main">
