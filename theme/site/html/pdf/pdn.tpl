@@ -11,7 +11,7 @@
                 <p style="margin-bottom: 0in;" align="justify"> </p>
                 <p style="margin-top: 0.19in; margin-bottom: 0in; line-height: 100%;" align="justify"> </p>
                 <p style="margin-bottom: 0in; line-height: 150%;" align="justify"><span
-                            style="font-size: medium;">Я, {$lastname} {$firstname} {$patronymic},  серия {$passport_series} номер {$passport_number}, 
+                            style="font-size: medium;">Я, {$lastname} {$firstname} {$patronymic},  серия {$passport_serial} номер {$passport_number}, 
                     выдан {$passport_date}, зарегистрирован по адресу:
                     {$regaddress_full}, подтверждаю, что мне
                             известно:</span></p>
