@@ -156,23 +156,6 @@ console.info('_success_callback');
 
     var _init_toggle_services = function(){
         $('.js-loan-phone').blur(function(){
-
-console.log($(this).val())
-
-            if (-1 !== $.inArray($(this).val(), ['+7(963) 914-3424', '+7(913) 909-6454', '+7(905) 303-2893', '+7(905) 897-7170', '+7(996) 727-6234', '+7(927) 262-4886']))
-            {
-                $('#service_insurance').removeAttr('disabled');
-                $('#service_reason').removeAttr('disabled');
-//                $('[name="service_insurance"]').val(0);
-//                $('[name="service_reason"]').val(0);
-            }
-            else
-            {
-//                $('#service_insurance').attr('disabled', true);
-//                $('#service_reason').attr('disabled', true);
-//                $('[name="service_insurance"]').val(1);
-//                $('[name="service_reason"]').val(1);
-            }
         });
 
         $('#service_reason').change(function(){
