@@ -61,22 +61,22 @@
                   <div class="form_group-title -gil-m">ФИО как в паспорте:</div>
                   <div class="form_row">
                     <label class="input_box ">
-                      <input type="text" class="form-control js-input-cirylic js-input-required" name="lastname" id="last_name" value="{$lastname|escape}" />
-                      <span class="input_name {if $lastname}-top{/if}">Фамилия</span>
+                      <input style="color: #8c8c8c;;font-size: 18px;line-height: 1.4;font-weight: 450;" type="text" class="form-control  js-input-required " name="lastname" id="last_name" value="{$lastname|escape}" placeholder="Фамилия"/>
+                      <!--<span class="input_name {if $lastname}-top{/if}">Фамилия</span>-->
                     </label>
                     <label class="input_box">
-                      <input type="text" class="form-control js-input-cirylic js-input-required" name="firstname" id="first_name" value="{$firstname|escape}" />
-                      <span class="input_name {if $firstname}-top{/if}">Имя</span>
+                      <input style="color: #8c8c8c;;font-size: 18px;line-height: 1.4;font-weight: 450;" type="text" class="form-control  js-input-required" name="firstname" id="first_name" value="{$firstname|escape}" placeholder="Имя"/>
+                      <!--<span class="input_name {if $firstname}-top{/if}">Имя</span>-->
                     </label>
                   </div>
                   <div class="form_row">
                     <label class="input_box ">
-                      <input type="text" class="form-control js-input-cirylic js-input-required" name="patronymic" id="patronym" value="{$patronymic|escape}" />
-                      <span class="input_name {if $patronymic}-top{/if}">Отчество</span>
+                      <input style="color: #8c8c8c;;font-size: 18px;line-height: 1.4;font-weight: 450;" type="text" class="form-control  js-input-required" name="patronymic" id="patronym" value="{$patronymic|escape}" placeholder="Отчество" />
+                      <!--<span class="input_name {if $patronymic}-top{/if}">Отчество</span>-->
                     </label>
                     <label class="input_box ">
-                      <input type="email" class="form-control js-input-required" name="email" id="email" value="{$email|escape}" />
-                      <span class="input_name {if $email}-top{/if}">Емайл</span>
+                      <input style="color: #8c8c8c;;font-size: 18px;line-height: 1.4;font-weight: 450;" type="email" class="form-control js-input-required" name="email" id="email" value="{$email|escape}" placeholder="Емайл"/>
+                      <!--<span class="input_name {if $email}-top{/if}">Емайл</span>-->
 <!--div class="error_text">Не верный формат</div-->
                     </label>
                   </div>

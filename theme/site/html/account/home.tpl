@@ -373,7 +373,7 @@
                             <div class="col-md-6">
                                 <div class="order_reject_icon"></div>
                                 <div class="pt-4 pr-5 pl-5 text-center">
-                                    <small>{$order->reject_reason}</small>
+                                    {{!-- <small>{$order->reject_reason}</small> --}}
                                     <div>
                                         <a href="https://zaimwagon.online/" target="_blank"
                                            class="blue-link">
