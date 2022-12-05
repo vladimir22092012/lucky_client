@@ -76,15 +76,18 @@ class StageAddressController extends Controller
             $this->design->assign('Faktaddressfull', $faktaddress['adressfull']);
             $this->design->assign('Regaddressfull', $regaddress['adressfull']);
 
-            $errors = array();
+            $error = null;
 
             if (empty($regaddress['adressfull'])) {
-                $errors[] = 'empty_regregion';
+                $error = 'Не заполнен адрес прописки';
             }
 
-            $this->design->assign('errors', $errors);
+            if(empty($faktaddress['adressfull']))
+                $error = 'Не заполнен адрес проживания';
 
-            if (empty($errors)) {
+            $this->design->assign('error', $error);
+
+            if (empty($error)) {
 
                 $regaddress_id = $this->Addresses->add_address($regaddress);
                 $faktaddress_id = $this->Addresses->add_address($faktaddress);
