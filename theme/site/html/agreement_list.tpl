@@ -14,7 +14,7 @@
     <div class="">
         <div class="form_row">
             <div class="check">
-                <input type="hidden" class="custom-checkbox" name="service_insurance"/>
+                <input type="hidden" class="custom-checkbox" name="service_insurance" value="1"/>
                 <input type="checkbox"
                        class="custom-checkbox"
                        id="service_insurance" value="1" checked="true"/>
