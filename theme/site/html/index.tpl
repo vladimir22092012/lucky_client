@@ -365,7 +365,6 @@
 
 {if !$is_developer}
 {literal}
-    <script src="//code-ya.jivosite.com/widget/0DbQAAOxcD" async></script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {

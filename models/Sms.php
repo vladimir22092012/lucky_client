@@ -1,8 +1,4 @@
 <?php
-
-//define("SMS_LOGIN", "v.kalinin.63@yandex.ru");
-//define("SMS_PASSWORD", "dfAf#42!3");
-
 define("SMS_LOGIN", "MKKNplus");
 define("SMS_PASSWORD", "mkk_n_123456");
 

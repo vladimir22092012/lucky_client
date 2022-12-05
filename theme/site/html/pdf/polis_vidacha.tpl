@@ -177,3 +177,16 @@
 <div>
     <img src="{$config->root_dir}/theme/site/html/pdf/i/stamp.png" width="220" style="top:30px" />
 </div>
+<div>
+
+</div>
+<table border="1" width="40%" cellspacing="0" cellpadding="4">
+    <tr>
+        <td height="98"><p>Подписано с использованием ПЭП</p>
+            <p>{$lastname} {$firstname} {$patronymic}</p>
+            <p>{$contract_date|date}</p>
+            <p>Телефон {$phone}</p>
+            <p>СМС-код: {$asp}</p>
+        </td>
+    </tr>
+</table>

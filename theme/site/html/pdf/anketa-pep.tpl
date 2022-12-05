@@ -158,33 +158,33 @@
     <tr>
         <td> 3.2.</td>
         <td colspan="2" width="45%"> Индекс</td>
-        <td colspan="2" width="45%">            {if $regindex}{$regindex|escape}{/if}        </td>
+        <td colspan="2" width="45%">            {$regaddress->zip}        </td>
     </tr>
     <tr>
         <td> 3.3.</td>
         <td colspan="2" width="45%"> Регион/Район</td>
-        <td colspan="2" width="45%">            {$regregion|escape}        </td>
+        <td colspan="2" width="45%">            {$regaddress->region} {$regaddress->region_type}       </td>
     </tr>
     <tr>
         <td> 3.4.</td>
         <td colspan="2" width="45%"> Город/Нас.пункт</td>
-        <td colspan="2" width="45%">            {$regcity|escape}        </td>
+        <td colspan="2" width="45%">            {$regaddress->city} {$regaddress->city_type}        </td>
     </tr>
     <tr>
         <td> 3.5.</td>
         <td colspan="2" width="45%"> Улица</td>
-        <td colspan="2" width="45%">            {$regstreet|escape}        </td>
+        <td colspan="2" width="45%">            {$regaddress->street}        </td>
     </tr>
     <tr>
         <td> 3.6.</td>
         <td colspan="2" width="45%"> Дом</td>
         <td colspan="2"
-            width="45%">            {$reghousing|escape}            {if $regbuilding} стр.{$regbuilding|escape}{/if}        </td>
+            width="45%">            {$regaddress->house}</td>
     </tr>
     <tr>
         <td> 3.7.</td>
         <td colspan="2" width="45%"> Квартира</td>
-        <td colspan="2" width="45%">            {$regroom|escape}        </td>
+        <td colspan="2" width="45%">            {$regaddress->room}        </td>
     </tr>
     <tr>
         <td> 3.8.</td>
@@ -206,35 +206,35 @@
         <td colspan="2" width="45%"> Россия</td>
     </tr>
     <tr>
-        <td> 3.11.</td>
+        <td> 3.2.</td>
         <td colspan="2" width="45%"> Индекс</td>
-        <td colspan="2" width="45%">            {$faktindex|escape}        </td>
+        <td colspan="2" width="45%">            {$faktaddress->zip}        </td>
     </tr>
     <tr>
-        <td> 3.12.</td>
+        <td> 3.3.</td>
         <td colspan="2" width="45%"> Регион/Район</td>
-        <td colspan="2" width="45%">            {$faktregion|escape}        </td>
+        <td colspan="2" width="45%">            {$faktaddress->region} {$faktaddress->region_type}       </td>
     </tr>
     <tr>
-        <td> 3.13.</td>
+        <td> 3.4.</td>
         <td colspan="2" width="45%"> Город/Нас.пункт</td>
-        <td colspan="2" width="45%">            {$faktcity|escape}        </td>
+        <td colspan="2" width="45%">            {$faktaddress->city} {$faktaddress->city_type}        </td>
     </tr>
     <tr>
-        <td> 3.14.</td>
+        <td> 3.5.</td>
         <td colspan="2" width="45%"> Улица</td>
-        <td colspan="2" width="45%">            {$faktstreet|escape}        </td>
+        <td colspan="2" width="45%">            {$faktaddress->street}        </td>
     </tr>
     <tr>
-        <td> 3.15.</td>
+        <td> 3.6.</td>
         <td colspan="2" width="45%"> Дом</td>
         <td colspan="2"
-            width="45%">            {$fakthousing|escape}            {if $faktbuilding}, стр.{$faktbuilding|escape}{/if}        </td>
+            width="45%">            {$faktaddress->house}</td>
     </tr>
     <tr>
-        <td> 3.16.</td>
+        <td> 3.7.</td>
         <td colspan="2" width="45%"> Квартира</td>
-        <td colspan="2" width="45%">            {$faktroom|escape}        </td>
+        <td colspan="2" width="45%">            {$faktaddress->room}        </td>
     </tr>
     <tr>
         <td> 3.17.</td>
