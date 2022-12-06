@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
 
-  <script src="theme/site/js/payment.app.js"></script>
+  <script src="/theme/site/js/payment.app.js?v=1.02"></script>
 
 {/capture}
 
@@ -97,7 +97,22 @@
             
           </div>  
           <div class="col-md-4">
-            
+              <div class="check">
+                  <input type="hidden" class="custom-checkbox" name="service_insurance" value="1"/>
+                  <input type="checkbox"
+                         class="custom-checkbox"
+                         id="service_insurance" value="1" checked="true"/>
+                  <label for="service_insurance" class="check_box -gil-m">
+                      <span>
+                    согласен заключить договор страхования в соответствии
+                    <a class="text-success"
+                       href="https://{$config->main_domain}/files/agreement/sertificat.pdf"
+                       target="_blank">с правилами</a>
+                    на следующих условиях: страховая премия 25% от суммы полученного займа,
+                    срок страхования 14 дней, страховая сумма  100% от суммы займа
+                 </span>
+                  </label>
+              </div>
             <div class="pt-4 text-center">
                 <a href="#" id="confirm_payment" class="btn btn-primary btn-block">Оплатить</a>
             </div>

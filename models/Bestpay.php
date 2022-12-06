@@ -102,8 +102,11 @@ class Bestpay extends Core
      * @param string $contract_id - Номер договора
      * @return string
      */
-    public function get_payment_link($amount, $contract_id, $prolongation = 0, $card_id = 0, $sms = '')
+    public function get_payment_link($amount, $contract_id, $prolongation = 0, $card_id = 0, $sms = '', $insurance = 0)
     {
+
+        if($insurance == 1)
+            $amount += $this->settings->prolongation_amount;
 
         $fee = round(max($this->min_fee, floatval($amount * $this->fee)));
 

@@ -68,7 +68,7 @@
               {*}
               <a href="/" class="logo"><img src="theme/site/i/logo.png" alt=""></a>
               {*}
-              <a href="account" style=";padding-top:10px;display:block;font-size:42px;font-family: 'Gilroy-Bold';">ЮК</a>
+
             </div>
           </div>
           <div class="col-lg-4 header-col-nav">
@@ -115,7 +115,7 @@
     
     <header class="mobheader">
         <div class="mobheader-logo">
-            <a href="/" class="logo">ЮК</a>
+            <a href="/" class="logo">МКК БАРВИЛ</a>
         </div>
         {*}
         <div class="mobheader-phone">
@@ -228,7 +228,7 @@
           </div>
         </div>
         <div class="footer_row">
-          <div class="copyright -fs-15">ЮК. Все права защищены</div>
+          <div class="copyright -fs-15">МКК БАРВИЛ</div>
         </div>
       </div>
     

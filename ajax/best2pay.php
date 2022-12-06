@@ -11,29 +11,29 @@ class BestpayAjax extends Ajax
     public function run()
     {
         $action = $this->request->get('action', 'string');
-        
-        switch($action):
-            
+
+        switch ($action):
+
             case 'attach_card':
                 $this->attach_card();
-            break;
-            
+                break;
+
             case 'get_payment_link':
                 $this->get_payment_link();
-            break;
-            
+                break;
+
             case 'recurrent':
-                $this->recurrent_action();                
-            break;
-            
+                $this->recurrent_action();
+                break;
+
             default:
                 $this->response['error'] = 'UNDEFINED_ACTION';
-            
+
         endswitch;
 
         $this->output();
     }
-    
+
     private function recurrent_action()
     {
         if (!empty($_SESSION['looker_mode']))
@@ -43,22 +43,15 @@ class BestpayAjax extends Ajax
         $amount = (float)str_replace(',', '.', $this->request->get('amount'));
         $contract_id = $this->request->get('contract_id', 'integer');
         $prolongation = $this->request->get('prolongation', 'integer');
-        
-        if (empty($amount))
-        {
+
+        if (empty($amount)) {
             $this->response['error'] = 'EMPTY_AMOUNT';
-        }
-        elseif (empty($card_id))
-        {
+        } elseif (empty($card_id)) {
             $this->response['error'] = 'EMPTY_CARD';
-        }
-        elseif (!($card = $this->cards->get_card($card_id)))
-        {
+        } elseif (!($card = $this->cards->get_card($card_id))) {
             $this->response['error'] = 'UNDEFINED_CARD';
-        }
-        else
-        {
-            $description = "Оплата по договору ".$contract_id;
+        } else {
+            $description = "Оплата по договору " . $contract_id;
             $amount = $amount * 100;
             $response = $this->Bestpay->recurrent_pay($card->id, $amount, $description, $contract_id, $prolongation);
             if (empty($response))
@@ -67,50 +60,49 @@ class BestpayAjax extends Ajax
                 $this->response['success'] = 1;
         }
     }
-    
+
     private function get_payment_link()
     {
         if (!empty($_SESSION['looker_mode']))
             return false;
-        
+
         $amount = (float)str_replace(',', '.', $this->request->get('amount'));
         $contract_id = $this->request->get('contract_id', 'integer');
         $prolongation = $this->request->get('prolongation', 'integer');
+        $insurance = $this->request->get('insurance');
         $sms = $this->request->get('code_sms', 'string');
         $isShort = $this->request->get('is_short', 'string');
-        
+
         $card_id = $this->request->get('card_id', 'integer');
 
-        
-        if (empty($amount))
-        {
+
+        if (empty($amount)) {
             $this->response['error'] = 'EMPTY_AMOUNT';
-        }
-        else
-        {
+        } else {
             $amount = $amount * 100;
-            
+
             if ($isShort) {
-                $this->response['link'] = $this->Bestpay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->_get_payment_link_($amount, $contract_id, $prolongation, $card_id, $sms, $insurance);
             } else {
-                $this->response['link'] = $this->Bestpay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms);
+                $this->response['link'] = $this->Bestpay->get_payment_link($amount, $contract_id, $prolongation, $card_id, $sms, $insurance);
             }
         }
     }
-    
+
     private function attach_card()
     {
         if (!empty($_SESSION['looker_mode']))
             return false;
-        
+
         $user_id = $this->request->get('user_id', 'integer');
-        
+
         if ($user_id != $this->user->id)
             $this->response['error'] = 'Ошибка при привязке';
         else
-        	$this->response['link'] = $this->Bestpay->add_card_enroll($user_id);
+            $this->response['link'] = $this->Bestpay->add_card_enroll($user_id);
     }
-    
+
 }
+
 $ajax = new BestpayAjax();
 $ajax->run();
