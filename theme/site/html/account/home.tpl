@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js"></script>
-    <script src="theme/site/js/lk.app.js?v=1.03"></script>
+    <script src="theme/site/js/lk.app.js?v=1.04"></script>
     <script src="theme/site/js/contract_accept.app.js"></script>
 {/capture}
 
@@ -373,18 +373,10 @@
                             <div class="col-md-6">
                                 <div class="order_reject_icon"></div>
                                 <div class="pt-4 pr-5 pl-5 text-center">
-                                    {*
-                                   <small>{$order->reject_reason}</small>
-                                   *}
                                     <div>
-                                        <a href="https://zaimwagon.online/" target="_blank"
-                                           class="blue-link">
-                                            Получите займ у наших партнёров
-                                            <br/>
-                                            <span class="sc-htoDjs fOeadG"><img class="smart-link-icon"
-                                                                                src="theme/site/i/vsezaimi_logo.svg"
-                                                                                width="20px"/></span>
-                                            <span class="sc-iwsKbI jQhHGA">Лучшие предложения для вас</span>
+                                        По вашей заявку произошёл отказ, но вы можете воспользоваться <a href="https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/"
+                                           target="_blank"
+                                           class="blue-link">данными предложениями
                                         </a>
                                     </div>
                                 </div>

@@ -1,56 +1,54 @@
-;function LkApp()
-{
+;
+
+function LkApp() {
     var app = this;
-    
+
     app.order_updater;
-    
-    var _init = function(){
-        
+
+    var _init = function () {
+
         if ($('.js-check-status').length > 0)
             _run_check_status();
-        
+
     };
-    
-    $('.js-prolongation-form').submit(function(e){
-        
-        if ($(this).find('[name=code]').val() == '')
-        {
+
+    $('.js-prolongation-form').submit(function (e) {
+
+        if ($(this).find('[name=code]').val() == '') {
             e.preventDefault();
-            
+
             var _phone = $(this).find('[name=phone]').val();
-            
+
             new ProlongationSmsApp(_phone, _prolongation_success_callback, {
                 button_name: 'Пролонгация договора',
                 modal: false
             });
         }
     });
-    
-    var _prolongation_success_callback = function(code){
+
+    var _prolongation_success_callback = function (code) {
         $('.js-prolongation-form [name=code]').val(code);
         $('.js-prolongation-form').submit();
     }
-    
-    var _run_check_status = function(){
-        
+
+    var _run_check_status = function () {
+
         var _order_id = $('.js-check-status').data('order');
         var _status = $('.js-check-status').data('status');
-        
-        app.order_updater = setInterval(function(){
+
+        app.order_updater = setInterval(function () {
             $.ajax({
                 url: 'ajax/check_order.php',
                 data: {
                     order_id: _order_id,
                     status: _status
                 },
-                success: function(resp){
-                    if (!!resp.error)
-                    {
+                success: function (resp) {
+                    if (!!resp.error) {
                         clearInterval(app.order_updater);
                         console.error(resp.error);
                     }
-                    else
-                    {
+                    else {
                         if (!!resp.reload)
                             location.reload();
                     }
@@ -58,32 +56,30 @@
             })
         }, 10000);
     };
-    
-    var _init_repeat_order = function(){
-        $('.js-open-repeat-block').click(function(e){
+
+    var _init_repeat_order = function () {
+        $('.js-open-repeat-block').click(function (e) {
             e.preventDefault();
-            
+
             $('.js-new-order-proposition').addClass('hide')
             $('.js-repeat-block').removeClass('hide').fadeIn();
-            
+
         })
-        
-        $('.js-loan-repeat').click(function(e){
+
+        $('.js-loan-repeat').click(function (e) {
             e.preventDefault();
-            
+
             if ($(this).hasClass('loading'))
                 return false;
-            
+
             var agreement = $('.js-loan-repeat-form .js-loan-agreement').is(':checked')
-            
-            if (!agreement)
-            {
+
+            if (!agreement) {
                 $('.js-loan-repeat-form .js-loan-agreement-block').addClass('-error');
             }
-            else
-            {
+            else {
                 $('.js-loan-repeat-form .js-loan-agreement-block').removeClass('-error');
-                
+
                 var date = new Date();
                 var local_time = parseInt(date.getTime() / 1000);
                 $('.js-loan-repeat-form .js-local-time').val(local_time);
@@ -95,24 +91,45 @@
         });
     };
 
-    var _init_agreement_list = function(){
-        $('.js-toggle-agreement-list').click(function(e){
+    var _init_agreement_list = function () {
+        $('.js-toggle-agreement-list').click(function (e) {
             e.preventDefault();
-            
+
             $('#agreement_list').slideToggle()
         })
     }
-        
-    
-    ;(function(){
+
+    var _redirect_to_partner = function () {
+
+        let orderId = $('.new_order_box').attr('data-order');
+
+        $.ajax({
+            url: 'ajax/CheckStatus.php',
+            method: 'POST',
+            data: {
+                orderId: orderId
+            },
+            success: function (status) {
+                if (status == 3 || status == 8) {
+                    setTimeout(function () {
+                        window.location.href = "https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/";
+                    }, 5000);
+                }
+            }
+        });
+    };
+
+
+    ;(function () {
         _init();
-        
+
         _init_repeat_order();
         _init_agreement_list();
+        _redirect_to_partner();
     })();
 };
 
-$(function(){
+$(function () {
     if ($('.js-lk-app').length > 0)
         new LkApp();
 })
