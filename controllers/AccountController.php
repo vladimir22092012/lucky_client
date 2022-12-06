@@ -135,8 +135,12 @@ class AccountController extends Controller
                 $scoring_types = $this->scorings->get_types();
                 foreach ($scoring_types as $scoring_type)
                 {
-                    if ($scoring_type->active && empty($scoring_type->is_paid) && $scoring_type->off_pk == 0)
+                    if ($scoring_type->active && empty($scoring_type->is_paid))
                     {
+                        if(in_array($client_status, ['pk', 'crm']) && $scoring_type->off_pk == 0)
+                            continue;
+
+
                         $add_scoring = array(
                             'user_id' => $this->user->id,
                             'order_id' => $order_id,
