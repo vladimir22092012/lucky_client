@@ -685,7 +685,7 @@
                 var s = document.createElement('script');
                 s.type = 'text/javascript';
                 s.async = true;
-                s.src = "https://score.juicyscore.com/static/js.js";
+                s.src = "https://spb01-static.juicyscore.com/static/js.js";
                 var x = document.getElementsByTagName('head')[0];
                 x.appendChild(s);
             </script>
