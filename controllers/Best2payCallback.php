@@ -243,7 +243,7 @@ class Best2payCallback extends Controller
                                 'order_id' => $contract->order_id,
                                 'contract_id' => $contract->id,
                                 'type' => 'DOP_SOGLASHENIE',
-                                'params' => json_encode($document_params)
+                                'params' => $document_params
                             ));
                         }
 
@@ -557,7 +557,7 @@ class Best2payCallback extends Controller
                                 'order_id' => $contract->order_id,
                                 'contract_id' => $contract->id,
                                 'type' => 'POLIS_STRAHOVANIYA',
-                                'params' => json_encode($document_params)
+                                'params' => $document_params
                             ));
 
                             $this->design->assign('success', 'Оплата прошла успешно.');
