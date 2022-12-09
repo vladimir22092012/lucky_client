@@ -21,7 +21,6 @@
         <td width="150">
             <p>ПОЛНАЯ СТОИМОСТЬ ЗАЙМА:</p>
             <p>{$return_amount_percents} РУБЛЕЙ 00 КОПЕЕК</p>
-            <p>{$return_amount_percents|upper}</p>
         </td>
     </tr>
     </tbody>

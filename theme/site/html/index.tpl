@@ -301,7 +301,7 @@
                     <div class="footer_contacts -fs-14">
                         <a href="tel:88004448234" class="footer_phone -fs-24 -gil-b">8 812 604 28 78</a>
                         <span class="footer_text -gil-m">звонок бесплатный</span>
-                        <a href="mailto:mkk@finfive.ru" class="footer_email -gil-b">mkkbarvil@yandex.ru</a>
+                        <a href="mailto:mkkbarvil@yandex.ru" class="footer_email -gil-b">mkkbarvil@yandex.ru</a>
                         <div class="work_time">
                             <div class="work_time_title -gil-b">Время работы:</div>
                             <div class="work_time_text">понедельник - воскресенье <br>с 9:00 до 21:00</div>
@@ -366,26 +366,22 @@
 {if !$is_developer}
 {literal}
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(78433342, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
+        ym(91563518, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            ecommerce:"dataLayer"
         });
     </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/78433342" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/91563518" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 {/literal}
 {/if}

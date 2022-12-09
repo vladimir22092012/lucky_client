@@ -1,20 +1,19 @@
 <table border="1" width="" cellspacing="1" cellpadding="7" style="font-size:8px;">
     <tbody>
     <tr>
-        <td width="190" height="165">
+        <td width="180" height="165">
             <p align="center">
                 <img src="{$config->root_dir}/theme/site/html/pdf/i/qr-code.png" width="120" height="120">
             </p>
         </td>
-        <td width="190">
+        <td width="180" align="center">
             <p>ПОЛНАЯ СТОИМОСТЬ ЗАЙМА:</p>
-            <p>{$base_percent*365}%</p>
+            <p>{($base_percent*365)|number_format:3:',':''}%</p>
             <p>({($base_percent*365)|upper}) ПРОЦЕНТОВ ГОДОВЫХ</p>
         </td>
-        <td width="150">
+        <td width="180" align="center">
             <p>ПОЛНАЯ СТОИМОСТЬ ЗАЙМА:</p>
-            <p>{$return_amount_percents} РУБЛЕЙ 00 КОПЕЕК</p>
-            <p>{$return_amount_percents|upper}</p>
+            <p>{($return_amount_percents)|number_format:3:',':''} РУБЛЕЙ 00 КОПЕЕК</p>
         </td>
     </tr>
     </tbody>

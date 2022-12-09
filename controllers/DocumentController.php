@@ -56,6 +56,9 @@ class DocumentController extends Controller
 
         if (!empty($document->params)) {
 
+            if(is_string($document->params))
+                $document->params = json_decode($document->params, true);
+
             foreach ($document->params as $param_name => $param_value)
 
                 $this->design->assign($param_name, $param_value);
