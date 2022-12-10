@@ -137,9 +137,8 @@ class AccountController extends Controller
                 {
                     if ($scoring_type->active && empty($scoring_type->is_paid))
                     {
-                        if(in_array($client_status, ['pk', 'crm']) && $scoring_type->off_pk == 0)
+                        if(in_array($client_status, ['pk', 'crm']) && $scoring_type->off_pk == 1)
                             continue;
-
 
                         $add_scoring = array(
                             'user_id' => $this->user->id,
