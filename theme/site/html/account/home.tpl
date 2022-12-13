@@ -4,6 +4,29 @@
     <script src="theme/site/js/calc.app.js"></script>
     <script src="theme/site/js/lk.app.js?v=1.04"></script>
     <script src="theme/site/js/contract_accept.app.js"></script>
+    <script>
+        $(function () {
+
+            $('#service_reason').change(function () {
+                if ($(this).is(':checked'))
+                    $('[name="service_reason"]').val(1);
+                else
+                    $('[name="service_reason"]').val(0);
+            });
+            $('#service_insurance').change(function () {
+                if ($(this).is(':checked'))
+                    $('[name="service_insurance"]').val(1);
+                else
+                    $('[name="service_insurance"]').val(0);
+            });
+            $('#service_sms').change(function () {
+                if ($(this).is(':checked'))
+                    $('[name="service_sms"]').val(1);
+                else
+                    $('[name="service_sms"]').val(0);
+            });
+        })
+    </script>
 {/capture}
 
 {capture name='page_styles'}
@@ -374,9 +397,10 @@
                                 <div class="order_reject_icon"></div>
                                 <div class="pt-4 pr-5 pl-5 text-center">
                                     <div>
-                                        По вашей заявку произошёл отказ, но вы можете воспользоваться <a href="https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/"
-                                           target="_blank"
-                                           class="blue-link">данными предложениями
+                                        По вашей заявку произошёл отказ, но вы можете воспользоваться <a
+                                                href="https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/"
+                                                target="_blank"
+                                                class="blue-link">данными предложениями
                                         </a>
                                     </div>
                                 </div>
