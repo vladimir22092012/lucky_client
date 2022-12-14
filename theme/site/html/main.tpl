@@ -69,7 +69,7 @@
                                 <div class="form_row">
                                     <div class="check mb-0 js-loan-agreement-block">
                                         <input type="checkbox" class="custom-checkbox js-loan-agreement"
-                                               id="check_agreement" name="agreement" value="1" checked="true"/>
+                                               id="check_agreement" name="agreement" value="1"/>
                                         <label for="check_agreement" class="check_box -gil-m">
                                             <span>Я ознакомлен со <a href="#agreement_list"
                                                                      class="green-link js-toggle-agreement-list">следующим</a></span>
