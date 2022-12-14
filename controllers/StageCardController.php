@@ -224,11 +224,19 @@ class StageCardController extends Controller
                 'params' => $params,
             ));
 
-            // согласие на взаимодействие
+            // согласие ОПД
             $this->documents->create_document(array(
                 'user_id' => $this->user->id,
                 'order_id' => 0,
                 'type' => 'SOGLASIE_VZAIMODEYSTVIE',
+                'params' => $params,
+            ));
+
+            // согласие на взаимодействие
+            $this->documents->create_document(array(
+                'user_id' => $this->user->id,
+                'order_id' => 0,
+                'type' => 'TRETI_LICA',
                 'params' => $params,
             ));
 

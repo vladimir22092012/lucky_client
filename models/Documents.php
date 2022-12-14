@@ -10,7 +10,8 @@ class Documents extends Core
         'IND_USLOVIYA' => 'individ_usloviya.tpl',
         'POLIS_STRAHOVANIYA' => 'polis_vidacha.tpl',
         'PDN' => 'pdn.tpl',
-        'DOP_SOGLASHENIE' => 'prolongation.tpl'
+        'DOP_SOGLASHENIE' => 'prolongation.tpl',
+        'TRETI_LICA' => 'soglasie-treh-lic.tpl'
     );
     
     
@@ -22,7 +23,8 @@ class Documents extends Core
         'IND_USLOVIYA' => 'Индивидуальные условия',
         'POLIS_STRAHOVANIYA' => 'Полис страхования',
         'PDN' => 'Уведомление о показателе долговой нагрузки',
-        'DOP_SOGLASHENIE' => 'Дополнительное соглашение о пролонгации займа'
+        'DOP_SOGLASHENIE' => 'Дополнительное соглашение о пролонгации займа',
+        'TRETI_LICA' => 'Согласие на осуществление взаимодействие направленного на возврат задолженности с третьими лицами'
     );
     
     private $client_visible = array(
@@ -33,7 +35,8 @@ class Documents extends Core
         'IND_USLOVIYA' => 1,
         'POLIS_STRAHOVANIYA' => 1,
         'PDN' => 1,
-        'DOP_SOGLASHENIE' => 1
+        'DOP_SOGLASHENIE' => 1,
+        'TRETI_LICA' => 1
     );
     
     

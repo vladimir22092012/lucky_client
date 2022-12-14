@@ -237,11 +237,19 @@ class AccountController extends Controller
                     'params' => $params,
                 ));
 
-                // согласие на взаимодействие
+                // согласие ОПД
                 $this->documents->create_document(array(
                     'user_id' => $this->user->id,
                     'order_id' => $order_id,
                     'type' => 'SOGLASIE_VZAIMODEYSTVIE',
+                    'params' => $params,
+                ));
+
+                // согласие на взаимодействие
+                $this->documents->create_document(array(
+                    'user_id' => $this->user->id,
+                    'order_id' => $order_id,
+                    'type' => 'TRETI_LICA',
                     'params' => $params,
                 ));
 
