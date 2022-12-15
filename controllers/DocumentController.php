@@ -101,12 +101,13 @@ class DocumentController extends Controller
             $regaddress_full = $regaddress->adressfull;
             $this->design->assign('regaddress_full', $regaddress_full);
 
-
             $order = $this->orders->get_order($document->params['number']);
 
             $contract = $this->contracts->get_contract($order->contract_id);
-
             $this->design->assign('contract', $contract);
+
+            $asp = $contract->accept_code;
+            $this->design->assign('asp', $asp);
 
         }
 
