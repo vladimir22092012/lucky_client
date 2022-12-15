@@ -56,7 +56,7 @@ class DocumentController extends Controller
 
         if (!empty($document->params)) {
 
-            if(is_string($document->params))
+            if (is_string($document->params))
                 $document->params = json_decode($document->params, true);
 
             foreach ($document->params as $param_name => $param_value)
@@ -119,11 +119,13 @@ class DocumentController extends Controller
 
         }
 
+        $file_name = $document->template . ' ' . (isset($contract->number)) ? $contract->number : '';
+
 
         $tpl = $this->design->fetch('pdf/' . $document->template);
 
 
-        $this->pdf->create($tpl, $document->name, $document->template);
+        $this->pdf->create($tpl, $document->name, $file_name);
 
 
     }
