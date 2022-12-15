@@ -112,7 +112,7 @@ class Design extends Core
     		default: $rub = 'рублей';
     	}	
     	
-    	return $str . ' ' . $rub . ' ' . $value[1] . ' копеек.';
+    	return $str . ' ' . $rub . ' ' . $value[1] . ' копеек';
     }    
     
     function price_string_short_modifier($value)
