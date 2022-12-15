@@ -119,6 +119,22 @@ function LkApp() {
         });
     };
 
+    var checkAgreementList = function () {
+
+        $('#check_agreement').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('input[type="checkbox"]').each(function () {
+                    $(this).prop('checked', true);
+                });
+            } else {
+                $('input[type="checkbox"]').each(function () {
+                    $(this).prop('checked', false);
+                });
+            }
+
+        });
+    };
+
 
     ;(function () {
         _init();
@@ -126,6 +142,7 @@ function LkApp() {
         _init_repeat_order();
         _init_agreement_list();
         _redirect_to_partner();
+        checkAgreementList();
     })();
 };
 
