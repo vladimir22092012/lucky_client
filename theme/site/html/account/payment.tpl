@@ -106,7 +106,7 @@
                       <span>
                     согласен заключить договор страхования в соответствии
                     <a class="text-success"
-                       href="https://{$config->main_domain}/files/agreement/sertificat.pdf"
+                       href="https://{$config->main_domain}/files/agreement/polis_safe.pdf"
                        target="_blank">с правилами</a>
                     на следующих условиях: страховая премия 25% от суммы полученного займа,
                     срок страхования 14 дней, страховая сумма  100% от суммы займа
