@@ -364,13 +364,70 @@
 <div>
 
 </div>
-<table border="1" cellpadding="7" width="35%">
+<table align="center">
     <tr>
-        <td><p>Подписано с использованием ПЭП</p>
-            <p>{$lastname} {$firstname} {$patronymic}</p>
-            <p>{$contract_date|date}</p>
-            <p>Телефон {$phone}</p>
-            <p>СМС-код: {$asp}</p>
+        <td width="20%"></td>
+        <td width="60%"><strong>АДРЕСА И РЕКВИЗИТЫ СТОРОН</strong></td>
+        <td width="10%"></td>
+    </tr>
+</table>
+<div>
+
+</div>
+<table>
+    <tr>
+        <td width="50%"><u>Кредитор:</u></td>
+        <td width="50%"><u>Заемщик:</u></td>
+    </tr>
+    <tr>
+        <td width="50%"></td>
+        <td width="50%"></td>
+    </tr>
+    <tr>
+        <td width="50%">Общество с ограниченной ответственностью «МИКРОКРЕДИТНАЯ КОМПАНИЯ «БАРВИЛ ХД»</td>
+        <td width="50%">Ф.И.О.: {$lastname|upper} {$firstname|upper} {$patronymic|upper}</td>
+    </tr>
+    <tr>
+        <td width="50%"></td>
+        <td width="50%"></td>
+    </tr>
+    <tr>
+        <td width="50%">Юридический адрес: 198332, город Санкт-Петербург, Ленинский пр-кт, д. 80 к. 1 литера А, кв.
+            188
         </td>
+        <td width="50%">Паспорт гражданина РФ: {$passport_number}-{$passport_serial} выдан {$passport_issued}</td>
+    </tr>
+    <tr>
+        <td width="50%"></td>
+        <td width="50%"></td>
+    </tr>
+    <tr>
+        <td width="50%">ОГРН: 1167847454642; ИНН/КПП 7801323165 / 780701001;
+            р/с 40701810200070000015
+        </td>
+        <td width="50%">Код подразделения: {$subdivision_code}</td>
+    </tr>
+    <tr>
+        <td width="50%"></td>
+        <td width="50%"></td>
+    </tr>
+    <tr>
+        <td width="50%">в АО «МИнБанк»;<br>к/с 30101810300000000600;<br>БИК 044525600<br>Свидетельство МФО:
+            1703140008262 от 15.05.2017<br>Сайт: https://mkk-barvil.ru<br>E-mail: mkkbarvil@yandex.ru<br>Телефон: +7
+            812- 604-28-78
+        </td>
+        <td width="50%">Адрес регистрации: {$regaddress_full}<br>Телефон: {$phone_mobile}
+        </td>
+    </tr>
+</table>
+<div>
+
+</div>
+<table style="width: 100%">
+    <tr>
+        <td width="25%">Подпись___________________</td>
+        <td width="30%">Дата {$contract->issuance_date|date}</td>
+        <td width="45%">Подписано с использованием ПЭП<br>{$lastname} {$firstname} {$patronymic}
+            <br>Дата: {$contract->issuance_date|date}<br>Телефон: {$phone_mobile}<br>СМС-код: {$asp}</td>
     </tr>
 </table>
