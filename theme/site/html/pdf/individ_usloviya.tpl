@@ -428,6 +428,6 @@
         <td width="25%">Подпись___________________</td>
         <td width="30%">Дата {$contract->issuance_date|date}</td>
         <td width="45%">Подписано с использованием ПЭП<br>{$lastname} {$firstname} {$patronymic}
-            <br>Дата: {$contract->issuance_date|date}<br>Телефон: {$phone_mobile}<br>СМС-код: {$asp}</td>
+            <br>Дата: {$contract->issuance_date|date}<br>Телефон: {$phone}<br>СМС-код: {$asp}</td>
     </tr>
 </table>
