@@ -34,44 +34,35 @@ class IndexController extends Controller
         $this->design->assign('content', $content);
         $this->design->assign('module', $module);
 
+        $utm_source = $this->request->get('utm_source');
+        $utm_medium = $this->request->get('utm_medium');
+        $utm_campaign = $this->request->get('utm_campaign');
+        $utm_content = $this->request->get('utm_content');
+        $utm_term = $this->request->get('utm_term');
         $cookie_inspiration = 60 * 60 * 24 * 30;
+        $webmaster_id = $this->request->get('wmid');
+        $click_hash   = $this->request->get('clickid');
 
-        $integrations = $this->Integrations->get_integrations();
-
-        foreach ($integrations as $integration){
-            $utm_source = $this->request->get($integration->utm_source_name);
-        }
-
-        if (!empty($utm_source)) {
-
-            $webmaster_id = $this->request->get('wm_id');
-            $click_hash = $this->request->get('clickid');
+        if (!isset($_COOKIE['wm_id']))
             setcookie("wm_id", $webmaster_id, time() + $cookie_inspiration, '/', $this->config->main_domain);
+
+        if (!isset($_COOKIE['clickid']))
             setcookie("clickid", $click_hash, time() + $cookie_inspiration, '/', $this->config->main_domain);
 
-            $integration = $this->Integrations->get_integration(array('source' => $utm_source));
-
-            if(!empty($integration)){
-                $utm_medium = $this->request->get($integration->utm_medium_name);
-                $utm_campaign = $this->request->get($integration->utm_campaign_name);
-                $utm_term = $this->request->get($integration->utm_term_name);
-                $utm_content = $this->request->get($integration->utm_content_name);
-            }
-
+        if (!isset($_COOKIE['utm_source']))
             setcookie("utm_source", trim($utm_source), time() + $cookie_inspiration, '/', $this->config->main_domain);
 
-            if (!empty($utm_medium))
-                setcookie("utm_medium", trim($utm_medium), time() + $cookie_inspiration, '/', $this->config->main_domain);
+        if (!isset($_COOKIE['utm_medium']))
+            setcookie("utm_medium", trim($utm_medium), time() + $cookie_inspiration, '/', $this->config->main_domain);
 
-            if (!empty($utm_campaign))
-                setcookie("utm_campaign", trim($utm_campaign), time() + $cookie_inspiration, '/', $this->config->main_domain);
+        if (!isset($_COOKIE['utm_term']))
+            setcookie("utm_term", trim($utm_term), time() + $cookie_inspiration, '/', $this->config->main_domain);
 
-            if (!empty($utm_term))
-                setcookie("utm_term", trim($utm_term), time() + $cookie_inspiration, '/', $this->config->main_domain);
+        if (!isset($_COOKIE['utm_content']))
+            setcookie("utm_content", trim($utm_content), time() + $cookie_inspiration, '/', $this->config->main_domain);
 
-            if (!empty($utm_content))
-                setcookie("utm_content", trim($utm_content), time() + $cookie_inspiration, '/', $this->config->main_domain);
-        }
+        if (!isset($_COOKIE['utm_campaign']))
+            setcookie("utm_campaign", trim($utm_campaign), time() + $cookie_inspiration, '/', $this->config->main_domain);
 
         $wrapper = $this->design->get_var('wrapper');
         if (isset($this->user->contract->status) && !in_array($this->user->contract->status, [3,6]) && $this->user->contract->sold) // цессия

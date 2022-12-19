@@ -60,11 +60,11 @@ class StageCardController extends Controller
             );
 
 
-            $order['utm_source']   = (isset($_COOKIE['utm_source'])    && $_COOKIE['utm_source'] != '')   ? $_COOKIE["utm_source"]   : 'organic';
-            $order['utm_medium']   = (isset($_COOKIE['utm_medium'])    && $_COOKIE['utm_medium'] != '')   ? $_COOKIE["utm_medium"]   : ' ';
-            $order['utm_campaign'] = (isset($_COOKIE['utm_campaign'])  && $_COOKIE['utm_campaign'] != '') ? $_COOKIE["utm_campaign"] : ' ';
-            $order['utm_content']  = (isset($_COOKIE['utm_content'])   && $_COOKIE['utm_content'] != '')  ? $_COOKIE["utm_content"]  : ' ';
-            $order['utm_term']     = (isset($_COOKIE['utm_term'])      && $_COOKIE['utm_term'] != '')     ? $_COOKIE["utm_term"]     : ' ';
+            $order['utm_source']   = (isset($_COOKIE['utm_source']))   ? $_COOKIE["utm_source"]   : null;
+            $order['utm_medium']   = (isset($_COOKIE['utm_medium']))   ? $_COOKIE["utm_medium"]   : null;
+            $order['utm_campaign'] = (isset($_COOKIE['utm_campaign'])) ? $_COOKIE["utm_campaign"] : null;
+            $order['utm_content']  = (isset($_COOKIE['utm_content']))  ? $_COOKIE["utm_content"]  : null;
+            $order['utm_term']     = (isset($_COOKIE['utm_term']))     ? $_COOKIE["utm_term"]     : null;
 
 
             if (isset($_COOKIE['wm_id']))
