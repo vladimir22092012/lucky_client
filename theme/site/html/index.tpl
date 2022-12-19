@@ -127,11 +127,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="page/documents">Документы</a>
                                 </li>
-                                {*}
-                                <li class="nav-item">
-                                  <a class="nav-link" href="page/about">О компании</a>
-                                </li>
-                                {*}
                             </ul>
                         </nav>
                     </div>
@@ -181,11 +176,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/#how_repay">Как погасить</a>
                             </li>
-                            {*}
-                            <li class="nav-item">
-                                <a class="nav-link" href="page/about">О компании</a>
-                            </li>
-                            {*}
                         </ul>
                     {else}
                         <ul class="nav header_menu_nav -gil-m">
@@ -244,9 +234,6 @@
                                 <span class="line"></span>
                             </button>
                             <ul class="nav footer_menu_nav -gil-m -fs-16">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="page/about">О компании</a>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/#how_get">Как получить</a>
                                 </li>
