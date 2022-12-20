@@ -251,7 +251,7 @@
                             <span class="repay_text -fs-26 -com-sb">Банковской картой</span>
                             <a href="javascript:void(0);" class="repay_item_link -fs-16"
                                onclick="$(this).hide();$('#bank_card_info').fadeIn();return false;"><u>Ссылка для погашения кредита</u></a>
-                            <div style="display:none" id="bank_card_info">Просто перейдите в личный кабинет и
+                            <div style="display:none" id="bank_card_info">Просто перейдите в <a href="/lk" style="text-decoration: none; color: #6601a1;">личный кабинет</a> и
                                 оплатите займ банковской картой.
                             </div>
                         </div>
