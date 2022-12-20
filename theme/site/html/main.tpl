@@ -240,10 +240,7 @@
                     <div class="repay_item" style="background: url(theme/site/i/paiitem01.png) no-repeat; background-size: 100%">
                         <div class="repay_item_text">
                             <span class="repay_text -fs-26 -com-sb">В любом отделении банка</span>
-                            <a href="javascript:void(0);" class="repay_item_link -fs-16"
-                               onclick="$(this).hide();$('#bank_pay_info').fadeIn();return false;"><u>Ссылка для погашения кредита</u></a>
-                            <div id="bank_pay_info" style="display:none">Оплатить заём можно в любом банке России
-                            </div>
+                            <a href="/files/about/requisites.pdf" target="_blank" class="repay_item_link -fs-16"><u>Ссылка для погашения кредита</u></a>
                         </div>
                     </div>
                     <div class="repay_item" style="background: url(theme/site/i/paiitem02.png) no-repeat; background-size: 100%">
