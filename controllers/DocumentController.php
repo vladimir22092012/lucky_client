@@ -59,9 +59,9 @@ class DocumentController extends Controller
             if (is_string($document->params))
                 $document->params = json_decode($document->params, true);
 
-            foreach ($document->params as $param_name => $param_value)
-
+            foreach ($document->params as $param_name => $param_value) {
                 $this->design->assign($param_name, $param_value);
+            }
 
 
             $cards = $this->cards->get_cards($document->user_id);
@@ -106,9 +106,10 @@ class DocumentController extends Controller
             $contract = $this->contracts->get_contract($order->contract_id);
             $this->design->assign('contract', $contract);
 
-            $asp = $contract->accept_code;
-            $this->design->assign('asp', $asp);
-
+            if (!empty($contract->accept_code)) {
+                $asp = $contract->accept_code;
+                $this->design->assign('asp', $asp);
+            }
         }
 
 
