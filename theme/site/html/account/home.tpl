@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js"></script>
-    <script src="theme/site/js/lk.app.js?v=1.06"></script>
+    <script src="theme/site/js/lk.app.js?v=1.07"></script>
     <script src="theme/site/js/contract_accept.app.js"></script>
     <script>
         $(function () {
@@ -371,6 +371,7 @@
                 {* отказ *}
                 {if $order->status == 3 || $order->status == 8}
                     <div class="new_order_box " data-status="3" data-order="{$order->order_id}">
+                        <input type="hidden" name="rejectBlock" value="{$reject_block}">
                         <div class="row">
                             <div class="col-12">
                                 <div class="-fs-32 -gil-b -red text-center pb-3">Вам отказано в кредите</div>
@@ -499,7 +500,7 @@
                                                 <div class="col-md-4 col-12">
                                                     <input type="text" readonly="" style="background-color: #fbfbfb;"
                                                            class="form-control text-right" name="amount"
-                                                           value="{1 * $prolongation_amount}"
+                                                           value="{$prolongation_amount}"
                                                            min="{$prolongation_amount}"/>
                                                 </div>
                                                 <div class="col-md-6 col-12 pt-1">
