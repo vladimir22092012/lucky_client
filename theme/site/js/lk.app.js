@@ -102,21 +102,24 @@ function LkApp() {
     var _redirect_to_partner = function () {
 
         let orderId = $('.new_order_box').attr('data-order');
+        let rejectBlock = $('input[name="rejectBlock"]').val();
 
-        $.ajax({
-            url: 'ajax/CheckStatus.php',
-            method: 'POST',
-            data: {
-                orderId: orderId
-            },
-            success: function (status) {
-                if (status == 3 || status == 8) {
-                    setTimeout(function () {
-                        window.location.href = "https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/";
-                    }, 5000);
+        if (rejectBlock) {
+            $.ajax({
+                url: 'ajax/CheckStatus.php',
+                method: 'POST',
+                data: {
+                    orderId: orderId
+                },
+                success: function (status) {
+                    if (status == 3 || status == 8) {
+                        setTimeout(function () {
+                            window.location.href = "https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/";
+                        }, 5000);
+                    }
                 }
-            }
-        });
+            });
+        }
     };
 
     var checkAgreementList = function () {
