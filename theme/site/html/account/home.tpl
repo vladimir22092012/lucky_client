@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js"></script>
-    <script src="theme/site/js/lk.app.js?v=1.05"></script>
+    <script src="theme/site/js/lk.app.js?v=1.06"></script>
     <script src="theme/site/js/contract_accept.app.js"></script>
     <script>
         $(function () {
@@ -398,7 +398,7 @@
                                 <div class="pt-4 pr-5 pl-5 text-center">
                                     <div>
                                         По вашей заявку произошёл отказ, но вы можете воспользоваться <a
-                                                href="https://zaymvdom.ru/partners/o7r0n5qsQXIgSdzPfPpr7xvmQt9gtaCs8EQ1qh2wt3lasvkKSikfWTmnAldOPmjLeI2pPXrpjtUszTHfjO97EvtPl3ofXo98Jh9yWE36gpKkZDAbSwxxLnL0detLXBf4/"
+                                                href="https://zaimwagon.online"
                                                 target="_blank"
                                                 class="blue-link">данными предложениями
                                         </a>
