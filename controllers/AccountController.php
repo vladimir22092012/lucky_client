@@ -131,6 +131,9 @@ class AccountController extends Controller
 
                 $order_id = $this->orders->add_order($order);
 
+                if($order['utm_source'] =='adspire_test')
+                    $this->AdSpireLead->sendPendingPostback($order_id);
+
                 // добавляем задание для проведения активных скорингов
                 $scoring_types = $this->scorings->get_types();
                 foreach ($scoring_types as $scoring_type)

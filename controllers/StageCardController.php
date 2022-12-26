@@ -84,6 +84,9 @@ class StageCardController extends Controller
                 'card_added_date' => date('Y-m-d H:i:s'),
             ));
 
+            if($order['utm_source'] =='adspire_test')
+                $this->AdSpireLead->sendPendingPostback($order_id);
+
             // добавляем задание для проведения активных скорингов
             $scoring_types = $this->scorings->get_types();
             foreach ($scoring_types as $scoring_type) {
@@ -106,35 +109,6 @@ class StageCardController extends Controller
                 setcookie("bankiru_id_1c",$resp->aid);
                 $this->orders->update_order($order_id, array('id_1c' => $resp->aid));
                 $this->users->update_user($this->user->id, array('UID' => $resp->UID));
-
-
-                if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'leadcraft' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                    try {
-                        $this->leadgens->send_pending_postback($_COOKIE['clickid'], $resp->aid, $order_id);
-                        $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                    } catch (\Throwable $th) {
-                        //throw $th;
-                    }
-                }
-
-                if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'bankiru' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                    try {
-                        $this->leadgens->send_pending_postback_bankiru($order);
-                        $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                    } catch (\Throwable $th) {
-                        //throw $th;
-                    }
-                }
-
-                if (!empty($_COOKIE['utm_source']) && $_COOKIE['utm_source'] == 'click2money' && $resp->aid && !empty($_COOKIE['clickid'])) {
-                    try {
-                        $this->leadgens->send_pending_postback_click2money($order);
-                        $this->orders->update_order($order_id, array('leadcraft_postback_date' => date('Y-m-d H:i'), 'leadcraft_postback_type' => 'pending'));
-                    } catch (\Throwable $th) {
-                        //throw $th;
-                    }
-                }
-
             }
 
 
