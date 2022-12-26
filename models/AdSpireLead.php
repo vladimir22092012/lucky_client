@@ -34,7 +34,7 @@ class AdSpireLead extends Core
 
         $log =
             [
-                'className' => self::class,
+                'className' => 'AdSpire',
                 'log' => $res,
                 'params' => $link
             ];
