@@ -142,7 +142,7 @@
                                 {/if}
                             </div>
                             <div class="header_contacts">
-                                <a href="tel:88004448234" class="header_phone -gil-b -fs-24">8 812 604 28 78</a>
+                                <a href="tel:88126042878" class="header_phone -gil-b -fs-24">8 812 604 28 78</a>
                                 <span class="info -fs-14">звонок бесплатный</span>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
             <a href="/" class="logo"><img src="theme/site/i/cropped-logo__poster_.png" alt=""></a>
         </div>
         <div class="mobheader-phone">
-            <a href="tel:88004448234" class="">8 812 604 28 78</a>
+            <a href="tel:88126042878" class="">8 812 604 28 78</a>
             <span class="">звонок бесплатный</span>
         </div>
         <div class="mobheader-menu">
