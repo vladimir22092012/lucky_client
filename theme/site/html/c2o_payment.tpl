@@ -70,7 +70,7 @@
       </h1>
       
       
-        {$total_summ = $contract->loan_body_summ+$contract->loan_percents_summ+$contract->loan_peni_summ+$contract->loan_charge_summ}
+        {$total_summ = $contract->loan_body_summ + ($contract->loan_body_summ * 0.01)}
         
         {if $total_summ > 0}
             <h3 class="text-center -red">
