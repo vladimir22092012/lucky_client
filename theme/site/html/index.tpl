@@ -288,7 +288,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 footer-col-contacts">
                     <div class="footer_contacts -fs-14">
-                        <a href="tel:88004448234" class="footer_phone -fs-24 -gil-b">8 812 604 28 78</a>
+                        <a href="tel:88126042878" class="footer_phone -fs-24 -gil-b">8 812 604 28 78</a>
                         <span class="footer_text -gil-m">звонок бесплатный</span>
                         <a href="mailto:mkkbarvil@yandex.ru" class="footer_email -gil-b">mkkbarvil@yandex.ru</a>
                         <div class="work_time">
