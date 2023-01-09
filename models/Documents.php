@@ -11,7 +11,13 @@ class Documents extends Core
         'POLIS_STRAHOVANIYA' => 'polis_vidacha.tpl',
         'PDN' => 'pdn.tpl',
         'DOP_SOGLASHENIE' => 'prolongation.tpl',
-        'TRETI_LICA' => 'soglasie-treh-lic.tpl'
+        'TRETI_LICA' => 'soglasie-treh-lic.tpl',
+
+        'PRETRIAL_CLAIM' => 'pretrial_claim.tpl',
+        'NOTIFICATION_OF_DELAY_TO_THE_CLIENT' => 'notification_of_delay_to_the_client.tpl',
+        'CERTIFICATE_OF_ABSENCE_OF_DEBT' => 'certificate_of_absence_of_debt.tpl',
+        'REFUSAL_TO_TERMINATE_THE_CONTRACT' => 'refusal_to_terminate_the_contract.tpl',
+        'REFUSAL_TO_PROCESS_PERSONAL_DATA' => 'refusal_processing_of_personal_data.tpl'
     );
     
     
@@ -24,7 +30,13 @@ class Documents extends Core
         'POLIS_STRAHOVANIYA' => 'Полис страхования',
         'PDN' => 'Уведомление о показателе долговой нагрузки',
         'DOP_SOGLASHENIE' => 'Дополнительное соглашение о пролонгации займа',
-        'TRETI_LICA' => 'Согласие на осуществление взаимодействие направленного на возврат задолженности с третьими лицами'
+        'TRETI_LICA' => 'Согласие на осуществление взаимодействие направленного на возврат задолженности с третьими лицами',
+
+        'PRETRIAL_CLAIM' => 'Досудебная притензия',
+        'NOTIFICATION_OF_DELAY_TO_THE_CLIENT' => 'Уведомление о просрочке клиенту',
+        'CERTIFICATE_OF_ABSENCE_OF_DEBT' => 'Справка об отсутствии задолженности',
+        'REFUSAL_TO_TERMINATE_THE_CONTRACT' => 'Отказ расторжения договора',
+        'REFUSAL_TO_PROCESS_PERSONAL_DATA' => 'Отказ обработки персональных данных'
     );
     
     private $client_visible = array(
@@ -36,7 +48,13 @@ class Documents extends Core
         'POLIS_STRAHOVANIYA' => 1,
         'PDN' => 1,
         'DOP_SOGLASHENIE' => 1,
-        'TRETI_LICA' => 1
+        'TRETI_LICA' => 1,
+
+        'PRETRIAL_CLAIM' => 1,
+        'NOTIFICATION_OF_DELAY_TO_THE_CLIENT' => 1,
+        'CERTIFICATE_OF_ABSENCE_OF_DEBT' => 1,
+        'REFUSAL_TO_TERMINATE_THE_CONTRACT' => 1,
+        'REFUSAL_TO_PROCESS_PERSONAL_DATA' => 1
     );
     
     
