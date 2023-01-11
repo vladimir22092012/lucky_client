@@ -115,11 +115,8 @@ class AccountController extends Controller
                 $order['utm_content']  = (isset($_COOKIE['utm_content']))  ? $_COOKIE["utm_content"]  : null;
                 $order['utm_term']     = (isset($_COOKIE['utm_term']))     ? $_COOKIE["utm_term"]     : null;
 
-                if (isset($_COOKIE['wm_id']))
-                    $order['webmaster_id'] = $_COOKIE["wm_id"];
-
-                if (isset($_COOKIE['clickid']))
-                    $order['click_hash'] = $_COOKIE["clickid"];
+                if (isset($_COOKIE['click_id']))
+                    $order['click_hash'] = $_COOKIE["click_id"];
 
                 // сохраняем историю займов из 1с
                 //$credits_history = $this->soap1c->get_client_credits($this->user->UID);
@@ -130,9 +127,6 @@ class AccountController extends Controller
                 $order['autoretry'] = 1;
 
                 $order_id = $this->orders->add_order($order);
-
-                if($order['utm_source'] =='adspire_test')
-                    $this->AdSpireLead->sendPendingPostback($order_id);
 
                 // добавляем задание для проведения активных скорингов
                 $scoring_types = $this->scorings->get_types();
@@ -271,6 +265,9 @@ class AccountController extends Controller
                     'type' => 'PDN',
                     'params' => $params,
                 ));
+
+                if($order['utm_source'] =='guruleads')
+                    $this->Gurulead->sendPendingPostback($order_id);
 
                 header('Location: /account');
                 exit;
