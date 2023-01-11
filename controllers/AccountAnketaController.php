@@ -12,9 +12,7 @@ class AccountAnketaController extends Controller
 
         if ($this->request->method('post'))
         {
-
             $update = array();
-
             if ($lastname = $this->request->post('lastname'))
                 $update['lastname'] = $lastname;
             if ($firstname = $this->request->post('firstname'))
