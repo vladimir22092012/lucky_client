@@ -72,6 +72,10 @@ class StageCardController extends Controller
             $order['autoretry'] = 1;
             
             $order_id = $this->orders->add_order($order);
+
+            if($order['utm_source'] =='guruleads')
+                $this->Gurulead->sendPendingPostback($order_id);
+
 //            70093bcc-3a3f-11eb-9983-00155d2d0507
             $uid = 'a0' . $order_id . '-' . date('Y') . '-' . date('md') . '-' . date('Hi') . '-01771ca07de7';
             $this->users->update_user($this->user->id, array(
@@ -222,9 +226,6 @@ class StageCardController extends Controller
                 'type' => 'PDN',
                 'params' => $params,
             ));
-
-            if($order['utm_source'] =='guruleads')
-                $this->Gurulead->sendPendingPostback($order_id);
 
             header('Location: /account');
             exit;

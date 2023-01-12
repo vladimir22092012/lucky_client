@@ -128,6 +128,9 @@ class AccountController extends Controller
 
                 $order_id = $this->orders->add_order($order);
 
+                if($order['utm_source'] =='guruleads')
+                    $this->Gurulead->sendPendingPostback($order_id);
+
                 // добавляем задание для проведения активных скорингов
                 $scoring_types = $this->scorings->get_types();
                 foreach ($scoring_types as $scoring_type)
@@ -265,9 +268,6 @@ class AccountController extends Controller
                     'type' => 'PDN',
                     'params' => $params,
                 ));
-
-                if($order['utm_source'] =='guruleads')
-                    $this->Gurulead->sendPendingPostback($order_id);
 
                 header('Location: /account');
                 exit;
