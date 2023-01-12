@@ -5,7 +5,7 @@ class Gurulead extends Core
     public function sendPendingPostback($orderId)
     {
         $order = $this->orders->get_order($orderId);
-        $click_id = $order['click_hash'];
+        $click_id = $order->click_hash;
         $goal = 'loan';
         $status = 2;
 
