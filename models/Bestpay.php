@@ -76,6 +76,7 @@ class Bestpay extends Core
             'amount' => $amount,
             'sector' => $sector,
             'register_id' => $b2p_order_id,
+            'body' => $data,
             'reference' => $user_id,
             'description' => $description,
             'created' => date('Y-m-d H:i:s'),
