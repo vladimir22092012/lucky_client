@@ -210,7 +210,7 @@ class Best2payCallback extends Controller
                         }
 
 
-                        $this->operations->add_operation(array(
+                        $operation_id = $this->operations->add_operation(array(
                             'contract_id' => $contract->id,
                             'user_id' => $contract->user_id,
                             'order_id' => $contract->order_id,
@@ -222,6 +222,19 @@ class Best2payCallback extends Controller
                             'loan_percents_summ' => $contract_loan_percents_summ,
                             'loan_peni_summ' => $contract_loan_peni_summ,
                         ));
+
+                        //Отправляем платежку в 1с
+                        $payment =
+                            [
+                                'id' => $operation_id,
+                                'order_id' => $contract->order_id,
+                                'prolongation' => $transaction->prolongation,
+                                'od' => empty($transaction_loan_body_summ) ? 0 : $transaction_loan_body_summ,
+                                'prc' => empty($transaction_loan_percents_summ) ? 0 : $transaction_loan_percents_summ,
+                                'peni' => empty($transaction_loan_peni_summ) ? 0 : $transaction_loan_peni_summ
+                            ];
+
+                        $this->Soap1c->send_payment($payment);
 
 
                         $meta_title = 'Оплата прошла успешно';
