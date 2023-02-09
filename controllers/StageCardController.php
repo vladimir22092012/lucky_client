@@ -100,15 +100,6 @@ class StageCardController extends Controller
             }
 
 
-            // отправляем заявку в 1с
-            $order = $this->orders->get_order((int)$order_id);
-            if ($resp = $this->soap1c->send_order($order)) {
-                setcookie("bankiru_id_1c",$resp->aid);
-                $this->orders->update_order($order_id, array('id_1c' => $resp->aid));
-                $this->users->update_user($this->user->id, array('UID' => $resp->UID));
-            }
-
-
             /** ******** создаем доки ********* **/
             list($passport_number, $passport_serial) = explode('-', $this->user->passport_serial);
             $params = array(

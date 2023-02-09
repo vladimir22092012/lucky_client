@@ -17,26 +17,29 @@ class Soap1c extends Core
         $item->ID = $payment->id;
         $item->Дата = date('YmdHis');
         $item->ЗаймID = $payment->order_id;
-        $item->Пролонгация = $payment->prolongation;
+        $item->Пролонгация = !empty($payment->prolongation) ? 1 : 0;
 
         if($payment->prolongation == 1)
             $item->СрокПролонгации = '30';
+        else
+            $item->СрокПролонгации = 0;
 
-        $item->Закрытие = $payment->closed;
+        $item->Закрытие = !empty($payment->closed) ? 1 : 0;
         $item->ИдентификаторФормыОплаты = 'ТретьеЛицо';
 
-        $operation = new StdClass();
-        $operation->ОсновнойДолг = $payment->od;
-        $operation->Проценты     = $payment->prc;
-        $operation->Пени         = $payment->peni;
+        $operation = [];
+        $operation[] = ['ИдентификаторВидаНачисления' => 'ОсновнойДолг', 'Сумма' => $payment->od];
+        $operation[] = ['ИдентификаторВидаНачисления' => 'Проценты', 'Сумма' => $payment->prc];
+        $operation[] = ['ИдентификаторВидаНачисления' => 'Пени', 'Сумма' => $payment->peni];
 
         $item->Оплаты = $operation;
 
         $request = new StdClass();
-        $request->TextJSON = json_encode($item);
+        $request->TextJSON = json_encode($item, JSON_UNESCAPED_UNICODE);
+
         $result = $this->send_request('CRM_WebService', 'Payments', $request);
 
-        if (isset($result->return) && $result->return == 'OK')
+        if (isset($result['return']) && $result['return'] == 'OK')
             return 1;
         else
             return 2;
@@ -71,6 +74,6 @@ class Soap1c extends Core
 
         $this->OnecLogs->add($insert);
 
-        return $response;
+        return json_decode($response, JSON_UNESCAPED_UNICODE);
     }
 }

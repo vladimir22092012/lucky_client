@@ -43,10 +43,10 @@ class Best2payCallback extends Controller
 
         if (!empty($register_id)) {
             if ($transaction = $this->transactions->get_register_id_transaction($register_id)) {
-                if ($transaction_operation = $this->operations->get_transaction_operation($transaction->id)) {
-                    $meta_title = 'Оплата уже принята';
-                    $this->design->assign('error', 'Оплата уже принята.');
-                } else {
+                //if ($transaction_operation = $this->operations->get_transaction_operation($transaction->id)) {
+                    //$meta_title = 'Оплата уже принята';
+                    //$this->design->assign('error', 'Оплата уже принята.');
+                //} else {
                     if (empty($operation)) {
                         $register_info = $this->Bestpay->get_register_info($transaction->sector, $register_id);
                         $xml = simplexml_load_string($register_info);
@@ -234,7 +234,7 @@ class Best2payCallback extends Controller
                                 'peni' => empty($transaction_loan_peni_summ) ? 0 : $transaction_loan_peni_summ
                             ];
 
-                        $this->Soap1c->send_payment($payment);
+                        $this->Soap1c->send_payment((object)$payment);
 
 
                         $meta_title = 'Оплата прошла успешно';
@@ -274,7 +274,7 @@ class Best2payCallback extends Controller
                     ));
 
 
-                }
+               // }
             }
         } else {
             $this->design->assign('error', 'Ошибка: Транзакция не найдена');
