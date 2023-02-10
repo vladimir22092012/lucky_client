@@ -1,7 +1,4 @@
 {$location = '/account'}
-{if !empty($cardId)}
-    {$location = "/account/docs?card_id=$cardId"}
-{/if}
 
 {capture name='page_scripts'}
 
