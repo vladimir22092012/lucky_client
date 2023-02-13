@@ -78,11 +78,52 @@ class StageAddressController extends Controller
 
             $error = null;
 
+            $errorMessages =
+                [
+                    'zip' => 'Отсутствует индекс',
+                    'region' => 'Отсутствует регион',
+                    'city' => 'Отсутствует город',
+                    'district' => 'Отсутствует район',
+                    'locality' => 'Отсутствует местонахождение',
+                    'street' => 'Отсутствует улица',
+                    'house' => 'Отсутствует дом'
+                ];
+
+            if(empty($regaddress['zip']))
+                $error = $errorMessages['zip'].' у адреса регистрации';
+
+            if(empty($regaddress['region']))
+                $error = $errorMessages['region'].' у адреса регистрации';
+
+            if(empty($regaddress['region']) && empty($regaddress['district']) && empty($regaddress['locality']))
+                $error = $errorMessages['locality'].' у адреса регистрации';
+
+            if(empty($regaddress['street']))
+                $error = $errorMessages['street'].' у адреса регистрации';
+
+            if(empty($regaddress['house']))
+                $error = $errorMessages['house'].' у адреса регистрации';
+
+            if(empty($faktaddress['zip']))
+                $error = $errorMessages['zip'].' у адреса проживания';
+
+            if(empty($faktaddress['region']))
+                $error = $errorMessages['region'].' у адреса проживания';
+
+            if(empty($faktaddress['region']) && empty($faktaddress['district']) && empty($faktaddress['locality']))
+                $error = $errorMessages['locality'].' у адреса проживания';
+
+            if(empty($faktaddress['street']))
+                $error = $errorMessages['street'].' у адреса проживания';
+
+            if(empty($faktaddress['house']))
+                $error = $errorMessages['house'].' у адреса проживания';
+
             if (empty($regaddress['adressfull'])) {
                 $error = 'Не заполнен адрес прописки';
             }
 
-            if(empty($faktaddress['adressfull']))
+            if (empty($faktaddress['adressfull']))
                 $error = 'Не заполнен адрес проживания';
 
             $this->design->assign('error', $error);
