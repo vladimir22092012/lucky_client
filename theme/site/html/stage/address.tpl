@@ -15,8 +15,9 @@
                 minChars: 3,
                 /* Вызывается, когда пользователь выбирает одну из подсказок */
                 onSelect: function (suggestion) {
-                    $(this).val(suggestion.value);
+                    $('input[name="Regadressfull"]').val(suggestion.value);
                     $('.Registration').val(JSON.stringify(suggestion));
+                    $(this).val('');
                 }
             });
 
@@ -26,8 +27,9 @@
                 minChars: 3,
                 /* Вызывается, когда пользователь выбирает одну из подсказок */
                 onSelect: function (suggestion) {
-                    $(this).val(suggestion.value);
+                    $('input[name="Faktadressfull"]').val(suggestion.value);
                     $('.Fakt_adress').val(JSON.stringify(suggestion));
+                    $(this).val('');
                 }
             });
         });
@@ -85,16 +87,19 @@
                             <div class="step_box step3">
                                 <div class="form_group -fs-18 js-dadata-address">
                                     <div class="form_group-title -gil-m">Адрес регистрации</div>
-                                    <input class="form-control casing-upper-mask Regadress" name="Regadressfull"
-                                           style="width: 700px; margin-left: 25px" type="text" placeholder="Регистрация"
-                                           {if !empty($Regaddressfull)}value="{$Regaddressfull}"{/if}/>
+                                    <input class="form-control casing-upper-mask Regadress"
+                                           style="width: 700px; margin-left: 25px" placeholder="Поиск">
+                                    <br>
+                                    <input class="form-control casing-upper-mask" name="Regadressfull"
+                                           style="width: 700px; margin-left: 25px" type="text"
+                                           {if !empty($Regaddressfull)}value="{$Regaddressfull->adressfull}"{/if} readonly/>
                                     <input style="display: none" class="Registration" name="Regadress"/>
                                 </div>
                                 <div class="form_group -fs-18 js-dadata-address js-dadata-okato">
                                     <div class="form_group-title -gil-m">Адрес места жительства</div>
                                     <div class="form_row">
                                         <div class="check">
-                                            <input type="checkbox" class="custom-checkbox" placeholder="Проживание" id="clone_address"
+                                            <input type="checkbox" class="custom-checkbox" id="clone_address"
                                                    name="clone_address" value="1" {if $equal_addresses}checked{/if} />
                                             <label for="clone_address" class="check_box check_box_black -gil-m">
                                                 Совпадает с адресом места жительства
@@ -103,11 +108,13 @@
                                     </div>
                                     <div class="js-regaddress-block">
                                         <input class="form-control casing-upper-mask Faktaddress"
+                                               style="width: 700px; margin-left: 25px" placeholder="Поиск">
+                                        <br>
+                                        <input class="form-control casing-upper-mask"
                                                id="actual_address_toggle"
                                                style="width: 700px; margin-left: 25px;"
                                                name="Faktadressfull"
-                                               {if !empty($Faktaddressfull)}value="{$Faktaddressfull}"{/if}
-                                               type="text"/>
+                                               {if !empty($Faktaddressfull)}value="{$Faktaddressfull->adressfull}"{/if} readonly>
                                         <input style="display: none" class="Fakt_adress" name="Fakt_adress"/>
                                     </div>
                                 </div>

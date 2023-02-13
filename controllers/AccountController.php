@@ -307,7 +307,7 @@ class AccountController extends Controller
         }
 
         // мараторий
-        if (!empty($order) && ($order->status == 3 || $order->status == 8))
+        if (!empty($order) && $order->status == 3)
         {
             $reason = $this->reasons->get_reason($order->reason_id);
             if ($reason->maratory > 0)

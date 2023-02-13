@@ -13,8 +13,6 @@ class AccountHistoryController extends Controller
         $history_items = array();
         if (!empty($this->user->UID))
         {
-            $history_1c = $this->soap1c->get_client_credits($this->user->UID);
-            $this->users->save_loan_history($this->user->id, $history_1c );
             if (!empty($history_1c))
             {
                 foreach ($history_1c as $history_1c_item)
