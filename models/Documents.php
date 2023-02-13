@@ -40,10 +40,10 @@ class Documents extends Core
     );
     
     private $client_visible = array(
-        'ANKETA_PEP' => 0,
+        'ANKETA_PEP' => 1,
         'SOLGLASHENIE_PEP' => 1,
-        'SOGLASIE_VZAIMODEYSTVIE' => 0,
-        'SOGLASIE_SPISANIE' => 0,
+        'SOGLASIE_VZAIMODEYSTVIE' => 1,
+        'SOGLASIE_SPISANIE' => 1,
         'IND_USLOVIYA' => 1,
         'POLIS_STRAHOVANIYA' => 1,
         'PDN' => 1,

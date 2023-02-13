@@ -10,6 +10,10 @@ function core_autoload($classname)
         require __DIR__ . '/controllers/' . $classname . '.php';
     if (file_exists(__DIR__ . '/scorings/' . $classname . '.php'))
         require __DIR__ . '/scorings/' . $classname . '.php';
+    if (file_exists(dirname(__FILE__).'/tools/equifax-reports/'.$classname.'.php'))
+        require dirname(__FILE__).'/tools/equifax-reports/'.$classname.'.php';
+    if (file_exists(dirname(__FILE__).'/factories/'.$classname.'.php'))
+        require dirname(__FILE__).'/factories/'.$classname.'.php';
 }
 
 spl_autoload_register('core_autoload');

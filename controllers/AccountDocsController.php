@@ -32,7 +32,7 @@ class AccountDocsController extends Controller
         {
             
             
-            $documents = $this->documents->get_documents(array('user_id' => $this->user->id, 'client_visible'=>1, 'order_id'=>$order->order_id));
+            $documents = $this->documents->get_documents(array('user_id' => $this->user->id, 'client_visible'=>1));
             $this->design->assign('documents', $documents);
             
             $receipts = $this->receipts->get_receipts(array('user_id'=>$this->user->id, 'order_id'=>$order->order_id));
