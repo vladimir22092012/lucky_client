@@ -556,7 +556,7 @@ class ClosePayReport extends ReportsAbstract
         $log =
             [
                 'order_id' => $contract->order_id,
-                'type' => 'Выдача',
+                'type' => 'Закрытие',
                 'result' => 'Успешно'
             ];
 
