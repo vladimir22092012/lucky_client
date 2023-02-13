@@ -41,7 +41,7 @@ class PendingReport extends ReportsAbstract
          * Номер СНИЛС
          */
         if (!empty($user->snils))
-            $client->snils = $user->user->snils;
+            $client->snils = $user->snils;
 
         /**
          * Номер ИНН
