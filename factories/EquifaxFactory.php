@@ -13,6 +13,10 @@ class EquifaxFactory
             case 'close':
                 return new ClosePayReport();
                 break;
+
+            case 'pending':
+                return new PendingReport();
+                break;
         }
     }
 }

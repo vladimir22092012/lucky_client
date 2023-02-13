@@ -131,6 +131,9 @@ class AccountController extends Controller
                 if($order['utm_source'] =='guruleads')
                     $this->Gurulead->sendPendingPostback($order_id);
 
+                $equiReport = EquifaxFactory::get('pending');
+                $equiReport->processing($order_id);
+
                 // добавляем задание для проведения активных скорингов
                 $scoring_types = $this->scorings->get_types();
                 foreach ($scoring_types as $scoring_type)
