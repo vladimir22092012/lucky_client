@@ -4,23 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "487463a3f43f0139a8ce95fac72ccf0f",
+    "content-hash": "c0a5c8cd61314413304558480417f022",
     "packages": [
         {
             "name": "cloud-castle/equifax-report",
-            "version": "2.5",
+            "version": "2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zorinalexey/CloudCastle-EquifaxReport.git",
-                "reference": "f59edbc90645e3127010ed8fd1e070c1b5c0162c"
+                "reference": "edac41858ffa32af5d408a86a054bb9fb059c6d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zorinalexey/CloudCastle-EquifaxReport/zipball/f59edbc90645e3127010ed8fd1e070c1b5c0162c",
-                "reference": "f59edbc90645e3127010ed8fd1e070c1b5c0162c",
+                "url": "https://api.github.com/repos/zorinalexey/CloudCastle-EquifaxReport/zipball/edac41858ffa32af5d408a86a054bb9fb059c6d4",
+                "reference": "edac41858ffa32af5d408a86a054bb9fb059c6d4",
                 "shasum": ""
             },
             "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
                 "php": ">=7.4"
             },
             "type": "library",
@@ -42,9 +44,9 @@
             "description": "Библиотека для генерации xml файлов кредитных отчетов для БКИ Equifax",
             "support": {
                 "issues": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/issues",
-                "source": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/tree/2.5"
+                "source": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/tree/2.7"
             },
-            "time": "2023-01-30T12:16:43+00:00"
+            "time": "2023-02-13T10:43:55+00:00"
         },
         {
             "name": "doctrine/inflector",
