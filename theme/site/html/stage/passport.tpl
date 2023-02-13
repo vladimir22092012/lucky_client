@@ -58,6 +58,21 @@
                 </div>
 
               {/if}
+
+                {if in_array('empty_snils', (array)$errors)}
+
+                  <div class="alert alert-warning">
+                    Не указан СНИЛС
+                  </div>
+
+                {/if}
+                {if in_array('incorrect_snils', (array)$errors)}
+
+                  <div class="alert alert-warning">
+                    Не корректный СНИЛС
+                  </div>
+
+                {/if}
               
               <div class="step_box step2">
                 <div class="form_group -fs-18">
@@ -83,7 +98,6 @@
                     </label>
                   </div>
                 </div>
-                {*}
                 <div class="form_group -fs-18">
                   <div class="form_group-title -gil-m">СНИЛС</div>
                   <div class="form_row">
@@ -93,7 +107,6 @@
                     </label>
                   </div>
                 </div>
-                {*}
                 <div class="step_box_btn">
                   <a href="/stage/passport?step=prev" class="btn btn_back btn-link -green -gil-m">Назад</a>
                   <button type="submit" class="btn btn_next btn-secondary">Далее</button>

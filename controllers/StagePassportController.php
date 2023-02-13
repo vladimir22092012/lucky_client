@@ -55,6 +55,10 @@ class StagePassportController extends Controller
                 $errors[] = 'empty_passport_issued';
             if (empty($subdivision_code))
                 $errors[] = 'empty_subdivision_code';
+            if (empty($snils))
+                $errors[] = 'empty_snils';
+            if (strlen($snils) < 11)
+                $errors[] = 'incorrect_snils';
             if((strtotime('now') - strtotime($passport_date)) < 0)
                 $errors[] = 'guest_from_future';
             
@@ -69,6 +73,21 @@ class StagePassportController extends Controller
             
             if (empty($errors))
             {
+                $user = UsersORM::find($this->user->id);
+
+                $request = new stdClass();
+                $request->firstname = $user->firstname;
+                $request->lastname = $user->lastname;
+                $request->patronymic = $user->patronymic;
+                $request->birth = $user->birth;
+
+                $passport_serial = explode('-', $passport_serial);
+
+                $request->passport_serial = $passport_serial[0];
+                $request->passport_number = $passport_serial[1];
+
+                InfoSphere::sendRequest($request);
+
                 $update = array(
                     'passport_serial' => $passport_serial,
                     'passport_date' => $passport_date,
