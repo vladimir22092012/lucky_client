@@ -121,6 +121,11 @@ class DocumentController extends Controller
 
         }
 
+        if ($document->type == 'PDN') {
+            $user = $this->users->get_user($document->user_id);
+            $this->design->assign('pdn', $user->pdn);
+        }
+
         $file_name = $document->template . ' ' . (isset($contract->number)) ? $contract->number : '';
 
 
