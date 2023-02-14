@@ -332,7 +332,7 @@ class PayReport extends ReportsAbstract
         /*
          * Дата расчета
          */
-        $report->base_part->contract->debt->calc_date = date('d.m.Y', strtotime($contract->return_date));
+        $report->base_part->contract->debt->calc_date = date('d.m.Y');
         /*
          * Признак расчета по последнему платежу
          * По умолчанию 1 - субъект внес платеж, либо наступил срок для внесения платежа по срочному долгу
