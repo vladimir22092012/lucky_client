@@ -304,6 +304,8 @@ class ClosePayReport extends ReportsAbstract
          * Сумма задолженности по основному долгу
          */
         $report->base_part->contract->debt->op_sum = $contract->loan_body_summ;
+
+        $report->base_part->contract->debt->sum = 0;
         /*
          * Сумма задолженности по иным требованиям
          */
