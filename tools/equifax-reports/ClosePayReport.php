@@ -202,7 +202,7 @@ class ClosePayReport extends ReportsAbstract
          * Признак возникновения обязательства в результате новации (по умолчанию - 0)
          * если возникли обязательства в результате новации то sign_renovation должен быть равен 1
          */
-        $report->base_part->contract->deal->sign_renovation = 3;
+        $report->base_part->contract->deal->sign_renovation = 0;
         /*
          * Код вида займа (кредита). По справочнику 2.3 - Виды займа (кредита).
          * По умолчанию 3 - Микрозаем
