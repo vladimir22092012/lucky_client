@@ -56,7 +56,6 @@ class ClosePayReport extends ReportsAbstract
 
         list($passportSerial, $passportNumber) = explode('-', $contract->user->passport_serial);
 
-
         $client = new Client();
         /**
          * Опционально (при наличии данной информации)
@@ -142,16 +141,14 @@ class ClosePayReport extends ReportsAbstract
          */
         $event = new Events($client);
         $event->action = 'A';
-        $event->event = '2.3';
-        $event->action_reason = 'Изменились сведения об исполнении обязательства субъектом,' .
-            'наступила ответственность поручителя или обязательство принципала возместить выплаченную ' .
-            'сумму или прошло 30 календарных дней с предыдущего расчета сведений о задолженности';
+        $event->event = '2.5';
+        $event->action_reason = 'Обязательство субъекта прекратилось';
         $report = new Report($client, $event, $config);
 
         /*
-     * Должен соответствовать регулярному выражению
-     * [a-fA-F0-9]{8}\-[a-fA-F0-9]{4}\-1[a-fA-F0-9]{3}\-(8|9|a|A|b|B){1}[a-fA-F0-9]{3}\-[a-fA-F0-9]{12}\-[a-fA-F0-9]{1}
-     */
+         * Должен соответствовать регулярному выражению
+         * [a-fA-F0-9]{8}\-[a-fA-F0-9]{4}\-1[a-fA-F0-9]{3}\-(8|9|a|A|b|B){1}[a-fA-F0-9]{3}\-[a-fA-F0-9]{12}\-[a-fA-F0-9]{1}
+         */
         $uid = $report::uidGenerate();
         $report->base_part->contract->uid = $uid;
 
@@ -253,7 +250,7 @@ class ClosePayReport extends ReportsAbstract
         /*
          * Код частоты платежей (по умолчанию 2 - От двух до четырех раз в месяц)
          */
-        $report->base_part->contract->payment_terms->regularity = 2;
+        //$report->base_part->contract->payment_terms->regularity = 2;
         /*
          * Сумма минимального платежа по кредитной карте (свойство не обязательное)
          * Указывается в том случае если по данному договору выдана кредитная карта
@@ -331,7 +328,7 @@ class ClosePayReport extends ReportsAbstract
         /*
          * Дата расчета
          */
-        $report->base_part->contract->debt->calc_date = date('d.m.Y', strtotime($contract->return_date));
+        $report->base_part->contract->debt->calc_date = date('d.m.Y');
         /*
          * Признак расчета по последнему платежу
          * По умолчанию 1 - субъект внес платеж, либо наступил срок для внесения платежа по срочному долгу
@@ -376,7 +373,7 @@ class ClosePayReport extends ReportsAbstract
         /*
          * Сумма просроченной задолженности по иным требованиям
          */
-        //$report->base_part->contract->debt_overdue->percent_sum = 0;
+       // $report->base_part->contract->debt_overdue->percent_sum = 0;
         /*
          * Дата последнего пропущенного платежа по процентам
          */
@@ -455,7 +452,7 @@ class ClosePayReport extends ReportsAbstract
          * Код предоставляемого имущества
          * По справочнику 4.1. Виды предметов залога и неденежных предоставлений по сделке
          */
-        // $report->base_part->contract->material_guarantee_source->item_type = 1;
+        //$report->base_part->contract->material_guarantee_source->item_type = 1;
         /*
          * Предмет обязательства (то что покупает)
          */
@@ -463,25 +460,44 @@ class ClosePayReport extends ReportsAbstract
         /*
          * Объект предоставления (то что закладывает)
          */
-        // $report->base_part->contract->material_guarantee_source->material_object = 'Гараж';
+        //$report->base_part->contract->material_guarantee_source->material_object = 'Гараж';
         /*
          * Дата передачи имущества субъекту
          */
         //$report->base_part->contract->material_guarantee_source->material_object_date = date('d.m.Y');
 
-        // Сведения об учете обязательства (по умолчанию 1 - обязательство учтено у источника на балансовых счетах)
+        // Прекращение обязательства
         /*
-         * Признак учета обязательства. По справочнику 6.100
-         * 1 - обязательство учтено у источника на балансовых счетах
-         * 0 - обязательство не учтено
+         * Код основания прекращения обязательства (по умолчанию 1 - )
+         * Возможные варианты:
+         * 1 - Надлежащее исполнение обязательства
+         * 2 - Принудительное исполнение обязательства
+         * 3 - По соглашению сторон
+         * 4 - Требования кредитора погашены за счет обеспечения
+         * 5 - Односторонний отказ кредитора
+         * 6 - Односторонний отказ должника
+         * 7 - Отступное
+         * 8 - Зачет
+         * 9 - Совпадение кредитора и должника в одном лице
+         * 10 - Новация
+         * 11 - Прощение долга
+         * 12 - Невозможность исполнения обязательства
+         * 13 - На основании акта органа государственной власти или органа местного самоуправления
+         * 14 - Смерть гражданина
+         * 15 - Ликвидация юридического лица
+         * 99 - Иное основание
          */
-        $report->add_part->accounting->sign = 1;
+        $report->base_part->contract->contract_end->reason = 1;
+        /*
+         * Дата фактического прекращения обязательства
+         */
+        $report->base_part->contract->contract_end->date = date('d.m.Y');
 
         // Сведения об участии в обязательстве, по которому формируется кредитная история
         /*
          * Дата передачи финансирования субъекту или возникновения обеспечения исполнения обязательства
          */
-        $report->information_part->credit->date = date('d.m.Y', strtotime($contract->inssuance_date));
+        $report->information_part->credit->date = date('d.m.Y', time());
         /*
          * Код вида займа (кредита). По справочнику 2.3 - Виды займа (кредита).
          * По умолчанию 3 - Микрозаем
