@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(-1);
+ini_set('display_errors', 'Off');
 class Best2payCallback extends Controller
 {
     public function fetch()
