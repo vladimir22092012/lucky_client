@@ -17,6 +17,10 @@ class EquifaxFactory
             case 'pending':
                 return new PendingReport();
                 break;
+
+            case 'prolongation':
+                return new ProlongationsReport();
+                break;
         }
     }
 }
