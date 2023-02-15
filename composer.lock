@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0a5c8cd61314413304558480417f022",
+    "content-hash": "afa1645f8ab8074eb52cfe224b0857b9",
     "packages": [
         {
             "name": "cloud-castle/equifax-report",
-            "version": "2.7",
+            "version": "3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zorinalexey/CloudCastle-EquifaxReport.git",
-                "reference": "edac41858ffa32af5d408a86a054bb9fb059c6d4"
+                "reference": "2f6eec794e53bcd59f3baf9f511330ad51021ab7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zorinalexey/CloudCastle-EquifaxReport/zipball/edac41858ffa32af5d408a86a054bb9fb059c6d4",
-                "reference": "edac41858ffa32af5d408a86a054bb9fb059c6d4",
+                "url": "https://api.github.com/repos/zorinalexey/CloudCastle-EquifaxReport/zipball/2f6eec794e53bcd59f3baf9f511330ad51021ab7",
+                "reference": "2f6eec794e53bcd59f3baf9f511330ad51021ab7",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,9 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "uidgen.php"
+                ],
                 "psr-4": {
                     "CloudCastle\\EquifaxReport\\": "src/"
                 }
@@ -44,9 +47,9 @@
             "description": "Библиотека для генерации xml файлов кредитных отчетов для БКИ Equifax",
             "support": {
                 "issues": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/issues",
-                "source": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/tree/2.7"
+                "source": "https://github.com/zorinalexey/CloudCastle-EquifaxReport/tree/3.4.5"
             },
-            "time": "2023-02-13T10:43:55+00:00"
+            "time": "2023-02-14T14:22:18+00:00"
         },
         {
             "name": "doctrine/inflector",
