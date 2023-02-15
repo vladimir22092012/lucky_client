@@ -499,7 +499,7 @@ class ClosePayReport extends ReportsAbstract
         /*
          * Дата передачи финансирования субъекту или возникновения обеспечения исполнения обязательства
          */
-        $report->information_part->credit->date = date('d.m.Y', time());
+        $report->information_part->credit->date = date('d.m.Y', strtotime($contract->inssuance_date));
         /*
          * Код вида займа (кредита). По справочнику 2.3 - Виды займа (кредита).
          * По умолчанию 3 - Микрозаем
