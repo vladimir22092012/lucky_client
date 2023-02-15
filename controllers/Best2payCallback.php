@@ -262,6 +262,9 @@ class Best2payCallback extends Controller
                             'type' => 'DOP_SOGLASHENIE',
                             'params' => $document_params
                         ));
+
+                        $equiReport = EquifaxFactory::get('prolongation');
+                        $equiReport->processing($contract->id);
                     }
 
                     if (!isset($closed)) {
