@@ -27,6 +27,12 @@
         "illuminate/support": "^8.83",
         "hflabs/dadata": "^22.3",
         "guzzlehttp/guzzle": "^7.5",
-        "cloud-castle/equifax-report": "^2.7"
+        "cloud-castle/equifax-report": ">=3.4"
+    },
+    "scripts": {
+        "post-package-update": [
+            "CloudCastle\\EquifaxReport\\Bin\\PostInstall::init",
+            "@php uidgen.php"
+        ]
     }
 }
