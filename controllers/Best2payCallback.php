@@ -268,7 +268,7 @@ class Best2payCallback extends Controller
                         $equiReport->processing($contract->id);
                     }
 
-                    if (!isset($closed)) {
+                    if (!empty($equiReport)) {
                         $equiReport = EquifaxFactory::get('pay');
                         $equiReport->processing($contract->id);
                     }

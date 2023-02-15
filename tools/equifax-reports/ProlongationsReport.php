@@ -305,7 +305,7 @@ class ProlongationsReport extends ReportsAbstract
          * Дата планового прекращения действия изменения договора
          * По умолчанию равна значению $report->base_part->contract->deal->end_date
          */
-        $report->base_part->contract->contract_changes->end_date = date('d.m.Y', strtotime('+30 days'));
+        $report->base_part->contract->contract_changes->end_date = date('d.m.Y', strtotime($contract->return_date));
 
         // Сумма и валюта обязательства
         /*
