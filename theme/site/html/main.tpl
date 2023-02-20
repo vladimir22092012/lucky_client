@@ -9,7 +9,7 @@
 {if $bankiru}
 
 {/if}
-<div style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
+<div class="advertisement" style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
         Проверка текста проверка текста пвплпрввпрвпрпвр
 </div>
 <main class="main">
@@ -280,3 +280,10 @@
 
     </div>
 </main>
+<script type="text/javascript">
+    let advertisement = document.querySelector('.advertisement');
+    window.addEventListener('click', function(e){
+        advertisement.style = 'display: none;'
+    });
+</script>
+                
