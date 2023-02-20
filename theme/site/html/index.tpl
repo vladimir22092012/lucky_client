@@ -44,6 +44,11 @@
         {if $is_developer}console.info('DEVELOPER MODE'){/if}
     </script>
 
+    <script type="text/javascript">
+    
+    alert('проверка');
+    </script>
+
     <meta name="yandex-verification" content="2c0068d5cbd1bd2c"/>
 </head>
 <body class="{if in_array($module, ['MainController'])}home{else}page{/if}">
