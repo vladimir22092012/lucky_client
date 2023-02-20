@@ -407,6 +407,8 @@
             save_local_time();
         }, 30000);
 
+        alert('test');
+
     </script>
 {/if}
 
