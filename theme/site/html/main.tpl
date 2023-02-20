@@ -10,9 +10,6 @@
 
 {/if}
 <main class="main">
-    <div style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
-        Проверка текста проверка текста пвплпрввпрвпрпвр
-    </div>
     <div class="section section_itop">
         <div class="container">
             <div class="section_row row section_row-first">
