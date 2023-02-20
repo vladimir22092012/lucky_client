@@ -24,7 +24,7 @@
                             <div class="form-group form-group-one">
                                 <div class="form_row">
                                     <label class="form-group-title -fs-18 -com-m" for="amount-one">
-                                        Выберите сумму:
+                                        Выберите2 сумму:
                                     </label>
                                     <span class="range_res -fs-26 -com-m js-info-summ" id="demo"></span>
                                 </div>
