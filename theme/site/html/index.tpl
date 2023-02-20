@@ -105,9 +105,6 @@
     </span>
   </div>
 {*}
-<div style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
-        Проверка текста проверка текста пвплпрввпрвпрпвр
-</div>
 <div class="wrapper">
     <header class="header">
         <div class="container">
@@ -407,7 +404,6 @@
             save_local_time();
         }, 30000);
 
-        alert('test');
 
     </script>
 {/if}

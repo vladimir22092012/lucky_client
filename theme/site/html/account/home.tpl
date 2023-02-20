@@ -624,7 +624,7 @@
                                 <div class="form-group form-group-one">
                                     <div class="form_row">
                                         <label class="form-group-title -fs-18 -gil-m" for="amount-one">
-                                            Выберите сумму3:
+                                            Выберите сумму:
                                         </label>
                                         <span class="range_res -fs-26 -gil-b js-info-summ" id="demo"></span>
                                     </div>
