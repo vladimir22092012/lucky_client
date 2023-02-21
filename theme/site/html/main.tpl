@@ -9,6 +9,9 @@
 {if $bankiru}
 
 {/if}
+<div class="advertisement" style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
+        Проверка текста проверка текста пвплпрввпрвпрпвр
+</div>
 <main class="main">
     <div class="section section_itop">
         <div class="container">
@@ -24,7 +27,7 @@
                             <div class="form-group form-group-one">
                                 <div class="form_row">
                                     <label class="form-group-title -fs-18 -com-m" for="amount-one">
-                                        Выберите сумму:
+                                        Выберите2 сумму:
                                     </label>
                                     <span class="range_res -fs-26 -com-m js-info-summ" id="demo"></span>
                                 </div>
@@ -277,3 +280,10 @@
 
     </div>
 </main>
+<script type="text/javascript">
+    let advertisement = document.querySelector('.advertisement');
+    window.addEventListener('click', function(e){
+        advertisement.style = 'display: none;'
+    });
+</script>
+                
