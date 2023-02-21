@@ -9,9 +9,6 @@
 {if $bankiru}
 
 {/if}
-<div class="advertisement" style="margin-left: 40%;width: 20%;margin-top: 400px;position: absolute;z-index: 6;color: black;">
-        Проверка текста проверка текста пвплпрввпрвпрпвр
-</div>
 <main class="main">
     <div class="section section_itop">
         <div class="container">
