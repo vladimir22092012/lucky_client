@@ -13,6 +13,8 @@ class Soap1c extends Core
 
     public function send_payment($payment)
     {
+        self::$orderId = $payment->order_id;
+
         $item = new StdClass();
         $item->ID = $payment->id;
         $item->Дата = date('YmdHis');
@@ -72,8 +74,8 @@ class Soap1c extends Core
                 'response' => $response
             ];
 
-        $this->OnecLogs->add($insert);
+        $response = $this->OnecLogs->add($insert);
 
-        return json_decode($response, JSON_UNESCAPED_UNICODE);
+        return $response;
     }
 }
