@@ -2,7 +2,7 @@
 
 {capture name='page_scripts'}
 
-  <script src="theme/site/js/login.app.js?v=1.07"></script>
+  <script src="theme/site/js/login.app.js?v=1.08"></script>
 
 {/capture}
 

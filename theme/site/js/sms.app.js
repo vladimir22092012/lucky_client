@@ -160,7 +160,7 @@
         _tpl += '<div class="form-group form-phone js-sms-code-wrap">';
         _tpl += '<span class="phone_info -fs-14" id="enterCode">Введите код из СМС</span>';
         //_tpl += '<span class="phone_info -fs-14" id="enterCode">Введите 4 последние цифры номера</span>';
-        _tpl += '<input type="text" name="" id="" class="form-control -fs-18 -gil-m js-mask-sms js-sms-code" value="">';
+        _tpl += '<input type="text" name="code" id="" class="form-control -fs-18 -gil-m js-mask-sms js-sms-code" value="">';
         _tpl += '<div class="error_text js-sms-error" style="display:none">Код не совпадает</div>';
         _tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Отправить еще раз</div> <span class="js-sms-timer"></span></a>';
         //_tpl += '<a href="javascript:void(0);" class="js-sms-repeat sms-repeat"><div id="sendAgain">Получить код по СМС</div> <span class="js-sms-timer"></span></a>';
