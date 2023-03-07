@@ -1,6 +1,14 @@
 {capture name='page_scripts'}
     <script src="theme/site/js/calc.app.js?v=1.02"></script>
-    <script src="theme/site/js/main.app.js?v=1.34"></script>
+    <script src="theme/site/js/main.app.js?v=1.35"></script>
+    <script>
+        $(function () {
+            $('.js-loan-start-form').submit(function (e) {
+                e.preventDefault();
+                $('.js-loan-start').click();
+            });
+        })
+    </script>
 {/capture}
 
 {capture name='page_styles'}

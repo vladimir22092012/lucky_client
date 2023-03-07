@@ -175,19 +175,12 @@ function MainApp() {
             });
         };
 
-    var submit_to_click = function () {
-            $('.js-loan-start-form').submit(function () {
-                $('.js-loan-start').click();
-            });
-        }
-
     ;(function () {
         _init();
         _init_agreement_list();
         _init_promo_code();
         _init_toggle_services();
         checkAgreementList();
-        submit_to_click();
     })();
 };
 
