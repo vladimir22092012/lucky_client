@@ -431,3 +431,13 @@
             <br>Дата: {$contract->issuance_date|date}<br>Телефон: {$phone}<br>СМС-код: {$asp}</td>
     </tr>
 </table>
+<div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<table>
+    <tr>
+        <td style="width: 30%"></td>
+        <td style="width: 30%"></td>
+        <td>Сервер с персональными данными находится на территории РФ, адрес: Санкт-Петербург, Заставская ул., 33. Данные защищены</td>
+    </tr>
+</table>
