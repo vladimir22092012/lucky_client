@@ -398,8 +398,8 @@
                                 <div class="order_reject_icon"></div>
                                 <div class="pt-4 pr-5 pl-5 text-center">
                                     <div>
-                                        По вашей заявку произошёл отказ, но вы можете воспользоваться <a
-                                                href="https://zaimwagon.online"
+                                        По вашей заявке произошёл отказ, но вы можете воспользоваться <a
+                                                href="https://mikrozaem.online/"
                                                 target="_blank"
                                                 class="blue-link">данными предложениями
                                         </a>

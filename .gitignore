@@ -16,5 +16,10 @@ Thumbs.db
 /simpla/.passwd
 /files
 !/files/.htaccess
+<<<<<<< HEAD
+/reports-equifax/
+/config.json
+=======
 /reports-equifax/config.json
 config.json
+>>>>>>> 172001ee856099ac2a2989d9a7b44ffd1814db58

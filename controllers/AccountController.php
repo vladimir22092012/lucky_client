@@ -4,76 +4,71 @@ class AccountController extends Controller
 {
     public function fetch()
     {
-        if (empty($this->user))
-        {
+        if (empty($this->user)) {
             header('Location: /lk/login');
             exit;
         }
 
-        if (empty($this->user->stage_personal))
-        {
+        if (empty($this->user->stage_personal)) {
             header('Location: /stage/personal');
             exit;
         }
 
-        if (empty($this->user->stage_passport))
-        {
+        if (empty($this->user->stage_passport)) {
             header('Location: /stage/passport');
             exit;
         }
 
-        if (empty($this->user->stage_address))
-        {
+        if (empty($this->user->stage_address)) {
             header('Location: /stage/address');
             exit;
         }
 
-        if (empty($this->user->stage_work))
-        {
+        if (empty($this->user->stage_work)) {
             header('Location: /stage/work');
             exit;
         }
 
-        if (empty($this->user->stage_files))
-        {
+        if (empty($this->user->stage_files)) {
             header('Location: /stage/files');
             exit;
         }
 
-        if (empty($this->user->stage_card))
-        {
+        if (empty($this->user->stage_card)) {
             header('Location: /stage/card');
             exit;
         }
 
-        if (!$this->is_developer && empty($this->user->password))
-        {
+        if (!$this->is_developer && empty($this->user->password)) {
             header('Location: /account/password');
             exit;
         }
 
-        $cards = $this->cards->get_cards(array('user_id'=>$this->user->id));
-        foreach ($cards as $key => $card)
-        {
+        $cards = $this->cards->get_cards(array('user_id' => $this->user->id));
+        foreach ($cards as $key => $card) {
             if ($card->deleted)
                 unset($cards[$key]);
         }
         $this->design->assign('cards', $cards);
 
         // подача повторной заявки
-        if ($this->request->method('post'))
-        {
+        if ($this->request->method('post')) {
             if (!empty($_SESSION['looker_mode']))
                 return false;
 
-            $user_orders = $this->orders->get_orders(array('user_id'=>$this->user->id));
+            $user_orders = $this->orders->get_orders(array('user_id' => $this->user->id));
             $user_order = reset($user_orders);
-            if (!empty($user_order) && in_array($user_order->status, array(0, 1, 2, 4, 5)))
-            {
+
+            $dateTo = new DateTime();
+            $dateFrom = new DateTime(date('Y-m-d', strtotime('-10 days')));
+
+            $closedContract = ContractsORM::where('status', 3)->whereBetween('close_date', [$dateFrom, $dateTo])->first();
+
+            if (!empty($user_order) && in_array($user_order->status, array(0, 1, 2, 4, 5))) {
                 $this->design->assign('error', 'У Вас уже есть активная заявка');
-            }
-            else
-            {
+            } elseif (!empty($closedContract)) {
+                $this->design->assign('error', 'После выдачи займа, повторная заявка будет доступна через 10 дней');
+            } else {
                 $amount = $this->request->post('amount', 'integer');
                 $period = $this->request->post('period', 'integer');
                 $card_id = $this->request->post('card_id', 'integer');
@@ -109,11 +104,11 @@ class AccountController extends Controller
                     'client_status' => $client_status,
                 );
 
-                $order['utm_source']   = (isset($_COOKIE['utm_source']))   ? $_COOKIE["utm_source"]   : null;
-                $order['utm_medium']   = (isset($_COOKIE['utm_medium']))   ? $_COOKIE["utm_medium"]   : null;
+                $order['utm_source'] = (isset($_COOKIE['utm_source'])) ? $_COOKIE["utm_source"] : null;
+                $order['utm_medium'] = (isset($_COOKIE['utm_medium'])) ? $_COOKIE["utm_medium"] : null;
                 $order['utm_campaign'] = (isset($_COOKIE['utm_campaign'])) ? $_COOKIE["utm_campaign"] : null;
-                $order['utm_content']  = (isset($_COOKIE['utm_content']))  ? $_COOKIE["utm_content"]  : null;
-                $order['utm_term']     = (isset($_COOKIE['utm_term']))     ? $_COOKIE["utm_term"]     : null;
+                $order['utm_content'] = (isset($_COOKIE['utm_content'])) ? $_COOKIE["utm_content"] : null;
+                $order['utm_term'] = (isset($_COOKIE['utm_term'])) ? $_COOKIE["utm_term"] : null;
 
                 if (isset($_COOKIE['click_id']))
                     $order['click_hash'] = $_COOKIE["click_id"];
@@ -128,7 +123,7 @@ class AccountController extends Controller
 
                 $order_id = $this->orders->add_order($order);
 
-                if($order['utm_source'] =='guruleads')
+                if ($order['utm_source'] == 'guruleads')
                     $this->Gurulead->sendPendingPostback($order_id);
 
                 $equiReport = EquifaxFactory::get('pending');
@@ -136,11 +131,9 @@ class AccountController extends Controller
 
                 // добавляем задание для проведения активных скорингов
                 $scoring_types = $this->scorings->get_types();
-                foreach ($scoring_types as $scoring_type)
-                {
-                    if ($scoring_type->active && empty($scoring_type->is_paid))
-                    {
-                        if(in_array($client_status, ['pk', 'crm']) && $scoring_type->off_pk == 1)
+                foreach ($scoring_types as $scoring_type) {
+                    if ($scoring_type->active && empty($scoring_type->is_paid)) {
+                        if (in_array($client_status, ['pk', 'crm']) && $scoring_type->off_pk == 1)
                             continue;
 
                         $add_scoring = array(
@@ -278,53 +271,41 @@ class AccountController extends Controller
 
         }
 
-        if ($active_contract = $this->contracts->find_active_contracts($this->user->id))
-        {
+        if ($active_contract = $this->contracts->find_active_contracts($this->user->id)) {
             $order = $this->orders->get_order((int)$active_contract->order_id);
-        }
-        else
-        {
-            $orders = $this->orders->get_orders(array('user_id'=>$this->user->id, 'sort'=>'order_id_desc'));
+        } else {
+            $orders = $this->orders->get_orders(array('user_id' => $this->user->id, 'sort' => 'order_id_desc'));
 
             $order = reset($orders);
 
         }
 
-        if (!empty($order))
-        {
+        if (!empty($order)) {
             $order->return_amount = ($order->amount * 0.01 * $order->period) + $order->amount;
             $return_period = date_create();
-            date_add($return_period, date_interval_create_from_date_string($order->period.' days'));
+            date_add($return_period, date_interval_create_from_date_string($order->period . ' days'));
             $order->return_period = date_format($return_period, 'Y-m-d H:i:s');
-        }
-        else
-        {
-            foreach ($cards as $key => $card)
-            {
-                if (empty($card->file_id) && empty($card->deleted))
-                {
-                    header('Location:'.$this->config->root_url.'/card_image/'.$card->id);
+        } else {
+            foreach ($cards as $key => $card) {
+                if (empty($card->file_id) && empty($card->deleted)) {
+                    header('Location:' . $this->config->root_url . '/card_image/' . $card->id);
                     exit;
                 }
             }
         }
 
         // мараторий
-        if (!empty($order) && $order->status == 3)
-        {
+        if (!empty($order) && $order->status == 3) {
             $reason = $this->reasons->get_reason($order->reason_id);
-            if ($reason->maratory > 0)
-            {
-                if ((strtotime($order->reject_date) + $reason->maratory * 86400) > time())
-                {
+            if ($reason->maratory > 0) {
+                if ((strtotime($order->reject_date) + $reason->maratory * 86400) > time()) {
                     $reject_block = date('Y-m-d H:i:s', strtotime($order->reject_date) + $reason->maratory * 86400 + 64800);
                     $this->design->assign('reject_block', $reject_block);
                 }
             }
         }
 
-        if (!empty($order->contract_id))
-        {
+        if (!empty($order->contract_id)) {
             $order->contract = $this->contracts->get_contract($order->contract_id);
 
             /*
@@ -344,12 +325,10 @@ class AccountController extends Controller
 
 
             $prolongation_amount = 0;
-            if (!empty($order->contract) && empty($order->contract->hide_prolongation) && $order->contract->collection_status < 8)
-            {
+            if (!empty($order->contract) && empty($order->contract->hide_prolongation) && $order->contract->collection_status < 8) {
                 if ($order->contract->type == 'base' && ($order->contract->status == 2 || $order->contract->status == 4)) // выдан
                 {
-                    if ($order->contract->prolongation < 5 || ($order->contract->prolongation >= 5 && $order->contract->sold))
-                    {
+                    if ($order->contract->prolongation < 5 || ($order->contract->prolongation >= 5 && $order->contract->sold)) {
                         // сделать проверку что бы в тот же день не было видно пролонгации
                         $prolongation_amount = $order->contract->loan_percents_summ + $order->contract->loan_charge_summ;
                         if (empty($order->contract->sold) && $order->contract->prolongation > 0 && $order->contract->prolongation < 5) // снимаем страховку начиная со 2 пролонгации
@@ -385,7 +364,7 @@ class AccountController extends Controller
         $this->design->assign('statuses', $statuses);
 
         $min_summ = $this->settings->loan_min_summ;
-		$max_summ = $this->settings->loan_max_summ;
+        $max_summ = $this->settings->loan_max_summ;
         $min_period = $this->settings->loan_min_period;
         $max_period = $this->settings->loan_max_period;
         $current_summ = empty($_COOKIE['loan_summ']) ? $this->settings->loan_default_summ : $_COOKIE['loan_summ'];
@@ -414,14 +393,12 @@ class AccountController extends Controller
 
         $this->design->assign('short_reject_link', $short_reject_link);
 
-        if (isset($this->user->contract) && !in_array($this->user->contract->status, [3,6]) && $this->user->contract->sold)
-        {
+        if (isset($this->user->contract) && !in_array($this->user->contract->status, [3, 6]) && $this->user->contract->sold) {
             if (empty($this->user->contract->premier))
                 return $this->design->fetch('account/cession.tpl');
             else
                 return $this->design->fetch('account/premier.tpl');
-        }
-        else
+        } else
             return $this->design->fetch('account/home.tpl');
     }
 

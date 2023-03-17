@@ -173,7 +173,7 @@ function MainApp() {
                 }
 
             });
-        }
+        };
 
     ;(function () {
         _init();
