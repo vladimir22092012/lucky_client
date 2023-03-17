@@ -14,16 +14,6 @@ class Users extends Core
                     $have_close_crm = 1;
 
             $client_status = empty($have_close_crm) ? 'pk' : 'crm';
-        } else {
-            if ($credits_history = $this->soap1c->get_client_credits($user->UID)) {
-                $have_close_onec = 0;
-                $loan_history = $this->save_loan_history($user->id, $credits_history);
-                if (!empty($loan_history)) {
-                    foreach ($loan_history as $lh)
-                        if (!empty($lh->close_date))
-                            $client_status = 'pk';
-                }
-            }
         }
 
         if ($client_status != 'pk' && $client_status != 'crm') {

@@ -77,13 +77,12 @@
 <div>
 
 </div>
-<table border="1" cellpadding="4" width="40%">
+<table>
     <tr>
-        <td><p>Подписано с использованием ПЭП</p>
-            <p>{$lastname} {$firstname} {$patronymic}</p>
-            <p>{$contract_date|date}</p>
-            <p>Телефон {$phone}</p>
-            <p>СМС-код: {$contract->accept_code}</p>
-        </td>
+        <td colspan="5"><p>Подписано с использованием ПЭП</p>
+            <p><strong>{$lastname|escape} {$firstname|escape} {$patronymic|escape}</strong></p>
+            <p>Дата: <strong>{$created|date}</strong></p>
+            <p>Телефон: <strong>{$phone|escape}</strong></p>
+            <p>СМС-код: <strong>{$asp|escape}</strong></p></td>
     </tr>
 </table>

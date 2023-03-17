@@ -426,8 +426,8 @@
 <table style="width: 100%">
     <tr>
         <td width="35%"><img src="{$config->root_dir}/theme/site/html/pdf/i/sign_print.png" width="400"></td>
-        <td width="30%">Дата {$contract->issuance_date|date}</td>
+        <td width="30%">Дата {$created|date}</td>
         <td width="45%">Подписано с использованием ПЭП<br>{$lastname} {$firstname} {$patronymic}
-            <br>Дата: {$contract->issuance_date|date}<br>Телефон: {$phone}<br>СМС-код: {$asp}</td>
+            <br>Дата: {$created|date}<br>Телефон: {$phone}<br>СМС-код: {$asp}</td>
     </tr>
 </table>

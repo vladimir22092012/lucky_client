@@ -952,7 +952,7 @@
     <tr>
         <td colspan="5"><p>Подписано с использованием ПЭП</p>
             <p><strong>{$lastname|escape} {$firstname|escape} {$patronymic|escape}</strong></p>
-            <p>Дата: <strong>{$contract_date|date}</strong></p>
+            <p>Дата: <strong>{$created|date}</strong></p>
             <p>Телефон: <strong>{$phone|escape}</strong></p>
             <p>СМС-код: <strong>{$asp|escape}</strong></p></td>
     </tr>
