@@ -24,7 +24,7 @@
 
     {if in_array($module, ['MainController'])}
         <script>
-            var comebackUrl = 'https://zaimwagon.online/';
+            var comebackUrl = 'https://mikrozaem.online/';
             document.addEventListener("DOMContentLoaded", function () {
                 if (typeof history.pushState === 'function') {
                     history.pushState('back', null, null);
