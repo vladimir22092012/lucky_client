@@ -128,11 +128,11 @@
                         <div class="section_title itop_info_title">
                             <div class="-black -fs-24 -com-m ">Всего за 3 минуты</div>
                             <br>
-                            <div class="-black -fs-42 -com-sb">Получите займ на карту</div>
+                            <div class="-black -fs-42 -com-sb">Получите заём на карту</div>
                             <div class="-orange -fs-42 -com-sb">не выходя из дома</div>
                         </div>
                         <div class="itop_info_desc_item_text -fs-28">
-                            Оформите займ и получите деньги
+                            Оформите заём и получите деньги
                             на карту уже через 15 минут
                         </div>
                         <div class="itop_info_desc">
@@ -208,7 +208,7 @@
 
     <div id="how_get" class="section section_steps">
         <div class="container">
-            <div class="section_title -fs-42">Займ на комфортных условиях</div>
+            <div class="section_title -fs-42">Заём на комфортных условиях</div>
             <div class="section_title -fs-42">Теперь это легко!</div>
             <div class="section_row steps_row">
                 <div class="steps_item step_first">
@@ -239,7 +239,7 @@
     <div id="how_repay" class="section section_repay">
         <div class="container">
             <div style="text-align: center">
-                <div class="section_title -fs-52">Хотите погасить займ?</div>
+                <div class="section_title -fs-52">Хотите погасить заём?</div>
                 <div class="section_text -fs-26 -com-l">Вы можете сделать это любым удобным для вас способом:</div>
             </div>
             <br>
