@@ -81,7 +81,7 @@
 
                             <div class="form-group form-btn">
                                 <a href="javascript:void(0);" class="btn btn-secondary -fs-20 -fullwidth js-loan-start">Получить
-                                    займ</a>
+                                    деньги</a>
 
                                 <span class="bottom_text -fs-14 -center">нажимая на кнопку, вы соглашаетесь с
                               <a href="#agreement_list" data-fancybox>договором оферты</a>
