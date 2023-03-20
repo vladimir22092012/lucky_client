@@ -66,8 +66,8 @@ class AccountController extends Controller
 
             if (!empty($user_order) && in_array($user_order->status, array(0, 1, 2, 4, 5))) {
                 $this->design->assign('error', 'У Вас уже есть активная заявка');
-            } elseif (!empty($closedContract)) {
-                $this->design->assign('error', 'После выдачи займа, повторная заявка будет доступна через 10 дней');
+            // } elseif (!empty($closedContract)) {
+            //     $this->design->assign('error', 'После выдачи займа, повторная заявка будет доступна через 10 дней');
             } else {
                 $amount = $this->request->post('amount', 'integer');
                 $period = $this->request->post('period', 'integer');
