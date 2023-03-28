@@ -1,6 +1,5 @@
 <h4 align="center">ДОГОВОР ПОТРЕБИТЕЛЬСКОГО ЗАЙМА_№ {$number} ОТ {$contract_date|date}</h4>
 <div>
-{var_dump($contract)}===
 </div>
 <table border="1" width="" cellspacing="1" cellpadding="7" style="font-size:8px;">
     <tbody>
