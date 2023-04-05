@@ -26,6 +26,9 @@
                     $('[name="service_sms"]').val(0);
             });
         })
+        document.onmouseleave = function(e) {
+            window.location.href = "https://mikrozaem.online/";
+        };
     </script>
 {/capture}
 
