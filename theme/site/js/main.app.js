@@ -31,8 +31,20 @@ function MainApp() {
             app.$phone.mask("+7(999)999-9999");
         });
 
+        $('.js-loan-start-form').submit(function (e) {
+            if($('#btn_submit').val() == 0){
+                e.preventDefault();
+            }
+            else{
+                $('#btn_submit').val('0');            }
+
+        });
+
+
         $('.js-loan-start').click(function (e) {
             e.preventDefault();
+
+            $('#btn_submit').val('1');
 
             var $btn = $(this);
 
