@@ -39,7 +39,7 @@
         </script>
     {/if}
 
-
+    <script type="text/javascript" src="//track.adspire.io/code/mkk-barvil.ru" defer></script>
     <script>
         {if $is_developer}console.info('DEVELOPER MODE'){/if}
     </script>
