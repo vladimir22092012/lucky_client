@@ -98,8 +98,8 @@ class StageAddressController extends Controller
             if(empty($regaddress['region']) && empty($regaddress['district']) && empty($regaddress['locality']))
                 $error = $errorMessages['locality'].' у адреса регистрации';
 
-            if(empty($regaddress['street']))
-                $error = $errorMessages['street'].' у адреса регистрации';
+            // if(empty($regaddress['street']))
+            //     $error = $errorMessages['street'].' у адреса регистрации';
 
             if(empty($regaddress['house']))
                 $error = $errorMessages['house'].' у адреса регистрации';
@@ -113,8 +113,8 @@ class StageAddressController extends Controller
             if(empty($faktaddress['region']) && empty($faktaddress['district']) && empty($faktaddress['locality']))
                 $error = $errorMessages['locality'].' у адреса проживания';
 
-            if(empty($faktaddress['street']))
-                $error = $errorMessages['street'].' у адреса проживания';
+            // if(empty($faktaddress['street']))
+            //     $error = $errorMessages['street'].' у адреса проживания';
 
             if(empty($faktaddress['house']))
                 $error = $errorMessages['house'].' у адреса проживания';
