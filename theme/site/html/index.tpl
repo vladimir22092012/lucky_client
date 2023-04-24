@@ -24,18 +24,18 @@
 
     {if in_array($module, ['MainController'])}
         <script>
-            var comebackUrl = 'https://mikrozaem.online/';
-            document.addEventListener("DOMContentLoaded", function () {
-                if (typeof history.pushState === 'function') {
-                    history.pushState('back', null, null);
-                    window.onpopstate = function () {
-                        history.pushState('back', null, null);
-                        if (typeof comebackUrl !== 'undefined') {
-                            window.location = comebackUrl;
-                        }
-                    };
-                }
-            });
+            // var comebackUrl = 'https://mikrozaem.online/';
+            // document.addEventListener("DOMContentLoaded", function () {
+            //     if (typeof history.pushState === 'function') {
+            //         history.pushState('back', null, null);
+            //         window.onpopstate = function () {
+            //             history.pushState('back', null, null);
+            //             if (typeof comebackUrl !== 'undefined') {
+            //                 window.location = comebackUrl;
+            //             }
+            //         };
+            //     }
+            // });
         </script>
     {/if}
 
