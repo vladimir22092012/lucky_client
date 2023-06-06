@@ -321,7 +321,7 @@
     <tr>
         <td>22</td>
         <td>Реквизиты Заемщика</td>
-        <td>Дата рождения: {$birth|date}<br>Паспорт: {$passport_serial} выдан {$passport_issued}<br>Код
+        <td>Дата рождения: {$birth|date}<br>Паспорт:  {$passport_serial} выдан {$passport_issued}<br>Код
             подразделения: {$subdivision_code}<br>Адрес регистрации: {$regaddress_full}<br>Банковская карта:
             № {$active_card}<br>Заемщик: {$lastname} {$firstname} {$patronymic}<br>Электронная почта: {$email}
         </td>
