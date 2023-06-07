@@ -394,7 +394,7 @@
         <td width="50%">Юридический адрес: 198332, город Санкт-Петербург, Ленинский пр-кт, д. 80 к. 1 литера А, кв.
             188
         </td>
-        <td width="50%">Паспорт гражданина РФ: {$passport_number}-{$passport_serial} выдан {$passport_issued}</td>
+        <td width="50%">Паспорт гражданина РФ: {$passport_serial} выдан {$passport_issued}</td>
     </tr>
     <tr>
         <td width="50%"></td>
