@@ -1,7 +1,7 @@
 <?php
 
 /*
-$salt = 'v1XY4b9nM51J';
+$salt = 'v1XY4b9nM51J'; 
 
 $date = date('Ymd');
 $phone = '79272604676';
