@@ -64,7 +64,7 @@ class DocumentController extends Controller
             }
 
 
-            $cards = $this->cards->get_cards($document->user_id);
+            $cards = $this->cards->get_cards(array('user_id' => $document->user_id));
 
             $active_card = '';
 
