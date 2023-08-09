@@ -27,7 +27,7 @@
             });
         })
         document.onmouseleave = function(e) {
-            window.location.href = "https://mikrozaem.online/";
+            //window.location.href = "https://mikrozaem.online/";
         };
     </script>
 {/capture}
