@@ -84,6 +84,7 @@ class Contracts extends Core
         $order_id_filter = '';
         $status_filter = '';
         $keyword_filter = '';
+        $number_filter = '';
         $limit = 1000;
 		$page = 1;
         
@@ -98,6 +99,9 @@ class Contracts extends Core
         
         if (!empty($filter['order_id']))
             $order_id_filter = $this->db->placehold("AND order_id = ?", (int)$filter['order_id']);
+        
+        if (!empty($filter['number']))
+            $order_id_filter = $this->db->placehold("AND number = ?", $filter['number']);
         
 		if(isset($filter['keyword']))
 		{
