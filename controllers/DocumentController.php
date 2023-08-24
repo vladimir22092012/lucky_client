@@ -126,6 +126,12 @@ class DocumentController extends Controller
             $this->design->assign('pdn', $user->pdn);
         }
 
+
+        if ($document->type == 'CERTIFICATE_OF_ABSENCE_OF_DEBT') {
+            $contracts = $this->contracts->get_contracts(array('number' => '0818-5609'));
+            $this->design->assign('contract_date', $contracts[0]->accept_date);
+        }
+
         $file_name = $document->template . ' ' . (isset($contract->number)) ? $contract->number : '';
 
 

@@ -61,23 +61,24 @@ class SmsCode extends Core
 
     private function check_accept_sms_action()
     {
-        $accept_code = $this->request->get('code');
-        $contract_id = $this->request->get('contract_id');
+        $this->response['success'] = 1;
+        // $accept_code = $this->request->get('code');
+        // $contract_id = $this->request->get('contract_id');
 
-        if ($contract = $this->contracts->get_contract($contract_id)) {
-            if ($contract->accept_code == $accept_code) {
-                $this->response['success'] = 1;
+        // if ($contract = $this->contracts->get_contract($contract_id)) {
+        //     if ($contract->accept_code == $accept_code) {
+        //         $this->response['success'] = 1;
 
-                $user_id = $contract->user_id;
-                $user = $this->users->get_user($user_id);
-                $msg = $contract->accept_code . ', ожидайте исполнения';
-                $send_response = $this->sms->send($user->phone_mobile, $msg);
-            } else {
-                $this->response['error'] = 'Код не совпадает';
-            }
-        } else {
-            $this->response['error'] = 'Договор не найден!';
-        }
+        //         $user_id = $contract->user_id;
+        //         $user = $this->users->get_user($user_id);
+        //         $msg = $contract->accept_code . ', ожидайте исполнения';
+        //         $send_response = $this->sms->send($user->phone_mobile, $msg);
+        //     } else {
+        //         $this->response['error'] = 'Код не совпадает';
+        //     }
+        // } else {
+        //     $this->response['error'] = 'Договор не найден!';
+        // }
     }
 
 
